@@ -2,7 +2,7 @@ import type {bds, client, utils, valid} from '@constl/ipa';
 import {
     பங்கேற்பாளர்_நெடுவரிசை_அடையாளம்,
     பங்கேற்பாளர்_மாறி_அடையாளம்,
-} from "./மாறிலிகள்.js";
+} from "@/மாறிலிகள்.js";
 
 export type பரிந்துரை_வகை = {[சாபி: string]: utils.élémentsBd};
 
