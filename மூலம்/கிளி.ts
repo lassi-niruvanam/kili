@@ -1,4 +1,4 @@
-import type {bds, client, utils, valid} from '@constl/ipa';
+import type {bds, client, réseau, utils, valid} from '@constl/ipa';
 import {
   தேதி_நெடுவரிசை_அடையாளம்,
     தேதி_மாறி_அடையாளம்,
@@ -158,8 +158,7 @@ export class கிளி<வ extends பரிந்துரை_வகை> {
     async பரிந்துரைகளை_கேள்ளு({
       செ,
     }: {
-      சாபி?: string;
-      மொழி?: string;
+
       செ: utils.schémaFonctionSuivi<பிணையம்_பரிந்துரை<வ>[]>;
     }): Promise<utils.schémaRetourFonctionRechercheParProfondeur> {
       if (!this.விண்மீன்.nuées) throw new Error('விண்மீன் தயராரானதில்லை');
