@@ -1,6 +1,6 @@
 {
   "name": "@lassi-js/kili",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "",
   "main": "விநியோகம்/குறியீட்டு.js",
   "type": "module",
@@ -25,7 +25,7 @@
   },
   "homepage": "https://github.com/julienmalard/nuchabal#readme",
   "devDependencies": {
-    "@constl/ipa": "^0.6.41",
+    "@constl/ipa": "^0.6.49",
     "@types/jest": "^29.2.6",
     "@typescript-eslint/eslint-plugin": "^4.18.0",
     "@typescript-eslint/parser": "^4.18.0",
@@ -42,7 +42,7 @@
     "typescript-transform-paths": "^3.4.6"
   },
   "peerDependencies": {
-    "@constl/ipa": "^0.6.7"
+    "@constl/ipa": "^0.6.49"
   },
   "dependencies": {
     "deepcopy": "^2.1.0"
