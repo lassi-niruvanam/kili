@@ -5,8 +5,8 @@ import {
     பங்கேற்பாளர்_நெடுவரிசை_அடையாளம்,
     பங்கேற்பாளர்_மாறி_அடையாளம்,
 } from "@/மாறிலிகள்.js";
-import { schémaFonctionOublier } from '@constl/ipa/dist/utils';
 import deepcopy from "deepcopy";
+import { schémaFonctionOublier } from '@constl/ipa/dist/src/utils';
 
 export type பரிந்துரை_வகை = {[சாபி: string]: utils.élémentsBd};
 export type தேதியுடன்_பரிந்துரை_வகை<வ> = வ & {[தேதி_நெடுவரிசை_அடையாளம்]: string}
@@ -177,6 +177,7 @@ export class கிளி<வ extends பரிந்துரை_வகை> {
             }),
           );
         },
+        nRésultatsDésirés: 1000
       });
     }
   
