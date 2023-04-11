@@ -194,7 +194,6 @@ export class கிளி<வ extends பரிந்துரை_வகை> {
       idNuée: this.மாறிலிகள்.குழு_அடையாளம்,
       clefTableau: this.மாறிலிகள்.அட்டவணை_சாபி,
       f: async (த) => {
-        console.log({த})
         await செ(
           த.map((இ) => {
             return {
@@ -247,12 +246,7 @@ export class கிளி<வ extends பரிந்துரை_வகை> {
       }
       return உறுப்படி as தேதியுடன்_பரிந்துரை_வகை<வ>;
     };
-    console.log({
-      schémaBd: this.மாறிலிகள்.வார்ப்புரு,
-      idNuéeUnique: this.மாறிலிகள்.குழு_அடையாளம்,
-      clefTableau: this.மாறிலிகள்.அட்டவணை_சாபி,
-      vals: தேதியை_சேரு(பரிந்துரை),
-    })
+
     await this.விண்மீன்.bds.ajouterÉlémentÀTableauUnique<
       தேதியுடன்_பரிந்துரை_வகை<வ>
     >({
