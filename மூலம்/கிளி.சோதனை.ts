@@ -11,14 +11,28 @@ import {
 } from "@/குறியீட்டு.js";
 import type { schémaFonctionOublier } from "@constl/ipa/dist/src/utils";
 
-const பரிந்துரையு_சரிபார்த்தல் = <வ extends பரிந்துரை_வகை>({மதிப்பு, பங்களிப்பாளர், குறிப்பு}: {மதிப்பு: பிணையம்_பரிந்துரை<வ>[], பங்களிப்பாளர்: string, குறிப்பு: வ[]}) => {
-    for (const [இ, ம] of மதிப்பு.entries()) {
-        expect(ம.பங்கேற்பாளர்).toEqual(பங்களிப்பாளர்);
-        expect(typeof ம.கைரேகை).toBe("string");
-        expect((new Date(ம.பரிந்துரை.தேதி)).getTime()).toBeLessThan(Date.now())
-        expect( Object.fromEntries(Object.entries(ம.பரிந்துரை).filter(இ=>!['தேதி', 'id'].includes(இ[0])))).toEqual(குறிப்பு[இ]);
-    }
-}
+const பரிந்துரையு_சரிபார்த்தல் = <வ extends பரிந்துரை_வகை>({
+  மதிப்பு,
+  பங்களிப்பாளர்,
+  குறிப்பு,
+}: {
+  மதிப்பு: பிணையம்_பரிந்துரை<வ>[];
+  பங்களிப்பாளர்: string;
+  குறிப்பு: வ[];
+}) => {
+  for (const [இ, ம] of மதிப்பு.entries()) {
+    expect(ம.பங்கேற்பாளர்).toEqual(பங்களிப்பாளர்);
+    expect(typeof ம.கைரேகை).toBe("string");
+    expect(new Date(ம.பரிந்துரை.தேதி).getTime()).toBeLessThan(Date.now());
+    expect(
+      Object.fromEntries(
+        Object.entries(ம.பரிந்துரை).filter(
+          (ஊ) => !["தேதி", "id"].includes(ஊ[0])
+        )
+      )
+    ).toEqual(குறிப்பு[இ]);
+  }
+};
 
 describe("கிளி", () => {
   test("பதிப்பு", async () => {
@@ -107,7 +121,9 @@ describe("கிளி", () => {
     let தரவுத்தளம்: string;
     let என்_கிளி: கிளி<{ உரை: string; எண்: number }>;
 
-    const பரிந்துரைகள் = new utilsTests.attente.AttendreRésultat<பிணையம்_பரிந்துரை<{ உரை: string; எண்: number }>[]>();
+    const பரிந்துரைகள் = new utilsTests.attente.AttendreRésultat<
+      பிணையம்_பரிந்துரை<{ உரை: string; எண்: number }>[]
+    >();
 
     const மரந்துவிடு: schémaFonctionOublier[] = [];
     beforeAll(async () => {
@@ -179,11 +195,17 @@ describe("கிளி", () => {
         },
       });
       const மதிப்பு = await பரிந்துரைகள்.attendreQue((ப) => ப.length > 0);
-      const குறிப்பு = [{
-        உரை: "தமிழ்",
-        எண்: 123,
-      }]
-      பரிந்துரையு_சரிபார்த்தல்({மதிப்பு, பங்களிப்பாளர்: await விண்மீன்.obtIdCompte(), குறிப்பு});
+      const குறிப்பு = [
+        {
+          உரை: "தமிழ்",
+          எண்: 123,
+        },
+      ];
+      பரிந்துரையு_சரிபார்த்தல்({
+        மதிப்பு,
+        பங்களிப்பாளர்: await விண்மீன்.obtIdCompte(),
+        குறிப்பு,
+      });
     });
   });
 
@@ -192,10 +214,14 @@ describe("கிளி", () => {
     let வாடிகையாளர்கள்: ClientConstellation[];
     let வார்ப்புரு: bds.schémaSpécificationBd;
     let என்_கிளி: கிளி<{ உரை: string; எண்: number }>;
-    
-    const தரவுத்தளம் = "/orbitdb/zdpuAsiATt21PFpiHj8qLX7X7kN3bgozZmhEVswGncZYVHidX/கிடைக்கமாட்டேன்";
-    const குழு_அடையாளம் = "/orbitdb/zdpuAsiATt21PFpiHj8qLX7X7kN3bgozZmhEVswGncZYVHidX/கிடைக்கமாட்டேன்";
-    const பரிந்துரைகள் = new utilsTests.attente.AttendreRésultat<பிணையம்_பரிந்துரை<{ உரை: string; எண்: number }>[]>();
+
+    const தரவுத்தளம் =
+      "/orbitdb/zdpuAsiATt21PFpiHj8qLX7X7kN3bgozZmhEVswGncZYVHidX/கிடைக்கமாட்டேன்";
+    const குழு_அடையாளம் =
+      "/orbitdb/zdpuAsiATt21PFpiHj8qLX7X7kN3bgozZmhEVswGncZYVHidX/கிடைக்கமாட்டேன்";
+    const பரிந்துரைகள் = new utilsTests.attente.AttendreRésultat<
+      பிணையம்_பரிந்துரை<{ உரை: string; எண்: number }>[]
+    >();
 
     const மரந்துவிடு: schémaFonctionOublier[] = [];
     beforeAll(async () => {
@@ -263,26 +289,17 @@ describe("கிளி", () => {
         },
       });
       const மதிப்பு = await பரிந்துரைகள்.attendreQue((ப) => ப.length > 0);
-      const குறிப்பு = [{
-        உரை: "தமிழ்",
-        எண்: 123,
-      }]
-      பரிந்துரையு_சரிபார்த்தல்({மதிப்பு, பங்களிப்பாளர்: await வாடிகையாளர்கள்[1].obtIdCompte(), குறிப்பு})
-    });
-
-    test("பரிந்துரையு - இன்னொர் ", async () => {
-        await என்_கிளி.பரிந்துரையு({
-          பரிந்துரை: {
-            உரை: "தமிழ்",
-            எண்: 123,
-          },
-        });
-        const மதிப்பு = await பரிந்துரைகள்.attendreQue((ப) => ப.length > 0);
-        const குறிப்பு = [{
+      const குறிப்பு = [
+        {
           உரை: "தமிழ்",
           எண்: 123,
-        }]
-        பரிந்துரையு_சரிபார்த்தல்({மதிப்பு, பங்களிப்பாளர்: await வாடிகையாளர்கள்[1].obtIdCompte(), குறிப்பு})
+        },
+      ];
+      பரிந்துரையு_சரிபார்த்தல்({
+        மதிப்பு,
+        பங்களிப்பாளர்: await வாடிகையாளர்கள்[1].obtIdCompte(),
+        குறிப்பு,
       });
+    });
   });
 });

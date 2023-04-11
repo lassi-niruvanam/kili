@@ -1,16 +1,16 @@
 {
   "name": "@lassi-js/kili",
-  "version": "0.0.6",
+  "version": "0.1.0",
   "description": "",
   "main": "விநியோகம்/குறியீட்டு.js",
   "type": "module",
   "scripts": {
     "nettoyer": "rimraf விநியோகம்",
     "compiler": "pnpm versioner && pnpm nettoyer && pnpm ttsc -p tsconfig.build.json",
-    "சோதனை": "node --no-warnings --experimental-vm-modules ./node_modules/jest/bin/jest.js --runInBand",
+    "சோதனை": "node --no-warnings --experimental-vm-modules ./node_modules/jest/bin/jest.js --runInBand --force-exit",
     "couverture": "pnpm test -- --coverage",
-    "வடிவூட்டம்": "pnpm prettier --ignore-path .gitignore --write \"**/*.+(js|ts|json)\" && pnpm eslint --ext .js,.ts src",
-    "publier": "pnpm test && pnpm compiler && (git commit -a -m 'version' || true) && pnpm publish",
+    "வடிவூட்டம்": "pnpm prettier --ignore-path .gitignore --write \"**/*.+(js|ts|json)\" && pnpm eslint --ext .js,.ts மூலம்",
+    "வெளியிடு": "pnpm compiler && (git commit -a -m 'version' || true) && pnpm publish",
     "versioner": "pnpm genversion  --es6 --semi மூலம்/பதிப்பு.ts"
   },
   "repository": {
