@@ -43,7 +43,7 @@
     "typescript-transform-paths": "^3.4.6"
   },
   "peerDependencies": {
-    "@constl/ipa": "^0.6.49"
+    "@constl/ipa": "^0.6.50"
   },
   "dependencies": {
     "deepcopy": "^2.1.0"
