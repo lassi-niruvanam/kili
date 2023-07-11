@@ -1,4 +1,4 @@
-import type ClientConstellation from "@constl/ipa";
+import type {client} from "@constl/ipa";
 import { bds, utilsTests, utils } from "@constl/ipa";
 
 import {
@@ -39,8 +39,8 @@ describe("கிளி", () => {
     expect(typeof பதிப்பு).toEqual("string");
   });
   describe("உருவாக்கு", function () {
-    let விண்மீன்: ClientConstellation;
-    let வாடிகையாளர்கள்: ClientConstellation[];
+    let விண்மீன்: client.ClientConstellation;
+    let வாடிகையாளர்கள்: client.ClientConstellation[];
     let வார்ப்புரு: bds.schémaSpécificationBd;
     let மரந்துவிடு: schémaFonctionOublier;
 
@@ -115,8 +115,8 @@ describe("கிளி", () => {
   });
 
   describe("பரிந்துரைகளும் அங்கீகாரமும்", function () {
-    let விண்மீன்: ClientConstellation;
-    let வாடிகையாளர்கள்: ClientConstellation[];
+    let விண்மீன்: client.ClientConstellation;
+    let வாடிகையாளர்கள்: client.ClientConstellation[];
     let வார்ப்புரு: bds.schémaSpécificationBd;
     let குழு_அடையாளம்: string;
     let தரவுத்தளம்: string;
@@ -211,8 +211,8 @@ describe("கிளி", () => {
   });
 
   describe("இணைப்பு இல்லாத குழு", function () {
-    let விண்மீன்: ClientConstellation;
-    let வாடிகையாளர்கள்: ClientConstellation[];
+    let விண்மீன்: client.ClientConstellation;
+    let வாடிகையாளர்கள்: client.ClientConstellation[];
     let வார்ப்புரு: bds.schémaSpécificationBd;
     let என்_கிளி: கிளி<{ உரை: string; எண்: number }>;
 
