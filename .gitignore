@@ -24,7 +24,7 @@ build/
 docs/.tx/*
 
 .coverage
-விநியோகம்
+dist
 node_modules/
 .DS_Store
 .cache/
@@ -32,4 +32,4 @@ node_modules/
 
 # JS
 node_modules
-விநியோகம்
+dist

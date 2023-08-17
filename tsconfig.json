@@ -15,13 +15,13 @@
     "noUnusedLocals": false,
     "noUnusedParameters": false,
     "paths": {
-      "@/*": ["மூலம்/*"]
+      "@/*": ["src/*"]
     },
-    "outDir": "./விநியோகம்",
+    "outDir": "./dist",
     "sourceMap": true,
     "strict": true,
-    "strictPropertyInitialization": false,
-    "strictNullChecks": false,
+    "strictPropertyInitialization": true,
+    "strictNullChecks": true,
     "target": "esnext",
     "useUnknownInCatchVariables": false,
 
@@ -34,5 +34,5 @@
       { "transform": "typescript-transform-paths", "afterDeclarations": true }
     ]
   },
-  "include": ["மூலம்"]
+  "include": ["src", "test"]
 }
