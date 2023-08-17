@@ -1,6 +1,6 @@
-import générerClient, { bds, type client, types } from "@constl/ipa";
-import {client as utilsTestsClient, attente} from "@constl/utils-tests"
-import {adresseOrbiteValide} from "@constl/utils-ipa"
+import générerClient, { bds, types } from "@constl/ipa";
+import { client as utilsTestsClient, attente } from "@constl/utils-tests";
+import { adresseOrbiteValide } from "@constl/utils-ipa";
 import {
   கிளி,
   தேதி_நெடுவரிசை_அடையாளம்,
@@ -42,15 +42,16 @@ describe("கிளி", () => {
     expect(பதிப்பு).to.be.a("string");
   });
   describe("உருவாக்கு", function () {
-    let விண்மீன்: client.ClientConstellation;
-    let வாடிகையாளர்கள்: client.ClientConstellation[];
+    let விண்மீன்: ReturnType<typeof générerClient>;
+    let வாடிகையாளர்கள்: ReturnType<typeof générerClient>[];
     let வார்ப்புரு: bds.schémaSpécificationBd;
     let மரந்துவிடு: types.schémaFonctionOublier;
 
     before("தயாரிப்பு", async () => {
-      ({ clients: வாடிகையாளர்கள், fOublier: மரந்துவிடு } =
+      ({ clients: வாடிகையாளர்கள் as unknown, fOublier: மரந்துவிடு } =
         await utilsTestsClient.générerClients(1, "proc"));
       விண்மீன் = வாடிகையாளர்கள்[0];
+
       const உரை_மாறி = await விண்மீன்.variables.créerVariable({
         catégorie: "chaîne",
       });
@@ -58,7 +59,7 @@ describe("கிளி", () => {
         catégorie: "numérique",
       });
       வார்ப்புரு = {
-        licence: "ODBl-1_0",
+        licence: "ODbl-1_0",
         nuées: [
           "/orbitdb/zdpuAt9PVUHGEyrL43tWDmpBUrgoPPWZHX7AGXWk4ZhEZ1oik/841abe65-93f5-4539-b721-2f8085a18cc5",
         ],
@@ -88,7 +89,7 @@ describe("கிளி", () => {
       const தயாரான_வார்ப்புரு = கிளி.வார்ப்புரு_தயாரிப்பு({
         வார்ப்புரு,
         அட்டவணை_சாபி: "அட்டவணை சாபி",
-        குழு_அடையாளம்: வார்ப்புரு.nuées[0],
+        குழு_அடையாளம்: வார்ப்புரு.nuées![0],
       });
       expect(
         தயாரான_வார்ப்புரு.tableaux
@@ -105,7 +106,7 @@ describe("கிளி", () => {
         கிளி.வார்ப்புரு_தயாரிப்பு({
           வார்ப்புரு,
           அட்டவணை_சாபி: "அட்டவணை இல்லை",
-          குழு_அடையாளம்: வார்ப்புரு.nuées[0],
+          குழு_அடையாளம்: வார்ப்புரு.nuées![0],
         }),
       ).to.throw("அட்டவணை சாபி அட்டவணை வார்ப்புரில் கிடைத்ததில்லை.");
     });
@@ -175,11 +176,9 @@ describe("கிளி", () => {
 
       என்_கிளி = new கிளி({
         விண்மீன்,
-        மாறிலிகள்: {
-          அட்டவணை_சாபி: "அட்டவணை சாபி",
-          குழு_அடையாளம்,
-          வார்ப்புரு,
-        },
+        அட்டவணை_சாபி: "அட்டவணை சாபி",
+        குழு_அடையாளம்,
+        வார்ப்புரு,
       });
 
       const { fOublier: பரிந்துரைகளை_மரந்துவிடு } =
@@ -207,6 +206,7 @@ describe("கிளி", () => {
           எண்: 123,
         },
       ];
+
       பரிந்துரையு_சரிபார்த்தல்({
         மதிப்பு,
         பங்களிப்பாளர்: await விண்மீன்.obtIdCompte(),
@@ -266,11 +266,9 @@ describe("கிளி", () => {
 
       என்_கிளி = new கிளி({
         விண்மீன்: வாடிகையாளர்கள்[1],
-        மாறிலிகள்: {
-          அட்டவணை_சாபி: "அட்டவணை சாபி",
-          குழு_அடையாளம்,
-          வார்ப்புரு,
-        },
+        அட்டவணை_சாபி: "அட்டவணை சாபி",
+        குழு_அடையாளம்,
+        வார்ப்புரு,
       });
 
       const { fOublier: பரிந்துரைகளை_மரந்துவிடு } =
@@ -306,11 +304,9 @@ describe("கிளி", () => {
     });
   });
 
-  describe("இணைப்பு இல்லாத அங்கீகார தரவுத்தளம்", function () {
+  describe.only("இணைப்பு இல்லாத அங்கீகார தரவுத்தளம்", function () {
     let விண்மீன்: ReturnType<typeof générerClient>;
     let வாடிகையாளர்கள்: ReturnType<typeof générerClient>[];
-    let வார்ப்புரு: bds.schémaSpécificationBd;
-    let குழு_அடையாளம்: string;
     let என்_கிளி: கிளி<{ உரை: string; எண்: number }>;
 
     const தரவுத்தளம் =
@@ -336,9 +332,9 @@ describe("கிளி", () => {
       const எண்_மாறி = await விண்மீன்.variables.créerVariable({
         catégorie: "numérique",
       });
-      வார்ப்புரு = {
+      
+      const வார்ப்புரு: bds.schémaSpécificationBd = {
         licence: "ODBl-1_0",
-        nuées: [குழு_அடையாளம்],
         tableaux: [
           {
             cols: [
@@ -356,25 +352,23 @@ describe("கிளி", () => {
         ],
       };
 
-      குழு_அடையாளம் = await கிளி.உருவாக்கு({
+      const குழு_அடையாளம் = await கிளி.உருவாக்கு({
         விண்மீன்,
         வார்ப்புரு,
         அட்டவணை_சாபி: "அட்டவணை சாபி",
       });
-
+      
       await விண்மீன்.nuées.sauvegarderMétadonnéeNuée({
         idNuée: குழு_அடையாளம்,
         clef: அங்கீகார_தத_மீதரவு_சாபி,
-        valeur: தரவுத்தளம்
-      })
+        valeur: தரவுத்தளம்,
+      });
 
       என்_கிளி = new கிளி({
         விண்மீன்: வாடிகையாளர்கள்[1],
-        மாறிலிகள்: {
-          அட்டவணை_சாபி: "அட்டவணை சாபி",
-          குழு_அடையாளம்,
-          வார்ப்புரு,
-        },
+        அட்டவணை_சாபி: "அட்டவணை சாபி",
+        குழு_அடையாளம்,
+        வார்ப்புரு,
       });
 
       const { fOublier: பரிந்துரைகளை_மரந்துவிடு } =
