@@ -1,8 +1,8 @@
 {
   "name": "@lassi-js/kili",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "",
-  "main": "dist/குறியீட்டு.js",
+  "main": "dist/src/குறியீட்டு.js",
   "type": "module",
   "scripts": {
     "தூயமைப்படுத்து": "rimraf dist",
