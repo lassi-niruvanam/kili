@@ -1,6 +1,6 @@
 {
   "name": "@lassi-js/kili",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "",
   "main": "dist/குறியீட்டு.js",
   "type": "module",
