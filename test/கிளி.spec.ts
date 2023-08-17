@@ -304,7 +304,7 @@ describe("கிளி", () => {
     });
   });
 
-  describe.only("இணைப்பு இல்லாத அங்கீகார தரவுத்தளம்", function () {
+  describe("இணைப்பு இல்லாத அங்கீகார தரவுத்தளம்", function () {
     let விண்மீன்: ReturnType<typeof générerClient>;
     let வாடிகையாளர்கள்: ReturnType<typeof générerClient>[];
     let என்_கிளி: கிளி<{ உரை: string; எண்: number }>;
