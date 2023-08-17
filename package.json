@@ -13,7 +13,7 @@
     "சோதனை:électron-rendu": "pnpm தொகுப்பு && pnpm aegir test -t electron-renderer --cov",
     "சோதனை": "pnpm சோதனை:node && pnpm சோதனை:உலாவி",
     "வடிவூட்டம்": "pnpm prettier --ignore-path .gitignore --write \"**/*.+(js|ts|json)\" && pnpm eslint --ext .js,.ts src",
-    "வெளியிடு": "pnpm தொகுப்பு && (git commit -a -m 'version' || true) && pnpm publish",
+    "வெளியிடு": "pnpm சோதனை && (git commit -a -m 'version' || true) && pnpm publish",
     "புதுப்பிப்பு": "pnpm genversion  --es6 --semi src/பதிப்பு.ts"
   },
   "repository": {
@@ -31,8 +31,8 @@
     "@constl/ipa": "^0.8.1",
     "@constl/utils-tests": "^0.1.1",
     "@types/mocha": "^10.0.1",
-    "@typescript-eslint/eslint-plugin": "^6.3.0",
-    "@typescript-eslint/parser": "^6.3.0",
+    "@typescript-eslint/eslint-plugin": "^6.4.0",
+    "@typescript-eslint/parser": "^6.4.0",
     "aegir": "^40.0.11",
     "browserify-fs": "^1.0.0",
     "buffer": "^6.0.3",
@@ -42,7 +42,7 @@
     "genversion": "^3.1.1",
     "mocha": "^10.2.0",
     "os-browserify": "^0.3.0",
-    "prettier": "^3.0.1",
+    "prettier": "^3.0.2",
     "process": "^0.11.10",
     "rimraf": "^5.0.1",
     "stream-browserify": "^3.0.0",
@@ -55,7 +55,7 @@
     "typescript-transform-paths": "^3.4.6"
   },
   "peerDependencies": {
-    "@constl/ipa": "^0.7.3"
+    "@constl/ipa": "^0.8.1"
   },
   "dependencies": {
     "@constl/utils-ipa": "^0.1.1",
