@@ -42,7 +42,6 @@
     "eslint-config-prettier": "^9.0.0",
     "genversion": "^3.1.1",
     "mocha": "^10.2.0",
-    "node-pre-gyp": "^0.17.0",
     "os-browserify": "^0.3.0",
     "prettier": "^3.0.3",
     "process": "^0.11.10",
@@ -62,6 +61,7 @@
   },
   "dependencies": {
     "@constl/utils-ipa": "^0.2.0",
+    "@mapbox/node-pre-gyp": "^1.0.11",
     "@orbitdb/core": "^1.0.0",
     "deepcopy": "^2.1.0"
   }
