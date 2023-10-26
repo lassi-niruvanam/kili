@@ -3,6 +3,9 @@ on:
   push:
     branches:
       - மத்திய
+  pull_request:
+    branches:
+      - மத்திய
 
 jobs:
   test-ipa-nodejs:
