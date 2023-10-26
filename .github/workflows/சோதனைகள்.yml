@@ -1,4 +1,4 @@
-name: Tests IPA
+name: கிளி சோதனைகள்
 on:
   push:
     branches:
