@@ -1,6 +1,7 @@
-import générerClient, { bds, types } from "@constl/ipa";
+import { isBrowser, isElectronRenderer } from "wherearewe";
+import { ClientConstellation, générerClient, bds, types } from "@constl/ipa";
 import { client as utilsTestsClient, attente } from "@constl/utils-tests";
-import { adresseOrbiteValide } from "@constl/utils-ipa";
+import { isValidAddress } from "@orbitdb/core";
 import {
   கிளி,
   தேதி_நெடுவரிசை_அடையாளம்,
@@ -23,7 +24,7 @@ const பரிந்துரையு_சரிபார்த்தல் = <
 }) => {
   for (const [இ, ம] of மதிப்பு.entries()) {
     expect(ம.பங்கேற்பாளர்).to.equal(பங்களிப்பாளர்);
-    expect(ம.கைரேகை).to.be.a("string");
+    expect(ம.அடையாளம்).to.be.a("string");
     expect(
       new Date(ம.பரிந்துரை[தேதி_நெடுவரிசை_அடையாளம்]).getTime(),
     ).to.be.lessThan(Date.now());
@@ -42,14 +43,18 @@ describe("கிளி", () => {
     expect(பதிப்பு).to.be.a("string");
   });
   describe("உருவாக்கு", function () {
-    let விண்மீன்: ReturnType<typeof générerClient>;
-    let வாடிகையாளர்கள்: ReturnType<typeof générerClient>[];
+    let விண்மீன்: ClientConstellation;
+    let வாடிகையாளர்கள்: ClientConstellation[];
     let வார்ப்புரு: bds.schémaSpécificationBd;
     let மரந்துவிடு: types.schémaFonctionOublier;
 
     before("தயாரிப்பு", async () => {
       ({ clients: வாடிகையாளர்கள் as unknown, fOublier: மரந்துவிடு } =
-        await utilsTestsClient.générerClients(1, "proc"));
+        await utilsTestsClient.générerClients({
+          n: 1,
+          type: "proc",
+          générerClient,
+        }));
       விண்மீன் = வாடிகையாளர்கள்[0];
 
       const உரை_மாறி = await விண்மீன்.variables.créerVariable({
@@ -117,13 +122,13 @@ describe("கிளி", () => {
         வார்ப்புரு,
         அட்டவணை_சாபி: "அட்டவணை சாபி",
       });
-      expect(adresseOrbiteValide(குழு_அடையாளம்)).to.be.true();
+      expect(isValidAddress(குழு_அடையாளம்)).to.be.true();
     });
   });
 
   describe("பரிந்துரைகளும் அங்கீகாரமும்", function () {
-    let விண்மீன்: ReturnType<typeof générerClient>;
-    let வாடிகையாளர்கள்: ReturnType<typeof générerClient>[];
+    let விண்மீன்: ClientConstellation;
+    let வாடிகையாளர்கள்: ClientConstellation[];
     let வார்ப்புரு: bds.schémaSpécificationBd;
     let குழு_அடையாளம்: string;
 
@@ -135,11 +140,12 @@ describe("கிளி", () => {
 
     const மரந்துவிடு: types.schémaFonctionOublier[] = [];
     before("தயாரிப்பு", async () => {
-      const { clients, fOublier } = await utilsTestsClient.générerClients(
-        2,
-        "proc",
-      );
-      வாடிகையாளர்கள் = clients as ReturnType<typeof générerClient>[];
+      const { clients, fOublier } = await utilsTestsClient.générerClients({
+        n: 1,
+        type: "proc",
+        générerClient,
+      });
+      வாடிகையாளர்கள் = clients as ClientConstellation[];
       மரந்துவிடு.push(fOublier);
 
       விண்மீன் = வாடிகையாளர்கள்[0];
@@ -216,27 +222,30 @@ describe("கிளி", () => {
   });
 
   describe("இணைப்பு இல்லாத குழு", function () {
-    let விண்மீன்: ReturnType<typeof générerClient>;
-    let வாடிகையாளர்கள்: ReturnType<typeof générerClient>[];
+    let விண்மீன்: ClientConstellation;
+    let வேறு_விண்மீன்: ClientConstellation;
+    let வாடிகையாளர்கள்: ClientConstellation[];
     let வார்ப்புரு: bds.schémaSpécificationBd;
     let என்_கிளி: கிளி<{ உரை: string; எண்: number }>;
 
     const குழு_அடையாளம் =
-      "/orbitdb/zdpuAsiATt21PFpiHj8qLX7X7kN3bgozZmhEVswGncZYVHidX/கிடைக்கமாட்டேன்";
+      "/orbitdb/zdpuAsiATt21PFpiHj8qLX7X7kN3bgozZmகிடைக்கமாட்டேன்";
     const பரிந்துரைகள் = new attente.AttendreRésultat<
       பிணையம்_பரிந்துரை<{ உரை: string; எண்: number }>[]
     >();
 
     const மரந்துவிடு: types.schémaFonctionOublier[] = [];
     before("தயாரிப்பு", async () => {
-      const { clients, fOublier } = await utilsTestsClient.générerClients(
-        2,
-        "proc",
-      );
-      வாடிகையாளர்கள் = clients as ReturnType<typeof générerClient>[];
+      const { clients, fOublier } = await utilsTestsClient.générerClients({
+        n: isBrowser || isElectronRenderer ? 1 : 2, // உலாவியில் இரண்டு விண்மீன்களை ஒரே நேரத்தில் உருவாக்க முடியாது
+        type: "proc",
+        générerClient,
+      });
+      வாடிகையாளர்கள் = clients as ClientConstellation[];
       மரந்துவிடு.push(fOublier);
 
       விண்மீன் = வாடிகையாளர்கள்[0];
+      வேறு_விண்மீன் = வாடிகையாளர்கள்[வாடிகையாளர்கள்.length - 1];
 
       const உரை_மாறி = await விண்மீன்.variables.créerVariable({
         catégorie: "chaîne",
@@ -265,7 +274,7 @@ describe("கிளி", () => {
       };
 
       என்_கிளி = new கிளி({
-        விண்மீன்: வாடிகையாளர்கள்[1],
+        விண்மீன்: வேறு_விண்மீன்,
         அட்டவணை_சாபி: "அட்டவணை சாபி",
         குழு_அடையாளம்,
         வார்ப்புரு,
@@ -298,33 +307,36 @@ describe("கிளி", () => {
       ];
       பரிந்துரையு_சரிபார்த்தல்({
         மதிப்பு,
-        பங்களிப்பாளர்: await வாடிகையாளர்கள்[1].obtIdCompte(),
+        பங்களிப்பாளர்: await வேறு_விண்மீன்.obtIdCompte(),
         குறிப்பு,
       });
     });
   });
 
   describe("இணைப்பு இல்லாத அங்கீகார தரவுத்தளம்", function () {
-    let விண்மீன்: ReturnType<typeof générerClient>;
-    let வாடிகையாளர்கள்: ReturnType<typeof générerClient>[];
+    let விண்மீன்: ClientConstellation;
+    let வேறு_விண்மீன்: ClientConstellation;
+    let வாடிகையாளர்கள்: ClientConstellation[];
     let என்_கிளி: கிளி<{ உரை: string; எண்: number }>;
 
     const தரவுத்தளம் =
-      "/orbitdb/zdpuAsiATt21PFpiHj8qLX7X7kN3bgozZmhEVswGncZYVHidX/கிடைக்கமாட்டேன்";
+      "/orbitdb/zdpuAsiATt21PFpiHj8qLX7X7kN3bgozZmகிடைக்கமாட்டேன்";
     const பரிந்துரைகள் = new attente.AttendreRésultat<
       பிணையம்_பரிந்துரை<{ உரை: string; எண்: number }>[]
     >();
 
     const மரந்துவிடு: types.schémaFonctionOublier[] = [];
     before("தயாரிப்பு", async () => {
-      const { clients, fOublier } = await utilsTestsClient.générerClients(
-        2,
-        "proc",
-      );
-      வாடிகையாளர்கள் = clients as ReturnType<typeof générerClient>[];
+      const { clients, fOublier } = await utilsTestsClient.générerClients({
+        n: isBrowser || isElectronRenderer ? 1 : 2, // உலாவியில் இரண்டு விண்மீன்களை ஒரே நேரத்தில் உருவாக்க முடியாது
+        type: "proc",
+        générerClient,
+      });
+      வாடிகையாளர்கள் = clients as ClientConstellation[];
       மரந்துவிடு.push(fOublier);
 
       விண்மீன் = வாடிகையாளர்கள்[0];
+      வேறு_விண்மீன் = வாடிகையாளர்கள்[வாடிகையாளர்கள்.length - 1]; // உலாவியில் இரண்டு விண்மீன்களை ஒரே நேரத்தில் உருவாக்க முடியாது
 
       const உரை_மாறி = await விண்மீன்.variables.créerVariable({
         catégorie: "chaîne",
@@ -332,7 +344,7 @@ describe("கிளி", () => {
       const எண்_மாறி = await விண்மீன்.variables.créerVariable({
         catégorie: "numérique",
       });
-      
+
       const வார்ப்புரு: bds.schémaSpécificationBd = {
         licence: "ODBl-1_0",
         tableaux: [
@@ -357,7 +369,7 @@ describe("கிளி", () => {
         வார்ப்புரு,
         அட்டவணை_சாபி: "அட்டவணை சாபி",
       });
-      
+
       await விண்மீன்.nuées.sauvegarderMétadonnéeNuée({
         idNuée: குழு_அடையாளம்,
         clef: அங்கீகார_தத_மீதரவு_சாபி,
@@ -365,7 +377,7 @@ describe("கிளி", () => {
       });
 
       என்_கிளி = new கிளி({
-        விண்மீன்: வாடிகையாளர்கள்[1],
+        விண்மீன்: வேறு_விண்மீன்,
         அட்டவணை_சாபி: "அட்டவணை சாபி",
         குழு_அடையாளம்,
         வார்ப்புரு,
@@ -398,7 +410,7 @@ describe("கிளி", () => {
       ];
       பரிந்துரையு_சரிபார்த்தல்({
         மதிப்பு,
-        பங்களிப்பாளர்: await வாடிகையாளர்கள்[1].obtIdCompte(),
+        பங்களிப்பாளர்: await வேறு_விண்மீன்.obtIdCompte(),
         குறிப்பு,
       });
     });
