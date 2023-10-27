@@ -37,7 +37,7 @@ jobs:
         run: pnpm சோதனை:node
 
       - name: Envoyer couverture à Codecov
-        uses: codecov/codecov-action@v2
+        uses: codecov/codecov-action@v3
   
   test-ipa-navig:
     name: உலாவியில் சோதனைகள்
@@ -68,4 +68,4 @@ jobs:
         run: pnpm சோதனை:உலாவி
 
       - name: Envoyer couverure à Codecov
-        uses: codecov/codecov-action@v2
+        uses: codecov/codecov-action@v3
