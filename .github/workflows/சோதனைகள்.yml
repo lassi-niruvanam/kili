@@ -97,7 +97,7 @@ jobs:
         run: npx playwright install
 
       - name: Vérifier les tests
-        run: pnpm சோதனை:électron-principal
+        run: pnpm சோதனை:எதிர்மின்னி-மத்தியமானது
 
       - name: Envoyer couverure à Codecov
         uses: codecov/codecov-action@v2
