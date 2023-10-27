@@ -7,24 +7,3 @@
 ```sh
 $ pnpm install @lassi-js/kili
 ```
-
-Si vous développez une application dans un autre langage (p. ex., Python),
-nous vous recommandons d'utiliser le [serveur WS Constellation](https://github.com/reseau-constellation/serveur-ws) ou bien l'un de ses clients pré-fabriqués
-([Python](https://github.com/reseau-constellation/client-python),
-[R](https://github.com/reseau-constellation/client-r), [Julia](https://github.com/reseau-constellation/Constellation.jl))
-selon le langage de votre projet.
-
-## Utilisation
-Une fois l'IPA installé, vous pouvez importer Constellation et l'utiliser dans vos
-projets.
-
-```TypeScript
-import { générerClient } from "@constl/ipa";
-
-const client = générerClient();
-...
-
-```
-
-## Documentation
-Pour la documentation complète de Constellation, rendez-vous au https://docu.réseau-constellation.ca.
