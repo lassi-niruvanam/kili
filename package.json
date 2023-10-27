@@ -57,7 +57,7 @@
     "wherearewe": "^2.0.1"
   },
   "peerDependencies": {
-    "@constl/ipa": "^0.9.3"
+    "@constl/ipa": "^0.9.6"
   },
   "dependencies": {
     "@constl/utils-ipa": "^0.2.1",
