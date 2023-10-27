@@ -36,7 +36,7 @@ jobs:
       - name: Vérifier les tests
         run: pnpm சோதனை:node
 
-      - name: Envoyer couverure à Codecov
+      - name: Envoyer couverture à Codecov
         uses: codecov/codecov-action@v2
   
   test-ipa-navig:
