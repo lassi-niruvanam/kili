@@ -138,7 +138,9 @@ describe("கிளி", () => {
       பிணையம்_பரிந்துரை<{ உரை: string; எண்: number }>[]
     >();
 
+    let விண்மீனை_மரந்துவிடு: types.schémaFonctionOublier | undefined = undefined;
     const மரந்துவிடு: types.schémaFonctionOublier[] = [];
+
     before("தயாரிப்பு", async () => {
       const { clients, fOublier } = await utilsTestsClient.générerClients({
         n: 1,
@@ -146,24 +148,34 @@ describe("கிளி", () => {
         générerClient,
       });
       வாடிகையாளர்கள் = clients as ClientConstellation[];
-      மரந்துவிடு.push(fOublier);
+      விண்மீனை_மரந்துவிடு = fOublier;
 
       விண்மீன் = வாடிகையாளர்கள்[0];
+    });
 
+    after(async () => {
+      if (விண்மீனை_மரந்துவிடு) await விண்மீனை_மரந்துவிடு();
+    })
+
+    this.beforeEach(async () => {
       const உரை_மாறி = await விண்மீன்.variables.créerVariable({
         catégorie: "chaîne",
       });
       const எண்_மாறி = await விண்மீன்.variables.créerVariable({
         catégorie: "numérique",
       });
+      const சிறப்பு_சொல் = await விண்மீன்.motsClefs.créerMotClef();
+
       வார்ப்புரு = {
         licence: "ODBl-1_0",
+        motsClefs: [சிறப்பு_சொல்],
         tableaux: [
           {
             cols: [
               {
                 idVariable: உரை_மாறி,
                 idColonne: "உரை",
+                index: true,
               },
               {
                 idVariable: எண்_மாறி,
@@ -171,6 +183,15 @@ describe("கிளி", () => {
               },
             ],
             clef: "அட்டவணை சாபி",
+          },
+          {
+            cols: [
+              {
+                idVariable: எண்_மாறி,
+                idColonne: "எண்",
+              },
+            ],
+            clef: "இன்னொரு அட்டவணை",
           },
         ],
       };
@@ -194,7 +215,7 @@ describe("கிளி", () => {
       மரந்துவிடு.push(பரிந்துரைகளை_மரந்துவிடு);
     });
 
-    after(async () => {
+    afterEach(async () => {
       await Promise.all(மரந்துவிடு.map((செ) => செ()));
     });
 
@@ -219,6 +240,48 @@ describe("கிளி", () => {
         குறிப்பு,
       });
     });
+
+    it("பரிந்துரையை திருத்து", async () => {
+      const பரிந்துரை_அடையாளம் = await என்_கிளி.பரிந்துரையு({
+        பரிந்துரை: {
+          உரை: "தமிழ்",
+          எண்: 123,
+        },
+      });
+      const குறிப்பு = [
+        {
+          உரை: "தமிழ்",
+          எண்: 456,
+        },
+      ];
+      await என்_கிளி.பரிந்துரையை_திருத்து({
+        பரிந்துரை: குறிப்பு[0],
+        அடையாளம்: பரிந்துரை_அடையாளம்
+      });
+      const மதிப்பு = await பரிந்துரைகள்.attendreQue((ப) => ப[0].பரிந்துரை.எண் > 123);
+      பரிந்துரையு_சரிபார்த்தல்({
+        மதிப்பு,
+        பங்களிப்பாளர்: await விண்மீன்.obtIdCompte(),
+        குறிப்பு,
+      });
+    })
+    it("பரிந்துரையை நீக்கு", async () => {
+      const பரிந்துரை_அடையாளம் = await என்_கிளி.பரிந்துரையு({
+        பரிந்துரை: {
+          உரை: "தமிழ்",
+          எண்: 123,
+        },
+      });
+
+      await பரிந்துரைகள்.attendreQue((ப) => ப.length > 0);
+      await என்_கிளி.பரிந்துரையை_நீக்கு({
+        அடையாளம்: பரிந்துரை_அடையாளம்
+      });
+      await பரிந்துரைகள்.attendreQue((ப) => ப.length === 0)
+    })
+    
+    it("", async () => {})
+
   });
 
   describe("இணைப்பு இல்லாத குழு", function () {
