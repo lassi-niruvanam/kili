@@ -1,4 +1,7 @@
-import { isBrowser, isElectronRenderer } from "wherearewe";
+import {
+  isBrowser,
+  isElectronRenderer,
+} from "wherearewe";
 import {
   ClientConstellation,
   générerClient,
@@ -65,10 +68,7 @@ const அங்கீகரி_சரிபார்த்தல் = <வ exten
     expect(
       Object.fromEntries(
         Object.entries(ம.données).filter(
-          (ஊ) =>
-            ![
-              தேதி_நெடுவரிசை_அடையாளம்,
-            ].includes(ஊ[0]),
+          (ஊ) => ![தேதி_நெடுவரிசை_அடையாளம்].includes(ஊ[0]),
         ),
       ),
     ).to.deep.equal(குறிப்பு[இ]);
@@ -182,7 +182,7 @@ describe("கிளி", () => {
 
     let விண்மீனை_மரந்துவிடு: types.schémaFonctionOublier | undefined =
       undefined;
-    const மரந்துவிடு: types.schémaFonctionOublier[] = [];
+    let மரந்துவிடு: types.schémaFonctionOublier[] = [];
 
     before("தயாரிப்பு", async () => {
       const { clients, fOublier } = await utilsTestsClient.générerClients({
@@ -197,6 +197,8 @@ describe("கிளி", () => {
     });
 
     after(async () => {
+      பரிந்துரைகள்.toutAnnuler();
+      அங்கீகரிக்கப்பட்டவை.toutAnnuler();
       if (விண்மீனை_மரந்துவிடு) await விண்மீனை_மரந்துவிடு();
     });
 
@@ -266,6 +268,7 @@ describe("கிளி", () => {
 
     afterEach(async () => {
       await Promise.all(மரந்துவிடு.map((செ) => செ()));
+      மரந்துவிடு = [];
     });
 
     it("பரிந்துரையு", async () => {
@@ -391,19 +394,27 @@ describe("கிளி", () => {
         (ப) => ப.length > 1,
       );
 
-      const புதுச_பரிந்துரை = கிடைத்த_பரிந்துரைகள்.find((ப) => ப.பரிந்துரை.எண் > 123)
+      const புதுச_பரிந்துரை = கிடைத்த_பரிந்துரைகள்.find(
+        (ப) => ப.பரிந்துரை.எண் > 123,
+      );
       expect(புதுச_பரிந்துரை).to.exist();
 
-      const அடையாளம் = (await அங்கீகரிக்கப்பட்டவை.attendreQue(அங்கீ => அங்கீ.length > 0))[0].id;
-      
+      const அடையாளம் = (
+        await அங்கீகரிக்கப்பட்டவை.attendreQue((அங்கீ) => அங்கீ.length > 0)
+      )[0].id;
+
       await என்_கிளி.அங்கீகரிக்கப்பட்ட_உறுப்படியை_திருத்து({
         அடையாளம்,
         பரிந்துரை: புதுச_பரிந்துரை!,
       });
 
-      const மதிப்பு = [(await அங்கீகரிக்கப்பட்டவை.attendreQue(
-        (அங்கீ) => !!அங்கீ.find(இ => இ.données.எண் > 123),
-      )).find(இ => இ.données.எண் > 123)!];
+      const மதிப்பு = [
+        (
+          await அங்கீகரிக்கப்பட்டவை.attendreQue(
+            (அங்கீ) => !!அங்கீ.find((இ) => இ.données.எண் > 123),
+          )
+        ).find((இ) => இ.données.எண் > 123)!,
+      ];
       const குறிப்பு = [
         {
           பங்கேற்பாளர்: await விண்மீன்.obtIdCompte(),
@@ -424,7 +435,7 @@ describe("கிளி", () => {
           எண்: 123,
         },
       });
-      
+
       const கிடைத்த_பரிந்துரைகள் = await பரிந்துரைகள்.attendreQue(
         (ப) => ப.length > 0,
       );
@@ -433,26 +444,452 @@ describe("கிளி", () => {
         பரிந்துரை: கிடைத்த_பரிந்துரைகள்[0],
       });
 
-      const உறுப்படி = (await அங்கீகரிக்கப்பட்டவை.attendreQue(அங்கீ => அங்கீ.length > 0))[0]
+      const உறுப்படி = (
+        await அங்கீகரிக்கப்பட்டவை.attendreQue((அங்கீ) => அங்கீ.length > 0)
+      )[0];
 
       await என்_கிளி.அங்கீகரிக்கப்பட்ட_உறுப்படியை_நீக்கு({
         அடையாளம்: உறுப்படி.id,
       });
 
-      await அங்கீகரிக்கப்பட்டவை.attendreQue(
-        (அங்கீ) => அங்கீ.length === 0,
-      );
+      await அங்கீகரிக்கப்பட்டவை.attendreQue((அங்கீ) => அங்கீ.length === 0);
     });
   });
 
   describe("விருப்பங்கள்", function () {
-    it("வேறு தேதி நெடுவரிசை பெயர்");
-    it("வேறு பங்கேற்பாளர் நெடுவரிசை பெயர்");
+    let விண்மீன்: ClientConstellation;
+    let வாடிகையாளர்கள்: ClientConstellation[];
+    let வார்ப்புரு: bds.schémaSpécificationBd;
+    let குழு_அடையாளம்: string;
+
+    let விண்மீனை_மரந்துவிடு: types.schémaFonctionOublier | undefined =
+      undefined;
+    let மரந்துவிடு: types.schémaFonctionOublier[] = [];
+
+    before("தயாரிப்பு", async () => {
+      const { clients, fOublier } = await utilsTestsClient.générerClients({
+        n: 1,
+        type: "proc",
+        générerClient,
+      });
+      வாடிகையாளர்கள் = clients as ClientConstellation[];
+      விண்மீனை_மரந்துவிடு = fOublier;
+
+      விண்மீன் = வாடிகையாளர்கள்[0];
+    });
+
+    after(async () => {
+      if (விண்மீனை_மரந்துவிடு) await விண்மீனை_மரந்துவிடு();
+    });
+
+    this.beforeEach(async () => {
+      const உரை_மாறி = await விண்மீன்.variables.créerVariable({
+        catégorie: "chaîne",
+      });
+      const எண்_மாறி = await விண்மீன்.variables.créerVariable({
+        catégorie: "numérique",
+      });
+      const சிறப்பு_சொல் = await விண்மீன்.motsClefs.créerMotClef();
+
+      வார்ப்புரு = {
+        licence: "ODBl-1_0",
+        motsClefs: [சிறப்பு_சொல்],
+        tableaux: [
+          {
+            cols: [
+              {
+                idVariable: உரை_மாறி,
+                idColonne: "உரை",
+                index: true,
+              },
+              {
+                idVariable: எண்_மாறி,
+                idColonne: "எண்",
+              },
+            ],
+            clef: "அட்டவணை சாபி",
+          },
+          {
+            cols: [
+              {
+                idVariable: எண்_மாறி,
+                idColonne: "எண்",
+              },
+            ],
+            clef: "இன்னொரு அட்டவணை",
+          },
+        ],
+      };
+      குழு_அடையாளம் = await கிளி.உருவாக்கு({
+        விண்மீன்,
+        வார்ப்புரு,
+        அட்டவணை_சாபி: "அட்டவணை சாபி",
+        மாறிலிகள்: {
+          தேதி_நெடுவரிசை_அடையாளம்: "தேதி மற்றும் நேரம்",
+        },
+      });
+    });
+
+    afterEach(async () => {
+      await Promise.all(மரந்துவிடு.map((செ) => செ()));
+      மரந்துவிடு = [];
+    });
+
+    it("வேறு தேதி மற்றும் பங்கேற்பாளர் நெடுவரிசை பெயர்", async () => {
+      const பரிந்துரைகள் = new attente.AttendreRésultat<
+        பிணையம்_பரிந்துரை<{ உரை: string; எண்: number }, "தேதி மற்றிம் நேரம்">[]
+      >();
+      const அங்கீகரிக்கப்பட்டவை = new attente.AttendreRésultat<
+        tableaux.élémentDonnées<
+          அங்கீகரிக்கப்பட்ட_உறுப்படி_வகை<
+            { உரை: string; எண்: number },
+            "பங்கேற்பாளர் அடையாளம்",
+            "தேதி மற்றிம் நேரம்"
+          >
+        >[]
+      >();
+
+      const என்_கிளி = new கிளி<
+        { உரை: string; எண்: number },
+        "பங்கேற்பாளர் அடையாளம்",
+        "தேதி மற்றிம் நேரம்"
+      >({
+        விண்மீன்,
+        அட்டவணை_சாபி: "அட்டவணை சாபி",
+        குழு_அடையாளம்,
+        வார்ப்புரு,
+        மாறிலிகள்: {
+          தேதி_நெடுவரிசை_அடையாளம்: "தேதி மற்றிம் நேரம்",
+          பங்கேற்பாளர்_நெடுவரிசை_அடையாளம்: "பங்கேற்பாளர் அடையாளம்",
+        },
+      });
+
+      const { fOublier: பரிந்துரைகளை_மரந்துவிடு } =
+        await என்_கிளி.பரிந்துரைகளை_கேள்ளு({
+          செ: (ப) => பரிந்துரைகள்.mettreÀJour(ப),
+        });
+      மரந்துவிடு.push(பரிந்துரைகளை_மரந்துவிடு);
+
+      const அங்கீகரிக்கப்பட்டவையை_மரந்துவிடு =
+        await என்_கிளி.அங்கீகரிக்கப்பட்ட_உறுப்படிகளை_கேள்ளு({
+          செ: (உறுப்படி) => அங்கீகரிக்கப்பட்டவை.mettreÀJour(உறுப்படி),
+        });
+      மரந்துவிடு.push(அங்கீகரிக்கப்பட்டவையை_மரந்துவிடு);
+
+      await என்_கிளி.பரிந்துரையு({
+        பரிந்துரை: {
+          உரை: "தமிழ்",
+          எண்: 456,
+        },
+      });
+      const கிடைத்த_பரிந்துரைகள் = await பரிந்துரைகள்.attendreQue(
+        (ப) => ப.length > 0,
+      );
+      expect(கிடைத்த_பரிந்துரைகள்[0].பரிந்துரை["தேதி மற்றிம் நேரம்"])
+        .to.be.a("number")
+        .lessThan(Date.now());
+
+      await என்_கிளி.அங்கீகரி({ பரிந்துரை: கிடைத்த_பரிந்துரைகள்[0] });
+      const கிடைத்த_அங்கீகரிக்கப்பட்டவை = await அங்கீகரிக்கப்பட்டவை.attendreQue(
+        (அங்கீ) => அங்கீ.length > 0,
+      );
+      expect(கிடைத்த_அங்கீகரிக்கப்பட்டவை[0].données["தேதி மற்றிம் நேரம்"])
+        .to.be.a("number")
+        .lessThan(Date.now());
+      expect(
+        கிடைத்த_அங்கீகரிக்கப்பட்டவை[0].données["பங்கேற்பாளர் அடையாளம்"],
+      ).to.equal(await விண்மீன்.obtIdCompte());
+    });
   });
 
   describe("இணையம்", function () {
-    it("உறுப்படிகள் - எனது பரிந்துரைகள்");
-    it("உறுப்படிகள் - அனைத்தும் பரிந்துரைகள்");
+    let விண்மீன்: ClientConstellation;
+    let வேறு_விண்மீன்: ClientConstellation;
+    let வாடிகையாளர்கள்: ClientConstellation[];
+    let வார்ப்புரு: bds.schémaSpécificationBd;
+    let குழு_அடையாளம்: string;
+
+    let என்_கிளி: கிளி<{ உரை: string; எண்: number }>;
+    let வேறு_கிளி: கிளி<{ உரை: string; எண்: number }>;
+
+    let விண்மீனை_மரந்துவிடு: types.schémaFonctionOublier | undefined =
+      undefined;
+    let மரந்துவிடு: types.schémaFonctionOublier[] = [];
+
+    before("தயாரிப்பு", async () => {
+      const { clients, fOublier } = await utilsTestsClient.générerClients({
+        n: isBrowser || isElectronRenderer ? 1 : 2, // உலாவியில் இரண்டு விண்மீன்களை ஒரே நேரத்தில் உருவாக்க முடியாது,
+        type: "proc",
+        générerClient,
+      });
+      வாடிகையாளர்கள் = clients as ClientConstellation[];
+      விண்மீனை_மரந்துவிடு = fOublier;
+
+      விண்மீன் = வாடிகையாளர்கள்[0];
+      வேறு_விண்மீன் = வாடிகையாளர்கள்[வாடிகையாளர்கள்.length - 1];
+    });
+
+    after(async () => {
+      if (விண்மீனை_மரந்துவிடு) await விண்மீனை_மரந்துவிடு();
+    });
+
+    this.beforeEach(async () => {
+      const உரை_மாறி = await விண்மீன்.variables.créerVariable({
+        catégorie: "chaîne",
+      });
+      const எண்_மாறி = await விண்மீன்.variables.créerVariable({
+        catégorie: "numérique",
+      });
+      const சிறப்பு_சொல் = await விண்மீன்.motsClefs.créerMotClef();
+
+      வார்ப்புரு = {
+        licence: "ODBl-1_0",
+        motsClefs: [சிறப்பு_சொல்],
+        tableaux: [
+          {
+            cols: [
+              {
+                idVariable: உரை_மாறி,
+                idColonne: "உரை",
+                index: true,
+              },
+              {
+                idVariable: எண்_மாறி,
+                idColonne: "எண்",
+              },
+            ],
+            clef: "அட்டவணை சாபி",
+          },
+          {
+            cols: [
+              {
+                idVariable: எண்_மாறி,
+                idColonne: "எண்",
+              },
+            ],
+            clef: "இன்னொரு அட்டவணை",
+          },
+        ],
+      };
+      குழு_அடையாளம் = await கிளி.உருவாக்கு({
+        விண்மீன்,
+        வார்ப்புரு,
+        அட்டவணை_சாபி: "அட்டவணை சாபி",
+      });
+
+      என்_கிளி = new கிளி({
+        விண்மீன்,
+        அட்டவணை_சாபி: "அட்டவணை சாபி",
+        குழு_அடையாளம்,
+        வார்ப்புரு,
+      });
+
+      வேறு_கிளி = new கிளி({
+        விண்மீன்: வேறு_விண்மீன்,
+        அட்டவணை_சாபி: "அட்டவணை சாபி",
+        குழு_அடையாளம்,
+        வார்ப்புரு,
+      });
+    });
+
+    afterEach(async () => {
+      await Promise.all(மரந்துவிடு.map((செ) => செ()));
+      மரந்துவிடு = [];
+    });
+
+    it("உறுப்படிகள் - எனது பரிந்துரைகள்", async () => {
+      const உறுப்படிகள் = new attente.AttendreRésultat<
+        அங்கீகரிக்கப்பட்ட_உறுப்படி_வகை<{ உரை: string; எண்: number }>[]
+      >();
+      மரந்துவிடு.push(async () => உறுப்படிகள்.toutAnnuler());
+      const உறுப்படிகளை_மறந்துவிடு = await என்_கிளி.உறுப்படிகளை_கேள்ளு({
+        செ: (உறு) => உறுப்படிகள்.mettreÀJour(உறு),
+      });
+      மரந்துவிடு.push(உறுப்படிகளை_மறந்துவிடு);
+
+      await என்_கிளி.பரிந்துரையு({
+        பரிந்துரை: {
+          உரை: "தமிழ்",
+          எண்: 123,
+        },
+      });
+      const மதிப்பு = (
+        await உறுப்படிகள்.attendreQue((உறு) => உறு.length > 0)
+      ).map((உறு) => ({ données: உறு, id: "" }));
+      அங்கீகரி_சரிபார்த்தல்({
+        மதிப்பு,
+        குறிப்பு: [
+          {
+            பங்கேற்பாளர்: await விண்மீன்.obtIdCompte(),
+            உரை: "தமிழ்",
+            எண்: 123,
+          },
+        ],
+      });
+    });
+
+    it("உறுப்படிகள் - அனைத்தும் பரிந்துரைகள்", async () => {
+      const உறுப்படிகள் = new attente.AttendreRésultat<
+        அங்கீகரிக்கப்பட்ட_உறுப்படி_வகை<{ உரை: string; எண்: number }>[]
+      >();
+      மரந்துவிடு.push(async () => உறுப்படிகள்.toutAnnuler());
+      const உறுப்படிகளை_மறந்துவிடு = await என்_கிளி.உறுப்படிகளை_கேள்ளு({
+        செ: (உறு) => உறுப்படிகள்.mettreÀJour(உறு),
+        பரிந்துரைகள்: "அனைத்தும்",
+      });
+      மரந்துவிடு.push(உறுப்படிகளை_மறந்துவிடு);
+
+      await வேறு_கிளி.பரிந்துரையு({
+        பரிந்துரை: {
+          உரை: "தமிழ்",
+          எண்: 123,
+        },
+      });
+      const மதிப்பு = (
+        await உறுப்படிகள்.attendreQue((உறு) => உறு.length > 0)
+      ).map((உறு) => ({ données: உறு, id: "" }));
+      அங்கீகரி_சரிபார்த்தல்({
+        மதிப்பு,
+        குறிப்பு: [
+          {
+            பங்கேற்பாளர்: await வேறு_விண்மீன்.obtIdCompte(),
+            உரை: "தமிழ்",
+            எண்: 123,
+          },
+        ],
+      });
+    });
+
+    it("உறுப்படிகள் - அங்கீகரிக்கப்பட்ட மதிப்பைப் பயன்படுத்து", async () => {
+      const பரிந்துரைகள் = new attente.AttendreRésultat<
+        பிணையம்_பரிந்துரை<{ உரை: string; எண்: number }>[]
+      >();
+      மரந்துவிடு.push(async () => உறுப்படிகள்.toutAnnuler());
+      const { fOublier: பரிந்துரைகள்_மறந்துவிடு } =
+        await என்_கிளி.பரிந்துரைகளை_கேள்ளு({
+          செ: (ப) => பரிந்துரைகள்.mettreÀJour(ப),
+        });
+      மரந்துவிடு.push(பரிந்துரைகள்_மறந்துவிடு);
+
+      const உறுப்படிகள் = new attente.AttendreRésultat<
+        அங்கீகரிக்கப்பட்ட_உறுப்படி_வகை<{ உரை: string; எண்: number }>[]
+      >();
+      மரந்துவிடு.push(async () => உறுப்படிகள்.toutAnnuler());
+      const உறுப்படிகளை_மறந்துவிடு = await என்_கிளி.உறுப்படிகளை_கேள்ளு({
+        செ: (உறு) => உறுப்படிகள்.mettreÀJour(உறு),
+      });
+      மரந்துவிடு.push(உறுப்படிகளை_மறந்துவிடு);
+
+      await வேறு_கிளி.பரிந்துரையு({
+        பரிந்துரை: {
+          உரை: "தமிழ்",
+          எண்: 456,
+        },
+      });
+
+      await என்_கிளி.பரிந்துரையு({
+        பரிந்துரை: {
+          உரை: "தமிழ்",
+          எண்: 123,
+        },
+      });
+
+      const மதிப்பு = (
+        await உறுப்படிகள்.attendreQue((உறு) => உறு.length > 0)
+      ).map((உறு) => ({ données: உறு, id: "" }));
+      அங்கீகரி_சரிபார்த்தல்({
+        மதிப்பு,
+        குறிப்பு: [
+          {
+            பங்கேற்பாளர்: await விண்மீன்.obtIdCompte(),
+            உரை: "தமிழ்",
+            எண்: 123,
+          },
+        ],
+      });
+      const வேறு_பயனாளர்_அடையாளம் = await வேறு_விண்மீன்.obtIdCompte();
+      const புதுச_பரிந்துரை = (
+        await பரிந்துரைகள்.attendreQue(
+          (ப) => !!ப.find((இ) => இ.பங்கேற்பாளர் === வேறு_பயனாளர்_அடையாளம்),
+        )
+      ).find((இ) => இ.பங்கேற்பாளர் === வேறு_பயனாளர்_அடையாளம்);
+      await என்_கிளி.அங்கீகரி({
+        பரிந்துரை: புதுச_பரிந்துரை!,
+      });
+
+      const புதுச_மதிப்பு = (
+        await உறுப்படிகள்.attendreQue(
+          (உறு) => உறு.length > 0 && உறு[0].எண் > 123,
+        )
+      ).map((உறு) => ({ données: உறு, id: "" }));
+      அங்கீகரி_சரிபார்த்தல்({
+        மதிப்பு: புதுச_மதிப்பு,
+        குறிப்பு: [
+          {
+            பங்கேற்பாளர்: await வேறு_விண்மீன்.obtIdCompte(),
+            உரை: "தமிழ்",
+            எண்: 456,
+          },
+        ],
+      });
+    });
+
+    it("உறுப்படிகள் - புதுச பரிந்துரையைப் பயன்படுத்து", async () => {
+      const உறுப்படிகள் = new attente.AttendreRésultat<
+        அங்கீகரிக்கப்பட்ட_உறுப்படி_வகை<{ உரை: string; எண்: number }>[]
+      >();
+      மரந்துவிடு.push(async () => உறுப்படிகள்.toutAnnuler());
+      const உறுப்படிகளை_மறந்துவிடு = await என்_கிளி.உறுப்படிகளை_கேள்ளு({
+        செ: (உறு) => உறுப்படிகள்.mettreÀJour(உறு),
+      });
+      மரந்துவிடு.push(உறுப்படிகளை_மறந்துவிடு);
+
+      await என்_கிளி.பரிந்துரையு({
+        பரிந்துரை: {
+          உரை: "தமிழ்",
+          எண்: 123,
+        },
+      });
+
+
+      const மதிப்பு = (
+        await உறுப்படிகள்.attendreQue((உறு) => உறு.length > 0)
+      ).map((உறு) => ({ données: உறு, id: "" }));
+
+      அங்கீகரி_சரிபார்த்தல்({
+        மதிப்பு,
+        குறிப்பு: [
+          {
+            பங்கேற்பாளர்: await விண்மீன்.obtIdCompte(),
+            உரை: "தமிழ்",
+            எண்: 123,
+          },
+        ],
+      });
+
+      await என்_கிளி.பரிந்துரையு({
+        பரிந்துரை: {
+          உரை: "தமிழ்",
+          எண்: 456,
+        },
+      });
+
+      const புதுச_மதிப்பு = (
+        await உறுப்படிகள்.attendreQue(
+          (உறு) => உறு.length > 0 && உறு[0].எண் > 123,
+        )
+      ).map((உறு) => ({ données: உறு, id: "" }));
+      அங்கீகரி_சரிபார்த்தல்({
+        மதிப்பு: புதுச_மதிப்பு,
+        குறிப்பு: [
+          {
+            பங்கேற்பாளர்: await விண்மீன்.obtIdCompte(),
+            உரை: "தமிழ்",
+            எண்: 456,
+          },
+        ],
+      });
+    });
   });
 
   describe("இணைப்பு இல்லாத குழு", function () {
@@ -468,7 +905,9 @@ describe("கிளி", () => {
       பிணையம்_பரிந்துரை<{ உரை: string; எண்: number }>[]
     >();
 
-    const மரந்துவிடு: types.schémaFonctionOublier[] = [];
+    let மரந்துவிடு: types.schémaFonctionOublier[] = [
+      async () => பரிந்துரைகள்.toutAnnuler(),
+    ];
     before("தயாரிப்பு", async () => {
       const { clients, fOublier } = await utilsTestsClient.générerClients({
         n: isBrowser || isElectronRenderer ? 1 : 2, // உலாவியில் இரண்டு விண்மீன்களை ஒரே நேரத்தில் உருவாக்க முடியாது
@@ -523,6 +962,7 @@ describe("கிளி", () => {
 
     after(async () => {
       await Promise.all(மரந்துவிடு.map((செ) => செ()));
+      மரந்துவிடு = [];
     });
 
     it("பரிந்துரையு", async () => {
@@ -561,7 +1001,9 @@ describe("கிளி", () => {
       பிணையம்_பரிந்துரை<{ உரை: string; எண்: number }>[]
     >();
 
-    const மரந்துவிடு: types.schémaFonctionOublier[] = [];
+    let மரந்துவிடு: types.schémaFonctionOublier[] = [
+      async () => பரிந்துரைகள்.toutAnnuler(),
+    ];
     before("தயாரிப்பு", async () => {
       const { clients, fOublier } = await utilsTestsClient.générerClients({
         n: isBrowser || isElectronRenderer ? 1 : 2, // உலாவியில் இரண்டு விண்மீன்களை ஒரே நேரத்தில் உருவாக்க முடியாது
@@ -628,6 +1070,7 @@ describe("கிளி", () => {
 
     after(async () => {
       await Promise.all(மரந்துவிடு.map((செ) => செ()));
+      மரந்துவிடு = [];
     });
 
     it("பரிந்துரையு", async () => {
