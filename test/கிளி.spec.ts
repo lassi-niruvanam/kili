@@ -760,7 +760,9 @@ describe("கிளி", () => {
       });
     });
 
-    it("உறுப்படிகள் - அங்கீகரிக்கப்பட்ட மதிப்பைப் பயன்படுத்து", async () => {
+    it("உறுப்படிகள் - அங்கீகரிக்கப்பட்ட மதிப்பைப் பயன்படுத்து", async function () {
+      if (await வேறு_விண்மீன்.obtIdCompte() === await விண்மீன்.obtIdCompte()) this.skip();
+
       const பரிந்துரைகள் = new attente.AttendreRésultat<
         பிணையம்_பரிந்துரை<{ உரை: string; எண்: number }>[]
       >();
