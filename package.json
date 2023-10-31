@@ -7,11 +7,11 @@
   "scripts": {
     "தூயமைப்படுத்து": "rimraf dist",
     "தொகுப்பு": "pnpm புதுப்பிப்பு && pnpm தூயமைப்படுத்து && pnpm tspc -p tsconfig.build.json",
-    "சோதனை:node": "pnpm தொகுப்பு && pnpm aegir test -t node --cov -- --exit",
+    "சோதனை:கணு": "pnpm தொகுப்பு && pnpm aegir test -t node --cov -- --exit",
     "சோதனை:உலாவி": "pnpm தொகுப்பு && pnpm aegir test -t browser --cov",
     "சோதனை:எதிர்மின்னி-மத்தியமானது": "pnpm தொகுப்பு && pnpm aegir test -t electron-main --cov",
     "சோதனை:எதிர்மின்னி-வழங்கியது": "pnpm தொகுப்பு && pnpm aegir test -t electron-renderer --cov",
-    "சோதனை": "pnpm சோதனை:node && pnpm சோதனை:உலாவி",
+    "சோதனை": "pnpm சோதனை:கணு && pnpm சோதனை:உலாவி",
     "வடிவூட்டம்": "pnpm prettier --ignore-path .gitignore --write \"**/*.+(js|ts|json)\" && pnpm eslint --ext .js,.ts src",
     "வெளியிடு": "pnpm சோதனை && (git commit -a -m 'பதிப்பு' || true) && pnpm publish",
     "புதுப்பிப்பு": "pnpm genversion  --es6 --semi src/பதிப்பு.ts"

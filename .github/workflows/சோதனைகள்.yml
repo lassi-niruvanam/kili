@@ -34,7 +34,7 @@ jobs:
         run: npx playwright install
 
       - name: Vérifier les tests
-        run: pnpm சோதனை:node
+        run: pnpm சோதனை:கணு
 
       - name: Envoyer couverture à Codecov
         uses: codecov/codecov-action@v3
