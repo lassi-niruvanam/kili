@@ -15,9 +15,9 @@
     "noUnusedLocals": false,
     "noUnusedParameters": false,
     "paths": {
-      "@/*": ["src/*"]
+      "@/*": ["மூலம்/*"]
     },
-    "outDir": "./dist",
+    "outDir": "./விநியோகம்",
     "sourceMap": true,
     "strict": true,
     "strictPropertyInitialization": true,
@@ -34,5 +34,5 @@
       { "transform": "typescript-transform-paths", "afterDeclarations": true }
     ]
   },
-  "include": ["src", "test", "@வகைகள்"]
+  "include": ["மூலம்", "சோதனை", "@வகைகள்"]
 }
