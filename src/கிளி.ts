@@ -142,17 +142,21 @@ export class கிளி<
     விண்மீன்,
     வார்ப்புரு,
     அட்டவணை_சாபி,
+    பேற்றோர்,
     மாறிலிகள்,
   }: {
     விண்மீன்: client.default;
     வார்ப்புரு: bds.schémaSpécificationBd;
     அட்டவணை_சாபி: string;
+    பேற்றோர்?: string;
     மாறிலிகள்?: Partial<typeof முன்னிருப்பாக_மாறிலிகள்>;
   }): Promise<string> {
     if (!விண்மீன்.nuées || !விண்மீன்.bds)
       throw new Error("விண்மீன் தயராரானதில்லை");
 
-    const குழு_அடையாளம் = await விண்மீன்.nuées.créerNuée({});
+    const குழு_அடையாளம் = await விண்மீன்.nuées.créerNuée({
+      nuéeParent: பேற்றோர்
+    });
     வார்ப்புரு = this.வார்ப்புரு_தயாரிப்பு({
       வார்ப்புரு,
       அட்டவணை_சாபி,

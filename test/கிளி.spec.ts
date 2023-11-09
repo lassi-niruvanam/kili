@@ -602,6 +602,93 @@ describe("கிளி", () => {
     });
   });
 
+  describe("பேற்றோர்கள்", function () {
+    let விண்மீன்: ClientConstellation;
+    let வாடிகையாளர்கள்: ClientConstellation[];
+    let வார்ப்புரு: bds.schémaSpécificationBd;
+    let பேற்றோர்: string;
+    let குழு_அடையாளம்: string;
+
+    let விண்மீனை_மரந்துவிடு: types.schémaFonctionOublier | undefined =
+      undefined;
+    let மரந்துவிடு: types.schémaFonctionOublier[] = [];
+
+    before("தயாரிப்பு", async () => {
+      const { clients, fOublier } = await utilsTestsClient.générerClients({
+        n: 1,
+        type: "proc",
+        générerClient,
+      });
+      வாடிகையாளர்கள் = clients as ClientConstellation[];
+      விண்மீனை_மரந்துவிடு = fOublier;
+
+      விண்மீன் = வாடிகையாளர்கள்[0];
+    });
+
+    after(async () => {
+      if (விண்மீனை_மரந்துவிடு) await விண்மீனை_மரந்துவிடு();
+    });
+
+    this.beforeEach(async () => {
+      const உரை_மாறி = await விண்மீன்.variables.créerVariable({
+        catégorie: "chaîne",
+      });
+      const எண்_மாறி = await விண்மீன்.variables.créerVariable({
+        catégorie: "numérique",
+      });
+      const சிறப்பு_சொல் = await விண்மீன்.motsClefs.créerMotClef();
+
+      வார்ப்புரு = {
+        licence: "ODBl-1_0",
+        motsClefs: [சிறப்பு_சொல்],
+        tableaux: [
+          {
+            cols: [
+              {
+                idVariable: உரை_மாறி,
+                idColonne: "உரை",
+                index: true,
+              },
+              {
+                idVariable: எண்_மாறி,
+                idColonne: "எண்",
+              },
+            ],
+            clef: "அட்டவணை சாபி",
+          },
+          {
+            cols: [
+              {
+                idVariable: எண்_மாறி,
+                idColonne: "எண்",
+              },
+            ],
+            clef: "இன்னொரு அட்டவணை",
+          },
+        ],
+      };
+      பேற்றோர் = await கிளி.உருவாக்கு({
+        விண்மீன்,
+        வார்ப்புரு,
+        அட்டவணை_சாபி: "அட்டவணை சாபி",
+      })
+      குழு_அடையாளம் = await கிளி.உருவாக்கு({
+        விண்மீன்,
+        வார்ப்புரு,
+        பேற்றோர்,
+        அட்டவணை_சாபி: "அட்டவணை சாபி",
+      });
+    });
+
+    afterEach(async () => {
+      await Promise.all(மரந்துவிடு.map((செ) => செ()));
+      மரந்துவிடு = [];
+    });
+
+    it("பேற்றோரின் பரிந்துரைகள்");
+    it("பேற்றோரின் அங்கீகரிக்கப்பட்ட உறுப்படிகள்");
+  });
+
   describe("இணையம்", function () {
     let விண்மீன்: ClientConstellation;
     let வேறு_விண்மீன்: ClientConstellation;
