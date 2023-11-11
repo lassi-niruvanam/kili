@@ -28,17 +28,17 @@
   },
   "homepage": "https://github.com/julienmalard/nuchabal#readme",
   "devDependencies": {
-    "@constl/ipa": "^0.9.6",
-    "@constl/orbit-db-types": "^1.2.8",
-    "@constl/utils-tests": "^0.2.2",
-    "@types/mocha": "^10.0.3",
-    "@typescript-eslint/eslint-plugin": "^6.9.0",
-    "@typescript-eslint/parser": "^6.9.0",
-    "aegir": "^41.0.15",
+    "@constl/ipa": "^0.9.14",
+    "@constl/orbit-db-types": "^1.2.9",
+    "@constl/utils-tests": "^0.2.3",
+    "@types/mocha": "^10.0.4",
+    "@typescript-eslint/eslint-plugin": "^6.10.0",
+    "@typescript-eslint/parser": "^6.10.0",
+    "aegir": "^41.1.9",
     "browserify-fs": "^1.0.0",
     "buffer": "^6.0.3",
     "crypto-browserify": "^3.12.0",
-    "eslint": "^8.52.0",
+    "eslint": "^8.53.0",
     "eslint-config-prettier": "^9.0.0",
     "genversion": "^3.1.1",
     "mocha": "^10.2.0",
@@ -57,7 +57,7 @@
     "@constl/ipa": "^0.9.6"
   },
   "dependencies": {
-    "@constl/utils-ipa": "^0.2.1",
+    "@constl/utils-ipa": "^0.2.4",
     "@orbitdb/core": "^1.0.0",
     "deepcopy": "^2.1.0"
   }

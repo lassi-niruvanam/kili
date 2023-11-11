@@ -1,4 +1,14 @@
 import type { bds, client, tableaux, types, générerClient } from "@constl/ipa";
+
+import deepcopy from "deepcopy";
+
+import {
+  ignorerNonDéfinis,
+  suivreBdDeFonction,
+  uneFois,
+  suivreBdsDeFonctionListe,
+} from "@constl/utils-ipa";
+
 import {
   மாறிலிகள் as முன்னிருப்பாக_மாறிலிகள்,
   தேதி_நெடுவரிசை_அடையாளம்,
@@ -7,10 +17,21 @@ import {
   பங்கேற்பாளர்_மாறி_அடையாளம்,
   அங்கீகார_தத_மீதரவு_சாபி,
 } from "@/மாறிலிகள்.js";
-import { ignorerNonDéfinis, suivreBdDeFonction } from "@constl/utils-ipa";
-import deepcopy from "deepcopy";
-import { uneFois } from "@constl/utils-ipa";
 
+const குறியீட்டு_இல்லாமல்_வார்ப்புரு = (
+  வார்ப்புரு: bds.schémaSpécificationBd,
+): bds.schémaSpécificationBd => {
+  வார்ப்புரு = deepcopy(வார்ப்புரு);
+  வார்ப்புரு.tableaux = வார்ப்புரு.tableaux.map((tableau) => ({
+    clef: tableau.clef,
+    cols: tableau.cols.map((col) => ({
+      idColonne: col.idColonne,
+      idVariable: col.idVariable,
+      optionnelle: col.optionnelle,
+    })),
+  }));
+  return வார்ப்புரு;
+};
 export type பரிந்துரை_வகை = { [சாபி: string]: types.élémentsBd };
 export type தேதியுடன்_பரிந்துரை_வகை<
   வ extends பரிந்துரை_வகை,
@@ -76,12 +97,13 @@ export class கிளி<
 
     this.அட்டவணை_சாபி = அட்டவணை_சாபி;
     this.குழு_அடையாளம் = குழு_அடையாளம்;
-    this.வார்ப்புரு = கிளி.வார்ப்புரு_தயாரிப்பு({
+    வார்ப்புரு = கிளி.வார்ப்புரு_தயாரிப்பு({
       வார்ப்புரு,
       அட்டவணை_சாபி,
       குழு_அடையாளம்,
       மாறிலிகள்,
     });
+    this.வார்ப்புரு = குறியீட்டு_இல்லாமல்_வார்ப்புரு(வார்ப்புரு);
     this.மாறிலிகள் = Object.assign({}, முன்னிருப்பாக_மாறிலிகள், மாறிலிகள்);
   }
 
@@ -155,7 +177,7 @@ export class கிளி<
       throw new Error("விண்மீன் தயராரானதில்லை");
 
     const குழு_அடையாளம் = await விண்மீன்.nuées.créerNuée({
-      nuéeParent: பேற்றோர்
+      nuéeParent: பேற்றோர்,
     });
     வார்ப்புரு = this.வார்ப்புரு_தயாரிப்பு({
       வார்ப்புரு,
@@ -176,11 +198,11 @@ export class கிளி<
           idColonne: நெடுவரிசை.idColonne,
         });
         if (நெடுவரிசை.index) {
-          await விண்மீன்.nuées.changerColIndexTableauNuée({
+          /*await விண்மீன்.nuées.changerColIndexTableauNuée({
             idTableau: அட்டவணை_அடையாளம்,
             idColonne: நெடுவரிசை.idColonne,
             val: true,
-          });
+          });*/
         }
       }
       if (வார்ப்புரு.motsClefs) {
@@ -240,21 +262,30 @@ export class கிளி<
       >[]
     >;
   }): Promise<types.schémaFonctionOublier> {
-    return suivreBdDeFonction({
-      fRacine: async ({
-        fSuivreRacine,
-      }: {
-        fSuivreRacine: (nouvelIdBdCible?: string) => Promise<void>;
-      }) => {
-        return await this.அங்கீகார_தரவுத்தள்ளைப்_கேள்ளு({ செ: fSuivreRacine });
+    return await suivreBdsDeFonctionListe({
+      fListe: async (
+        fSuivreRacine: (parents: string[]) => Promise<void>,
+      ): Promise<types.schémaFonctionOublier> => {
+        return await this.விண்மீன்.nuées.suivreNuéesParents({
+          idNuée: this.குழு_அடையாளம்,
+          f: (பேற்றோர்கள்) =>
+            fSuivreRacine([this.குழு_அடையாளம், ...பேற்றோர்கள்].reverse()),
+        });
       },
-      f: ignorerNonDéfinis(செ),
-      fSuivre: async ({
-        id,
-        fSuivreBd,
-      }: {
-        id: string;
-        fSuivreBd: types.schémaFonctionSuivi<
+      f: async (
+        உறுப்படிகள்: tableaux.élémentDonnées<
+          அங்கீகரிக்கப்பட்ட_உறுப்படி_வகை<
+            வ,
+            பங்கேற்பாளர்_நெடுவரிசை_வ,
+            தேதி_நெடுவரிசை_வ
+          >
+        >[],
+      ) => {
+        return await செ(உறுப்படிகள்);
+      },
+      fBranche: async (
+        அடையாளம்: string,
+        fSuivreBranche: types.schémaFonctionSuivi<
           tableaux.élémentDonnées<
             அங்கீகரிக்கப்பட்ட_உறுப்படி_வகை<
               வ,
@@ -262,18 +293,47 @@ export class கிளி<
               தேதி_நெடுவரிசை_வ
             >
           >[]
-        >;
-      }) => {
-        return await this.விண்மீன்.bds.suivreDonnéesDeTableauParClef<
-          அங்கீகரிக்கப்பட்ட_உறுப்படி_வகை<
-            வ,
-            பங்கேற்பாளர்_நெடுவரிசை_வ,
-            தேதி_நெடுவரிசை_வ
-          >
-        >({
-          idBd: id,
-          clefTableau: this.அட்டவணை_சாபி,
-          f: fSuivreBd,
+        >,
+      ): Promise<types.schémaFonctionOublier> => {
+        return await suivreBdDeFonction({
+          fRacine: async ({
+            fSuivreRacine,
+          }: {
+            fSuivreRacine: (nouvelIdBdCible?: string) => Promise<void>;
+          }) => {
+            return await this.அங்கீகார_தரவுத்தள்ளைப்_கேள்ளு({
+              செ: fSuivreRacine,
+              அடையாளம்,
+            });
+          },
+          f: ignorerNonDéfinis(fSuivreBranche),
+          fSuivre: async ({
+            id,
+            fSuivreBd,
+          }: {
+            id: string;
+            fSuivreBd: types.schémaFonctionSuivi<
+              tableaux.élémentDonnées<
+                அங்கீகரிக்கப்பட்ட_உறுப்படி_வகை<
+                  வ,
+                  பங்கேற்பாளர்_நெடுவரிசை_வ,
+                  தேதி_நெடுவரிசை_வ
+                >
+              >[]
+            >;
+          }) => {
+            return await this.விண்மீன்.bds.suivreDonnéesDeTableauParClef<
+              அங்கீகரிக்கப்பட்ட_உறுப்படி_வகை<
+                வ,
+                பங்கேற்பாளர்_நெடுவரிசை_வ,
+                தேதி_நெடுவரிசை_வ
+              >
+            >({
+              idBd: id,
+              clefTableau: this.அட்டவணை_சாபி,
+              f: fSuivreBd,
+            });
+          },
         });
       },
     });
@@ -281,14 +341,17 @@ export class கிளி<
 
   async பரிந்துரைகளை_கேள்ளு({
     செ,
+    சந்ததி = true,
   }: {
     செ: types.schémaFonctionSuivi<பிணையம்_பரிந்துரை<வ, தேதி_நெடுவரிசை_வ>[]>;
+    சந்ததி?: boolean;
   }): Promise<types.schémaRetourFonctionRechercheParProfondeur> {
     return await this.விண்மீன்.nuées.suivreDonnéesTableauNuée<
       தேதியுடன்_பரிந்துரை_வகை<வ, தேதி_நெடுவரிசை_வ>
     >({
       idNuée: this.குழு_அடையாளம்,
       clefTableau: this.அட்டவணை_சாபி,
+      héritage: சந்ததி ? ["ascendance", "descendance"] : ["ascendance"],
       f: async (த) => {
         await செ(
           த.map((இ) => {
@@ -382,8 +445,10 @@ export class கிளி<
 
   async அங்கீகார_தரவுத்தள்ளைப்_கேள்ளு({
     செ,
+    அடையாளம்,
   }: {
     செ: types.schémaFonctionSuivi<string>;
+    அடையாளம்?: string;
   }): Promise<types.schémaFonctionOublier> {
     const இறுதியான_செயலி = async (மீத்தரவு: {
       [clef: string]: types.élémentsBd;
@@ -394,7 +459,7 @@ export class கிளி<
         return await செ(தரவுத்தள_அடையாளம்);
     };
     return await this.விண்மீன்.nuées.suivreMétadonnéesNuée({
-      idNuée: this.குழு_அடையாளம்,
+      idNuée: அடையாளம் || this.குழு_அடையாளம்,
       f: இறுதியான_செயலி,
     });
   }
@@ -424,19 +489,31 @@ export class கிளி<
     });
 
     const ஏற்கனவே_அங்கீகரிக்கப்பட்டவை = await uneFois(
-      async (செ: types.schémaFonctionSuivi<tableaux.élémentDonnées<அங்கீகரிக்கப்பட்ட_உறுப்படி_வகை<வ, பங்கேற்பாளர்_நெடுவரிசை_வ, தேதி_நெடுவரிசை_வ>>[]>) => {
+      async (
+        செ: types.schémaFonctionSuivi<
+          tableaux.élémentDonnées<
+            அங்கீகரிக்கப்பட்ட_உறுப்படி_வகை<
+              வ,
+              பங்கேற்பாளர்_நெடுவரிசை_வ,
+              தேதி_நெடுவரிசை_வ
+            >
+          >[]
+        >,
+      ) => {
         return await this.அங்கீகரிக்கப்பட்ட_உறுப்படிகளை_கேள்ளு({ செ });
       },
     );
 
-    const இருக்கும்_உறுப்படி = ஏற்கனவே_அங்கீகரிக்கப்பட்டவை.find(அங்கீ => this.குறியீட்டு_நெடுவரிசைகள்_சமம்(அங்கீ.données, பரிந்துரை_உறுப்படி))
+    const இருக்கும்_உறுப்படி = ஏற்கனவே_அங்கீகரிக்கப்பட்டவை.find((அங்கீ) =>
+      this.குறியீட்டு_நெடுவரிசைகள்_சமம்(அங்கீ.données, பரிந்துரை_உறுப்படி),
+    );
 
     if (இருக்கும்_உறுப்படி) {
       // இந்த குறியீட்டு நெடுவரிசைகளின் மதிப்புகளுடன் இன்னொரு அங்கீகரிக்கப்பட்ட பரிந்துரை ஏற்கனவே இருந்தால், அதை திருத்தவும்.
       // விண்மீனின் bds.ajouterÉlément என்று செயலிக்கு சமீபத்தில் வரும் மாற்றங்களுடன் ஒரு வேளை இது இனிமேல் தேவைப்படாது.
       await this.அங்கீகரிக்கப்பட்ட_உறுப்படியை_திருத்து({
         பரிந்துரை,
-        அடையாளம்: இருக்கும்_உறுப்படி.id
+        அடையாளம்: இருக்கும்_உறுப்படி.id,
       });
       return இருக்கும்_உறுப்படி.id;
     } else {
@@ -485,15 +562,26 @@ export class கிளி<
     });
   }
 
-  குறியீட்டு_நெடுவரிசைகள்_சமம்(இ:அங்கீகரிக்கப்பட்ட_உறுப்படி_வகை<வ, பங்கேற்பாளர்_நெடுவரிசை_வ, தேதி_நெடுவரிசை_வ>, ஈ: அங்கீகரிக்கப்பட்ட_உறுப்படி_வகை<வ, பங்கேற்பாளர்_நெடுவரிசை_வ, தேதி_நெடுவரிசை_வ>): boolean {
+  குறியீட்டு_நெடுவரிசைகள்_சமம்(
+    இ: அங்கீகரிக்கப்பட்ட_உறுப்படி_வகை<
+      வ,
+      பங்கேற்பாளர்_நெடுவரிசை_வ,
+      தேதி_நெடுவரிசை_வ
+    >,
+    ஈ: அங்கீகரிக்கப்பட்ட_உறுப்படி_வகை<
+      வ,
+      பங்கேற்பாளர்_நெடுவரிசை_வ,
+      தேதி_நெடுவரிசை_வ
+    >,
+  ): boolean {
     const குறியீட்டு_நெடுவரிசைகள் =
       this.வார்ப்புரு.tableaux
         .find((அட்டவணை) => அட்டவணை.clef === this.அட்டவணை_சாபி)
         ?.cols.filter((நெடுவரிசை) => நெடுவரிசை.index)
         .map((நெடுவரிசை) => நெடுவரிசை.idColonne) || [];
-      return குறியீட்டு_நெடுவரிசைகள்.every(
-        (நெடுவரிசை) => இ[நெடுவரிசை] === ஈ[நெடுவரிசை],
-      )
+    return குறியீட்டு_நெடுவரிசைகள்.every(
+      (நெடுவரிசை) => இ[நெடுவரிசை] === ஈ[நெடுவரிசை],
+    );
   }
 
   async உறுப்படிகளை_கேள்ளு({
@@ -525,7 +613,6 @@ export class கிளி<
       பந்திருரைக்கப்பட்டவை: [],
     };
 
-    
     const செ_கடைசி = async () => {
       const உறுப்படிகள்: அங்கீகரிக்கப்பட்ட_உறுப்படி_வகை<
         வ,
@@ -533,7 +620,9 @@ export class கிளி<
         தேதி_நெடுவரிசை_வ
       >[] = [];
       for (const ப of தகவல்கள்.பந்திருரைக்கப்பட்டவை) {
-        const முந்தையானது = உறுப்படிகள்.find((இ) => this.குறியீட்டு_நெடுவரிசைகள்_சமம்(இ, ப));
+        const முந்தையானது = உறுப்படிகள்.find((இ) =>
+          this.குறியீட்டு_நெடுவரிசைகள்_சமம்(இ, ப),
+        );
 
         if (முந்தையானது) {
           // எல்லோரை விட புதுமையான பரிந்துரையை மட்டும் உள்ளிடவும்
@@ -545,7 +634,7 @@ export class கிளி<
             தேதி_புதுசு &&
             தேதி_புதுசு > தேதி_முந்தையானது
           ) {
-            உறுப்படிகள்.splice(உறுப்படிகள்.indexOf(முந்தையானது), 1)
+            உறுப்படிகள்.splice(உறுப்படிகள்.indexOf(முந்தையானது), 1);
             உறுப்படிகள்.push(ப);
           }
         } else {
@@ -553,9 +642,11 @@ export class கிளி<
         }
       }
       for (const ப of தகவல்கள்.அங்கீகரிக்கப்பட்டவை) {
-        const முந்தையானது = உறுப்படிகள்.find((இ) => this.குறியீட்டு_நெடுவரிசைகள்_சமம்(இ, ப));
+        const முந்தையானது = உறுப்படிகள்.find((இ) =>
+          this.குறியீட்டு_நெடுவரிசைகள்_சமம்(இ, ப),
+        );
         if (முந்தையானது) {
-            உறுப்படிகள்.splice(உறுப்படிகள்.indexOf(முந்தையானது), 1)
+          உறுப்படிகள்.splice(உறுப்படிகள்.indexOf(முந்தையானது), 1);
         }
         உறுப்படிகள்.push(ப);
       }

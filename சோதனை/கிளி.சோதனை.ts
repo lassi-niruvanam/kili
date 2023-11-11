@@ -1,7 +1,4 @@
-import {
-  isBrowser,
-  isElectronRenderer,
-} from "wherearewe";
+import { isBrowser, isElectronRenderer } from "wherearewe";
 import {
   ClientConstellation,
   générerClient,
@@ -83,10 +80,10 @@ describe("கிளி", () => {
     let விண்மீன்: ClientConstellation;
     let வாடிகையாளர்கள்: ClientConstellation[];
     let வார்ப்புரு: bds.schémaSpécificationBd;
-    let மரந்துவிடு: types.schémaFonctionOublier;
+    let மறந்துவிடு: types.schémaFonctionOublier;
 
     before("தயாரிப்பு", async () => {
-      ({ clients: வாடிகையாளர்கள் as unknown, fOublier: மரந்துவிடு } =
+      ({ clients: வாடிகையாளர்கள் as unknown, fOublier: மறந்துவிடு } =
         await utilsTestsClient.générerClients({
           n: 1,
           type: "proc",
@@ -124,7 +121,7 @@ describe("கிளி", () => {
     });
 
     after(async () => {
-      if (மரந்துவிடு) await மரந்துவிடு();
+      if (மறந்துவிடு) await மறந்துவிடு();
     });
 
     it("வார்ப்புரு தயாரிப்பு", async () => {
@@ -180,9 +177,9 @@ describe("கிளி", () => {
       >[]
     >();
 
-    let விண்மீனை_மரந்துவிடு: types.schémaFonctionOublier | undefined =
+    let விண்மீனை_மறந்துவிடு: types.schémaFonctionOublier | undefined =
       undefined;
-    let மரந்துவிடு: types.schémaFonctionOublier[] = [];
+    let மறந்துவிடு: types.schémaFonctionOublier[] = [];
 
     before("தயாரிப்பு", async () => {
       const { clients, fOublier } = await utilsTestsClient.générerClients({
@@ -191,7 +188,7 @@ describe("கிளி", () => {
         générerClient,
       });
       வாடிகையாளர்கள் = clients as ClientConstellation[];
-      விண்மீனை_மரந்துவிடு = fOublier;
+      விண்மீனை_மறந்துவிடு = fOublier;
 
       விண்மீன் = வாடிகையாளர்கள்[0];
     });
@@ -199,7 +196,7 @@ describe("கிளி", () => {
     after(async () => {
       பரிந்துரைகள்.toutAnnuler();
       அங்கீகரிக்கப்பட்டவை.toutAnnuler();
-      if (விண்மீனை_மரந்துவிடு) await விண்மீனை_மரந்துவிடு();
+      if (விண்மீனை_மறந்துவிடு) await விண்மீனை_மறந்துவிடு();
     });
 
     this.beforeEach(async () => {
@@ -253,22 +250,22 @@ describe("கிளி", () => {
         வார்ப்புரு,
       });
 
-      const { fOublier: பரிந்துரைகளை_மரந்துவிடு } =
+      const { fOublier: பரிந்துரைகளை_மறந்துவிடு } =
         await என்_கிளி.பரிந்துரைகளை_கேள்ளு({
           செ: (ப) => பரிந்துரைகள்.mettreÀJour(ப),
         });
-      மரந்துவிடு.push(பரிந்துரைகளை_மரந்துவிடு);
+      மறந்துவிடு.push(பரிந்துரைகளை_மறந்துவிடு);
 
-      const அங்கீகரிக்கப்பட்டவையை_மரந்துவிடு =
+      const அங்கீகரிக்கப்பட்டவையை_மறந்துவிடு =
         await என்_கிளி.அங்கீகரிக்கப்பட்ட_உறுப்படிகளை_கேள்ளு({
           செ: (உறுப்படி) => அங்கீகரிக்கப்பட்டவை.mettreÀJour(உறுப்படி),
         });
-      மரந்துவிடு.push(அங்கீகரிக்கப்பட்டவையை_மரந்துவிடு);
+      மறந்துவிடு.push(அங்கீகரிக்கப்பட்டவையை_மறந்துவிடு);
     });
 
     afterEach(async () => {
-      await Promise.all(மரந்துவிடு.map((செ) => செ()));
-      மரந்துவிடு = [];
+      await Promise.all(மறந்துவிடு.map((செ) => செ()));
+      மறந்துவிடு = [];
     });
 
     it("பரிந்துரையு", async () => {
@@ -324,6 +321,7 @@ describe("கிளி", () => {
         குறிப்பு,
       });
     });
+
     it("பரிந்துரையை நீக்கு", async () => {
       const பரிந்துரை_அடையாளம் = await என்_கிளி.பரிந்துரையு({
         பரிந்துரை: {
@@ -462,9 +460,9 @@ describe("கிளி", () => {
     let வார்ப்புரு: bds.schémaSpécificationBd;
     let குழு_அடையாளம்: string;
 
-    let விண்மீனை_மரந்துவிடு: types.schémaFonctionOublier | undefined =
+    let விண்மீனை_மறந்துவிடு: types.schémaFonctionOublier | undefined =
       undefined;
-    let மரந்துவிடு: types.schémaFonctionOublier[] = [];
+    let மறந்துவிடு: types.schémaFonctionOublier[] = [];
 
     before("தயாரிப்பு", async () => {
       const { clients, fOublier } = await utilsTestsClient.générerClients({
@@ -473,13 +471,13 @@ describe("கிளி", () => {
         générerClient,
       });
       வாடிகையாளர்கள் = clients as ClientConstellation[];
-      விண்மீனை_மரந்துவிடு = fOublier;
+      விண்மீனை_மறந்துவிடு = fOublier;
 
       விண்மீன் = வாடிகையாளர்கள்[0];
     });
 
     after(async () => {
-      if (விண்மீனை_மரந்துவிடு) await விண்மீனை_மரந்துவிடு();
+      if (விண்மீனை_மறந்துவிடு) await விண்மீனை_மறந்துவிடு();
     });
 
     this.beforeEach(async () => {
@@ -531,8 +529,8 @@ describe("கிளி", () => {
     });
 
     afterEach(async () => {
-      await Promise.all(மரந்துவிடு.map((செ) => செ()));
-      மரந்துவிடு = [];
+      await Promise.all(மறந்துவிடு.map((செ) => செ()));
+      மறந்துவிடு = [];
     });
 
     it("வேறு தேதி மற்றும் பங்கேற்பாளர் நெடுவரிசை பெயர்", async () => {
@@ -564,17 +562,17 @@ describe("கிளி", () => {
         },
       });
 
-      const { fOublier: பரிந்துரைகளை_மரந்துவிடு } =
+      const { fOublier: பரிந்துரைகளை_மறந்துவிடு } =
         await என்_கிளி.பரிந்துரைகளை_கேள்ளு({
           செ: (ப) => பரிந்துரைகள்.mettreÀJour(ப),
         });
-      மரந்துவிடு.push(பரிந்துரைகளை_மரந்துவிடு);
+      மறந்துவிடு.push(பரிந்துரைகளை_மறந்துவிடு);
 
-      const அங்கீகரிக்கப்பட்டவையை_மரந்துவிடு =
+      const அங்கீகரிக்கப்பட்டவையை_மறந்துவிடு =
         await என்_கிளி.அங்கீகரிக்கப்பட்ட_உறுப்படிகளை_கேள்ளு({
           செ: (உறுப்படி) => அங்கீகரிக்கப்பட்டவை.mettreÀJour(உறுப்படி),
         });
-      மரந்துவிடு.push(அங்கீகரிக்கப்பட்டவையை_மரந்துவிடு);
+      மறந்துவிடு.push(அங்கீகரிக்கப்பட்டவையை_மறந்துவிடு);
 
       await என்_கிளி.பரிந்துரையு({
         பரிந்துரை: {
@@ -605,13 +603,15 @@ describe("கிளி", () => {
   describe("பேற்றோர்கள்", function () {
     let விண்மீன்: ClientConstellation;
     let வாடிகையாளர்கள்: ClientConstellation[];
+    let என்_கிளி: கிளி<{ உரை: string; எண்: number }>;
+    let கிளியின்_பேற்றோர்: கிளி<{ உரை: string; எண்: number }>;
     let வார்ப்புரு: bds.schémaSpécificationBd;
     let பேற்றோர்: string;
     let குழு_அடையாளம்: string;
 
-    let விண்மீனை_மரந்துவிடு: types.schémaFonctionOublier | undefined =
+    let விண்மீனை_மறந்துவிடு: types.schémaFonctionOublier | undefined =
       undefined;
-    let மரந்துவிடு: types.schémaFonctionOublier[] = [];
+    let மறந்துவிடு: types.schémaFonctionOublier[] = [];
 
     before("தயாரிப்பு", async () => {
       const { clients, fOublier } = await utilsTestsClient.générerClients({
@@ -620,16 +620,16 @@ describe("கிளி", () => {
         générerClient,
       });
       வாடிகையாளர்கள் = clients as ClientConstellation[];
-      விண்மீனை_மரந்துவிடு = fOublier;
+      விண்மீனை_மறந்துவிடு = fOublier;
 
       விண்மீன் = வாடிகையாளர்கள்[0];
     });
 
     after(async () => {
-      if (விண்மீனை_மரந்துவிடு) await விண்மீனை_மரந்துவிடு();
+      if (விண்மீனை_மறந்துவிடு) await விண்மீனை_மறந்துவிடு();
     });
 
-    this.beforeEach(async () => {
+    beforeEach(async () => {
       const உரை_மாறி = await விண்மீன்.variables.créerVariable({
         catégorie: "chaîne",
       });
@@ -671,22 +671,112 @@ describe("கிளி", () => {
         விண்மீன்,
         வார்ப்புரு,
         அட்டவணை_சாபி: "அட்டவணை சாபி",
-      })
+      });
       குழு_அடையாளம் = await கிளி.உருவாக்கு({
         விண்மீன்,
         வார்ப்புரு,
         பேற்றோர்,
         அட்டவணை_சாபி: "அட்டவணை சாபி",
       });
+      என்_கிளி = new கிளி({
+        விண்மீன்,
+        அட்டவணை_சாபி: "அட்டவணை சாபி",
+        குழு_அடையாளம்,
+        வார்ப்புரு,
+      });
+      கிளியின்_பேற்றோர் = new கிளி({
+        விண்மீன்,
+        அட்டவணை_சாபி: "அட்டவணை சாபி",
+        குழு_அடையாளம்: பேற்றோர்,
+        வார்ப்புரு,
+      });
     });
 
     afterEach(async () => {
-      await Promise.all(மரந்துவிடு.map((செ) => செ()));
-      மரந்துவிடு = [];
+      await Promise.all(மறந்துவிடு.map((செ) => செ()));
+      மறந்துவிடு = [];
     });
 
-    it("பேற்றோரின் பரிந்துரைகள்");
-    it("பேற்றோரின் அங்கீகரிக்கப்பட்ட உறுப்படிகள்");
+    it("பேற்றோரின் பரிந்துரைகள்", async () => {
+      const பரிந்துரைகள் = new attente.AttendreRésultat<
+        பிணையம்_பரிந்துரை<{ உரை: string; எண்: number }>[]
+      >();
+      const { fOublier: என்_பரிந்துரைகளை_மறந்துவிடு } =
+        await என்_கிளி.பரிந்துரைகளை_கேள்ளு({
+          செ: (ப) => பரிந்துரைகள்.mettreÀJour(ப),
+        });
+      மறந்துவிடு.push(என்_பரிந்துரைகளை_மறந்துவிடு);
+
+      await கிளியின்_பேற்றோர்.பரிந்துரையு({
+        பரிந்துரை: {
+          எண்: 123,
+          உரை: "சரகம",
+        },
+      });
+      const மதிப்பு = await பரிந்துரைகள்.attendreQue((ப) => ப.length > 0);
+      பரிந்துரையு_சரிபார்த்தல்({
+        மதிப்பு,
+        குறிப்பு: [
+          {
+            பரிந்துரை: {
+              உரை: "சரகம",
+              எண்: 123,
+            },
+            பங்கேற்பாளர்: await விண்மீன்.obtIdCompte(),
+          },
+        ],
+      });
+    });
+
+    it("பேற்றோரின் அங்கீகரிக்கப்பட்ட உறுப்படிகள்", async () => {
+      const பரிந்துரைகள் = new attente.AttendreRésultat<
+        பிணையம்_பரிந்துரை<{ உரை: string; எண்: number }>[]
+      >();
+      const { fOublier: என்_பரிந்துரைகளை_மறந்துவிடு } =
+        await என்_கிளி.பரிந்துரைகளை_கேள்ளு({
+          செ: (ப) => பரிந்துரைகள்.mettreÀJour(ப),
+        });
+      மறந்துவிடு.push(என்_பரிந்துரைகளை_மறந்துவிடு);
+
+      const அங்கீகருக்கப்பட்டவை = new attente.AttendreRésultat<
+        tableaux.élémentDonnées<
+          அங்கீகரிக்கப்பட்ட_உறுப்படி_வகை<{ உரை: string; எண்: number }>
+        >[]
+      >();
+      const அங்கீகருக்கப்பட்டவையை_மறந்துவிடு =
+        await என்_கிளி.அங்கீகரிக்கப்பட்ட_உறுப்படிகளை_கேள்ளு({
+          செ: (அங்கீ) => அங்கீகருக்கப்பட்டவை.mettreÀJour(அங்கீ),
+        });
+      மறந்துவிடு.push(அங்கீகருக்கப்பட்டவையை_மறந்துவிடு);
+
+      await கிளியின்_பேற்றோர்.பரிந்துரையு({
+        பரிந்துரை: {
+          எண்: 123,
+          உரை: "சரகம",
+        },
+      });
+      const பரிந்துரை = (
+        await பரிந்துரைகள்.attendreQue((ப) => ப.length > 0)
+      )[0];
+      await கிளியின்_பேற்றோர்.அங்கீகரி({
+        பரிந்துரை,
+      });
+
+      const மதிப்பு = await அங்கீகருக்கப்பட்டவை.attendreQue(
+        (அங்கீ) => அங்கீ.length > 0,
+      );
+      expect(மதிப்பு).to.deep.eq([
+        {
+          données: {
+            பங்கேற்பாளர்: await விண்மீன்.obtIdCompte(),
+            உரை: "சரகம",
+            எண்: 123,
+            தேதி: மதிப்பு[0].données.தேதி,
+          },
+          id: மதிப்பு[0].id,
+        },
+      ]);
+    });
   });
 
   describe("இணையம்", function () {
@@ -699,9 +789,9 @@ describe("கிளி", () => {
     let என்_கிளி: கிளி<{ உரை: string; எண்: number }>;
     let வேறு_கிளி: கிளி<{ உரை: string; எண்: number }>;
 
-    let விண்மீனை_மரந்துவிடு: types.schémaFonctionOublier | undefined =
+    let விண்மீனை_மறந்துவிடு: types.schémaFonctionOublier | undefined =
       undefined;
-    let மரந்துவிடு: types.schémaFonctionOublier[] = [];
+    let மறந்துவிடு: types.schémaFonctionOublier[] = [];
 
     before("தயாரிப்பு", async () => {
       const { clients, fOublier } = await utilsTestsClient.générerClients({
@@ -710,14 +800,14 @@ describe("கிளி", () => {
         générerClient,
       });
       வாடிகையாளர்கள் = clients as ClientConstellation[];
-      விண்மீனை_மரந்துவிடு = fOublier;
+      விண்மீனை_மறந்துவிடு = fOublier;
 
       விண்மீன் = வாடிகையாளர்கள்[0];
       வேறு_விண்மீன் = வாடிகையாளர்கள்[வாடிகையாளர்கள்.length - 1];
     });
 
     after(async () => {
-      if (விண்மீனை_மரந்துவிடு) await விண்மீனை_மரந்துவிடு();
+      if (விண்மீனை_மறந்துவிடு) await விண்மீனை_மறந்துவிடு();
     });
 
     this.beforeEach(async () => {
@@ -780,19 +870,19 @@ describe("கிளி", () => {
     });
 
     afterEach(async () => {
-      await Promise.all(மரந்துவிடு.map((செ) => செ()));
-      மரந்துவிடு = [];
+      await Promise.all(மறந்துவிடு.map((செ) => செ()));
+      மறந்துவிடு = [];
     });
 
     it("உறுப்படிகள் - எனது பரிந்துரைகள்", async () => {
       const உறுப்படிகள் = new attente.AttendreRésultat<
         அங்கீகரிக்கப்பட்ட_உறுப்படி_வகை<{ உரை: string; எண்: number }>[]
       >();
-      மரந்துவிடு.push(async () => உறுப்படிகள்.toutAnnuler());
+      மறந்துவிடு.push(async () => உறுப்படிகள்.toutAnnuler());
       const உறுப்படிகளை_மறந்துவிடு = await என்_கிளி.உறுப்படிகளை_கேள்ளு({
         செ: (உறு) => உறுப்படிகள்.mettreÀJour(உறு),
       });
-      மரந்துவிடு.push(உறுப்படிகளை_மறந்துவிடு);
+      மறந்துவிடு.push(உறுப்படிகளை_மறந்துவிடு);
 
       await என்_கிளி.பரிந்துரையு({
         பரிந்துரை: {
@@ -819,12 +909,12 @@ describe("கிளி", () => {
       const உறுப்படிகள் = new attente.AttendreRésultat<
         அங்கீகரிக்கப்பட்ட_உறுப்படி_வகை<{ உரை: string; எண்: number }>[]
       >();
-      மரந்துவிடு.push(async () => உறுப்படிகள்.toutAnnuler());
+      மறந்துவிடு.push(async () => உறுப்படிகள்.toutAnnuler());
       const உறுப்படிகளை_மறந்துவிடு = await என்_கிளி.உறுப்படிகளை_கேள்ளு({
         செ: (உறு) => உறுப்படிகள்.mettreÀJour(உறு),
         பரிந்துரைகள்: "அனைத்தும்",
       });
-      மரந்துவிடு.push(உறுப்படிகளை_மறந்துவிடு);
+      மறந்துவிடு.push(உறுப்படிகளை_மறந்துவிடு);
 
       await வேறு_கிளி.பரிந்துரையு({
         பரிந்துரை: {
@@ -848,26 +938,29 @@ describe("கிளி", () => {
     });
 
     it("உறுப்படிகள் - அங்கீகரிக்கப்பட்ட மதிப்பைப் பயன்படுத்து", async function () {
-      if (await வேறு_விண்மீன்.obtIdCompte() === await விண்மீன்.obtIdCompte()) this.skip();
+      if (
+        (await வேறு_விண்மீன்.obtIdCompte()) === (await விண்மீன்.obtIdCompte())
+      )
+        this.skip();
 
       const பரிந்துரைகள் = new attente.AttendreRésultat<
         பிணையம்_பரிந்துரை<{ உரை: string; எண்: number }>[]
       >();
-      மரந்துவிடு.push(async () => உறுப்படிகள்.toutAnnuler());
+      மறந்துவிடு.push(async () => உறுப்படிகள்.toutAnnuler());
       const { fOublier: பரிந்துரைகள்_மறந்துவிடு } =
         await என்_கிளி.பரிந்துரைகளை_கேள்ளு({
           செ: (ப) => பரிந்துரைகள்.mettreÀJour(ப),
         });
-      மரந்துவிடு.push(பரிந்துரைகள்_மறந்துவிடு);
+      மறந்துவிடு.push(பரிந்துரைகள்_மறந்துவிடு);
 
       const உறுப்படிகள் = new attente.AttendreRésultat<
         அங்கீகரிக்கப்பட்ட_உறுப்படி_வகை<{ உரை: string; எண்: number }>[]
       >();
-      மரந்துவிடு.push(async () => உறுப்படிகள்.toutAnnuler());
+      மறந்துவிடு.push(async () => உறுப்படிகள்.toutAnnuler());
       const உறுப்படிகளை_மறந்துவிடு = await என்_கிளி.உறுப்படிகளை_கேள்ளு({
         செ: (உறு) => உறுப்படிகள்.mettreÀJour(உறு),
       });
-      மரந்துவிடு.push(உறுப்படிகளை_மறந்துவிடு);
+      மறந்துவிடு.push(உறுப்படிகளை_மறந்துவிடு);
 
       await வேறு_கிளி.பரிந்துரையு({
         பரிந்துரை: {
@@ -928,11 +1021,11 @@ describe("கிளி", () => {
       const உறுப்படிகள் = new attente.AttendreRésultat<
         அங்கீகரிக்கப்பட்ட_உறுப்படி_வகை<{ உரை: string; எண்: number }>[]
       >();
-      மரந்துவிடு.push(async () => உறுப்படிகள்.toutAnnuler());
+      மறந்துவிடு.push(async () => உறுப்படிகள்.toutAnnuler());
       const உறுப்படிகளை_மறந்துவிடு = await என்_கிளி.உறுப்படிகளை_கேள்ளு({
         செ: (உறு) => உறுப்படிகள்.mettreÀJour(உறு),
       });
-      மரந்துவிடு.push(உறுப்படிகளை_மறந்துவிடு);
+      மறந்துவிடு.push(உறுப்படிகளை_மறந்துவிடு);
 
       await என்_கிளி.பரிந்துரையு({
         பரிந்துரை: {
@@ -940,7 +1033,6 @@ describe("கிளி", () => {
           எண்: 123,
         },
       });
-
 
       const மதிப்பு = (
         await உறுப்படிகள்.attendreQue((உறு) => உறு.length > 0)
@@ -995,7 +1087,7 @@ describe("கிளி", () => {
       பிணையம்_பரிந்துரை<{ உரை: string; எண்: number }>[]
     >();
 
-    let மரந்துவிடு: types.schémaFonctionOublier[] = [
+    let மறந்துவிடு: types.schémaFonctionOublier[] = [
       async () => பரிந்துரைகள்.toutAnnuler(),
     ];
     before("தயாரிப்பு", async () => {
@@ -1005,7 +1097,7 @@ describe("கிளி", () => {
         générerClient,
       });
       வாடிகையாளர்கள் = clients as ClientConstellation[];
-      மரந்துவிடு.push(fOublier);
+      மறந்துவிடு.push(fOublier);
 
       விண்மீன் = வாடிகையாளர்கள்[0];
       வேறு_விண்மீன் = வாடிகையாளர்கள்[வாடிகையாளர்கள்.length - 1];
@@ -1043,16 +1135,16 @@ describe("கிளி", () => {
         வார்ப்புரு,
       });
 
-      const { fOublier: பரிந்துரைகளை_மரந்துவிடு } =
+      const { fOublier: பரிந்துரைகளை_மறந்துவிடு } =
         await என்_கிளி.பரிந்துரைகளை_கேள்ளு({
           செ: (ப) => பரிந்துரைகள்.mettreÀJour(ப),
         });
-      மரந்துவிடு.push(பரிந்துரைகளை_மரந்துவிடு);
+      மறந்துவிடு.push(பரிந்துரைகளை_மறந்துவிடு);
     });
 
     after(async () => {
-      await Promise.all(மரந்துவிடு.map((செ) => செ()));
-      மரந்துவிடு = [];
+      await Promise.all(மறந்துவிடு.map((செ) => செ()));
+      மறந்துவிடு = [];
     });
 
     it("பரிந்துரையு", async () => {
@@ -1091,7 +1183,7 @@ describe("கிளி", () => {
       பிணையம்_பரிந்துரை<{ உரை: string; எண்: number }>[]
     >();
 
-    let மரந்துவிடு: types.schémaFonctionOublier[] = [
+    let மறந்துவிடு: types.schémaFonctionOublier[] = [
       async () => பரிந்துரைகள்.toutAnnuler(),
     ];
     before("தயாரிப்பு", async () => {
@@ -1101,7 +1193,7 @@ describe("கிளி", () => {
         générerClient,
       });
       வாடிகையாளர்கள் = clients as ClientConstellation[];
-      மரந்துவிடு.push(fOublier);
+      மறந்துவிடு.push(fOublier);
 
       விண்மீன் = வாடிகையாளர்கள்[0];
       வேறு_விண்மீன் = வாடிகையாளர்கள்[வாடிகையாளர்கள்.length - 1]; // உலாவியில் இரண்டு விண்மீன்களை ஒரே நேரத்தில் உருவாக்க முடியாது
@@ -1151,16 +1243,16 @@ describe("கிளி", () => {
         வார்ப்புரு,
       });
 
-      const { fOublier: பரிந்துரைகளை_மரந்துவிடு } =
+      const { fOublier: பரிந்துரைகளை_மறந்துவிடு } =
         await என்_கிளி.பரிந்துரைகளை_கேள்ளு({
           செ: (ப) => பரிந்துரைகள்.mettreÀJour(ப),
         });
-      மரந்துவிடு.push(பரிந்துரைகளை_மரந்துவிடு);
+      மறந்துவிடு.push(பரிந்துரைகளை_மறந்துவிடு);
     });
 
     after(async () => {
-      await Promise.all(மரந்துவிடு.map((செ) => செ()));
-      மரந்துவிடு = [];
+      await Promise.all(மறந்துவிடு.map((செ) => செ()));
+      மறந்துவிடு = [];
     });
 
     it("பரிந்துரையு", async () => {
