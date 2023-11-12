@@ -5,6 +5,9 @@ settings:
   excludeLinksFromLockfile: false
 
 dependencies:
+  '@achingbrain/nat-port-mapper':
+    specifier: 1.0.8
+    version: 1.0.8
   '@constl/utils-ipa':
     specifier: ^0.2.4
     version: 0.2.4
