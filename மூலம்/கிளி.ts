@@ -1,4 +1,4 @@
-import type { bds, client, tableaux, types, générerClient } from "@constl/ipa";
+import type { ClientConstellation, bds, tableaux, types, générerClient } from "@constl/ipa";
 
 import deepcopy from "deepcopy";
 
@@ -167,7 +167,7 @@ export class கிளி<
     பேற்றோர்,
     மாறிலிகள்,
   }: {
-    விண்மீன்: client.default;
+    விண்மீன்: ClientConstellation;
     வார்ப்புரு: bds.schémaSpécificationBd;
     அட்டவணை_சாபி: string;
     பேற்றோர்?: string;

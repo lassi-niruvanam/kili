@@ -17,8 +17,8 @@ dependencies:
 
 devDependencies:
   '@constl/ipa':
-    specifier: ^0.9.14
-    version: 0.9.14(wrtc@0.4.7)
+    specifier: ^0.9.16
+    version: 0.9.16(wrtc@0.4.7)
   '@constl/orbit-db-types':
     specifier: ^1.2.9
     version: 1.2.9
@@ -1136,8 +1136,8 @@ packages:
       - supports-color
     dev: true
 
-  /@constl/ipa@0.9.14(wrtc@0.4.7):
-    resolution: {integrity: sha512-GaNLuQy0gwC1Mq3RFFKG9pfrgpeOA4ZM8vR7xA9Id+HBzNXPkV2zy30pZXa2iTbjBUxRpfB//j2DITOTrMwBQQ==}
+  /@constl/ipa@0.9.16(wrtc@0.4.7):
+    resolution: {integrity: sha512-S+EW4FToU0ZzZrSiO0p7RNN2+2iDHRH80UFoQA/omz4LM948oQlAq7oVOzjVLIpmGfAvgbsS4cKrJFjpakTFcQ==}
     engines: {node: '>=20'}
     peerDependencies:
       wrtc: ^0.4.7
@@ -1152,7 +1152,7 @@ packages:
       '@constl/orbit-db-kuiper': 0.0.2
       '@constl/utils-ipa': 0.2.4
       '@ipld/dag-cbor': 9.0.6
-      '@lassi-js/kili': 0.3.2(@constl/ipa@0.9.14)
+      '@lassi-js/kili': 0.3.3(@constl/ipa@0.9.16)
       '@libp2p/interface-transport': 4.0.3
       '@libp2p/mplex': 8.0.4
       '@libp2p/tcp': 7.0.3
@@ -1170,7 +1170,7 @@ packages:
       crypto-js: 4.2.0
       deep-equal: 2.2.3
       deepcopy: 2.1.0
-      ennikkai: 2.2.3(@constl/ipa@0.9.14)
+      ennikkai: 2.2.3(@constl/ipa@0.9.16)
       events: 3.3.0
       genversion: 3.1.1
       geojson-validation: 1.0.2
@@ -1663,12 +1663,12 @@ packages:
       '@jridgewell/sourcemap-codec': 1.4.15
     dev: true
 
-  /@lassi-js/kili@0.3.2(@constl/ipa@0.9.14):
-    resolution: {integrity: sha512-JjohpwAB7QbyZGL3oA7HurzkP/vf6MqGTf61BoBsbkCOQSTN+EfiagC6gyUCZjk6zeOU4gMqOwjq56w9IvGcCw==}
+  /@lassi-js/kili@0.3.3(@constl/ipa@0.9.16):
+    resolution: {integrity: sha512-/sXrWekv36LLWJaMIFr1TSVEpSC6bh5aHrY0ccLmZwi+AQSiOXgxgZfRsq3XJt/oEOcLHNh0svA9NoTNOshCVw==}
     peerDependencies:
       '@constl/ipa': ^0.9.6
     dependencies:
-      '@constl/ipa': 0.9.14(wrtc@0.4.7)
+      '@constl/ipa': 0.9.16(wrtc@0.4.7)
       '@constl/utils-ipa': 0.2.4
       '@orbitdb/core': 1.0.0
       deepcopy: 2.1.0
@@ -6004,13 +6004,13 @@ packages:
     engines: {node: '>=10.0.0'}
     dev: true
 
-  /ennikkai@2.2.3(@constl/ipa@0.9.14):
+  /ennikkai@2.2.3(@constl/ipa@0.9.16):
     resolution: {integrity: sha512-LXuW3RRO3eWEb7dV6zVOPH23Lv3CVghDaV6Hdl4+CWI8o4rluD+TZBwohJMzc6+GTN2t3rL/R0fdYJ4FOwtZkA==}
     peerDependencies:
       '@constl/ipa': ^0.9.6
     dependencies:
-      '@constl/ipa': 0.9.14(wrtc@0.4.7)
-      '@lassi-js/kili': 0.3.2(@constl/ipa@0.9.14)
+      '@constl/ipa': 0.9.16(wrtc@0.4.7)
+      '@lassi-js/kili': 0.3.3(@constl/ipa@0.9.16)
       deepmerge: 4.3.1
       events: 3.3.0
     transitivePeerDependencies:

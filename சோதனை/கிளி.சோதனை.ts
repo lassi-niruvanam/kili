@@ -1278,4 +1278,100 @@ describe("கிளி", () => {
       });
     });
   });
+
+  describe("இணைப்பு இல்லாத மாறிகள்", function () {
+    let விண்மீன்: ClientConstellation;
+    let வேறு_விண்மீன்: ClientConstellation;
+    let வாடிகையாளர்கள்: ClientConstellation[];
+    let என்_கிளி: கிளி<{ உரை: string; எண்: number }>;
+
+    const கிடைக்காத_மாறி =
+      "/orbitdb/zdpuAsiATt21PFpiHj8qLX7X7kN3bgozZmகிடைக்கமாட்டேன்";
+    const பரிந்துரைகள் = new attente.AttendreRésultat<
+      பிணையம்_பரிந்துரை<{ உரை: string; எண்: number }>[]
+    >();
+
+    let மறந்துவிடு: types.schémaFonctionOublier[] = [
+      async () => பரிந்துரைகள்.toutAnnuler(),
+    ];
+
+    before("தயாரிப்பு", async () => {
+      const { clients, fOublier } = await utilsTestsClient.générerClients({
+        n: isBrowser || isElectronRenderer ? 1 : 2, // உலாவியில் இரண்டு விண்மீன்களை ஒரே நேரத்தில் உருவாக்க முடியாது
+        type: "proc",
+        générerClient,
+      });
+      வாடிகையாளர்கள் = clients as ClientConstellation[];
+      மறந்துவிடு.push(fOublier);
+
+      விண்மீன் = வாடிகையாளர்கள்[0];
+      வேறு_விண்மீன் = வாடிகையாளர்கள்[வாடிகையாளர்கள்.length - 1]; // உலாவியில் இரண்டு விண்மீன்களை ஒரே நேரத்தில் உருவாக்க முடியாது
+
+      const வார்ப்புரு: bds.schémaSpécificationBd = {
+        licence: "ODBl-1_0",
+        tableaux: [
+          {
+            cols: [
+              {
+                idVariable: கிடைக்காத_மாறி,
+                idColonne: "உரை",
+              },
+              {
+                idVariable: கிடைக்காத_மாறி,
+                idColonne: "எண்",
+              },
+            ],
+            clef: "அட்டவணை சாபி",
+          },
+        ],
+      };
+
+      const குழு_அடையாளம் = await கிளி.உருவாக்கு({
+        விண்மீன்,
+        வார்ப்புரு,
+        அட்டவணை_சாபி: "அட்டவணை சாபி",
+      });
+
+      என்_கிளி = new கிளி({
+        விண்மீன்: வேறு_விண்மீன்,
+        அட்டவணை_சாபி: "அட்டவணை சாபி",
+        குழு_அடையாளம்,
+        வார்ப்புரு,
+      });
+
+      const { fOublier: பரிந்துரைகளை_மறந்துவிடு } =
+        await என்_கிளி.பரிந்துரைகளை_கேள்ளு({
+          செ: (ப) => பரிந்துரைகள்.mettreÀJour(ப),
+        });
+      மறந்துவிடு.push(பரிந்துரைகளை_மறந்துவிடு);
+    });
+
+    after(async () => {
+      await Promise.all(மறந்துவிடு.map((செ) => செ()));
+      மறந்துவிடு = [];
+    });
+
+    it("பரிந்துரையு", async () => {
+      await என்_கிளி.பரிந்துரையு({
+        பரிந்துரை: {
+          உரை: "தமிழ்",
+          எண்: 123,
+        },
+      });
+      const மதிப்பு = await பரிந்துரைகள்.attendreQue((ப) => ப.length > 0);
+      const குறிப்பு = [
+        {
+          பரிந்துரை: {
+            உரை: "தமிழ்",
+            எண்: 123,
+          },
+          பங்கேற்பாளர்: await வேறு_விண்மீன்.obtIdCompte(),
+        },
+      ];
+      பரிந்துரையு_சரிபார்த்தல்({
+        மதிப்பு,
+        குறிப்பு,
+      });
+    });
+  });
 });
