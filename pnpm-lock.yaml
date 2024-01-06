@@ -38,8 +38,8 @@ devDependencies:
     specifier: ^6.17.0
     version: 6.17.0(eslint@8.56.0)(typescript@5.3.3)
   aegir:
-    specifier: ^41.3.5
-    version: 41.3.5(@babel/core@7.23.7)(@typescript-eslint/parser@6.17.0)(eslint-plugin-n@16.6.1)
+    specifier: ^42.0.0
+    version: 42.0.1(@babel/core@7.23.7)(@typescript-eslint/parser@6.17.0)(eslint-plugin-n@16.6.1)
   browserify-fs:
     specifier: ^1.0.0
     version: 1.0.0
@@ -4207,8 +4207,8 @@ packages:
     hasBin: true
     dev: true
 
-  /aegir@41.3.5(@babel/core@7.23.7)(@typescript-eslint/parser@6.17.0)(eslint-plugin-n@16.6.1):
-    resolution: {integrity: sha512-KSNs+sdoMunvM7V8hYgd6c4451p2aDU4SAcsnGeBpeEbsjz6YHhOepxpHXctheZ/pgqjejOztJqa8tbfMyG3jw==}
+  /aegir@42.0.1(@babel/core@7.23.7)(@typescript-eslint/parser@6.17.0)(eslint-plugin-n@16.6.1):
+    resolution: {integrity: sha512-/n24wRUep6kIbONijm6x7Y0vW0KzYWs4rzlqrmQg5Z6tYvE0/GPnnH59igb5dv3eMIwg1p5Z8dxq0oWHaTo2+Q==}
     hasBin: true
     dependencies:
       '@electron/get': 3.0.0
@@ -4228,7 +4228,7 @@ packages:
       '@typescript-eslint/eslint-plugin': 5.62.0(@typescript-eslint/parser@6.17.0)(eslint@8.56.0)(typescript@5.3.3)
       buffer: 6.0.3
       bytes: 3.1.2
-      c8: 8.0.1
+      c8: 9.0.0
       chai: 4.3.10
       chai-as-promised: 7.1.1(chai@4.3.10)
       chai-bites: 0.1.2(chai@4.3.10)
@@ -4246,7 +4246,7 @@ packages:
       eslint-config-ipfs: 6.0.0(eslint-plugin-n@16.6.1)(eslint@8.56.0)(typescript@5.3.3)
       eslint-plugin-etc: 2.0.3(eslint@8.56.0)(typescript@5.3.3)
       eslint-plugin-import: 2.29.1(@typescript-eslint/parser@6.17.0)(eslint@8.56.0)
-      eslint-plugin-jsdoc: 46.10.1(eslint@8.56.0)
+      eslint-plugin-jsdoc: 48.0.2(eslint@8.56.0)
       eslint-plugin-node: 11.1.0(eslint@8.56.0)
       eslint-plugin-promise: 6.1.1(eslint@8.56.0)
       execa: 8.0.1
@@ -4300,8 +4300,6 @@ packages:
       typedoc-plugin-missing-exports: 2.1.0(typedoc@0.25.6)
       typescript: 5.3.3
       typescript-docs-verifier: 2.5.0(@types/node@20.10.6)(typescript@5.3.3)
-      uint8arrays: 5.0.1
-      undici: 6.2.1
       update-notifier: 7.0.0
       wherearewe: 2.0.1
       yargs: 17.7.2
@@ -5030,6 +5028,24 @@ packages:
       istanbul-lib-report: 3.0.1
       istanbul-reports: 3.1.6
       rimraf: 3.0.2
+      test-exclude: 6.0.0
+      v8-to-istanbul: 9.2.0
+      yargs: 17.7.2
+      yargs-parser: 21.1.1
+    dev: true
+
+  /c8@9.0.0:
+    resolution: {integrity: sha512-nFJhU2Cz6Frh2awk3IW7wwk3wx27/U2v8ojQCHGc1GWTCHS6aMu4lal327/ZnnYj7oSThGF1X3qUP1yzAJBcOQ==}
+    engines: {node: '>=14.14.0'}
+    hasBin: true
+    dependencies:
+      '@bcoe/v8-coverage': 0.2.3
+      '@istanbuljs/schema': 0.1.3
+      find-up: 5.0.0
+      foreground-child: 3.1.1
+      istanbul-lib-coverage: 3.2.2
+      istanbul-lib-report: 3.0.1
+      istanbul-reports: 3.1.6
       test-exclude: 6.0.0
       v8-to-istanbul: 9.2.0
       yargs: 17.7.2
@@ -6717,6 +6733,26 @@ packages:
   /eslint-plugin-jsdoc@46.10.1(eslint@8.56.0):
     resolution: {integrity: sha512-x8wxIpv00Y50NyweDUpa+58ffgSAI5sqe+zcZh33xphD0AVh+1kqr1ombaTRb7Fhpove1zfUuujlX9DWWBP5ag==}
     engines: {node: '>=16'}
+    peerDependencies:
+      eslint: ^7.0.0 || ^8.0.0 || ^9.0.0
+    dependencies:
+      '@es-joy/jsdoccomment': 0.41.0
+      are-docs-informative: 0.0.2
+      comment-parser: 1.4.1
+      debug: 4.3.4(supports-color@8.1.1)
+      escape-string-regexp: 4.0.0
+      eslint: 8.56.0
+      esquery: 1.5.0
+      is-builtin-module: 3.2.1
+      semver: 7.5.4
+      spdx-expression-parse: 4.0.0
+    transitivePeerDependencies:
+      - supports-color
+    dev: true
+
+  /eslint-plugin-jsdoc@48.0.2(eslint@8.56.0):
+    resolution: {integrity: sha512-CBFl5Jc7+jlV36RwDm+PQ8Uw5r28pn2/uW/OaB+Gw5bFwn4Py/1eYMZ3hGf9S4meUFZ/sRvS+hVif2mRAp6WqQ==}
+    engines: {node: '>=18'}
     peerDependencies:
       eslint: ^7.0.0 || ^8.0.0 || ^9.0.0
     dependencies:
@@ -13739,13 +13775,6 @@ packages:
       '@fastify/busboy': 2.1.0
     dev: true
 
-  /undici@6.2.1:
-    resolution: {integrity: sha512-7Wa9thEM6/LMnnKtxJHlc8SrTlDmxqJecgz1iy8KlsN0/iskQXOQCuPkrZLXbElPaSw5slFFyKIKXyJ3UtbApw==}
-    engines: {node: '>=18.0'}
-    dependencies:
-      '@fastify/busboy': 2.1.0
-    dev: true
-
   /unicode-canonical-property-names-ecmascript@2.0.0:
     resolution: {integrity: sha512-yY5PpDlfVIU5+y/BSCxAJRBIS1Zc2dDG3Ujq+sR0U+JjUevW2JhocOF+soROYDSaAezOzOKuyyixhD6mBknSmQ==}
     engines: {node: '>=4'}
@@ -14047,7 +14076,7 @@ packages:
   /wide-align@1.1.5:
     resolution: {integrity: sha512-eDMORYaPNZ4sQIuuYPDHdQvf4gyCF9rEEV/yPxGfwPkRodwEgiMUUXTx/dex+Me0wxx53S+NgUHaP7y3MGlDmg==}
     dependencies:
-      string-width: 1.0.2
+      string-width: 4.2.3
     dev: true
 
   /widest-line@4.0.1:
