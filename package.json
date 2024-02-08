@@ -30,7 +30,7 @@
   "devDependencies": {
     "@constl/ipa": "1.0.1-76af3ada9.0",
     "@constl/orbit-db-types": "^2.0.0",
-    "@constl/utils-tests": "1.1.1-b3f9530.0",
+    "@constl/utils-tests": "1.1.1-f631113.0",
     "@types/mocha": "^10.0.6",
     "@typescript-eslint/eslint-plugin": "^6.21.0",
     "@typescript-eslint/parser": "^6.21.0",
