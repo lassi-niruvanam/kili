@@ -1,4 +1,4 @@
-import type { ClientConstellation, bds, tableaux, types, générerClient } from "@constl/ipa";
+import type { ClientConstellation, bds, tableaux, types, créerConstellation } from "@constl/ipa";
 
 import deepcopy from "deepcopy";
 
@@ -64,7 +64,7 @@ export class கிளி<
     string = typeof பங்கேற்பாளர்_நெடுவரிசை_அடையாளம்,
   தேதி_நெடுவரிசை_வ extends string = typeof தேதி_நெடுவரிசை_அடையாளம்,
 > {
-  விண்மீன்: ReturnType<typeof générerClient>;
+  விண்மீன்: ReturnType<typeof créerConstellation>;
 
   அட்டவணை_சாபி: string;
   குழு_அடையாளம்: string;
@@ -85,7 +85,7 @@ export class கிளி<
     வார்ப்புரு,
     மாறிலிகள்,
   }: {
-    விண்மீன்: ReturnType<typeof générerClient>;
+    விண்மீன்: ClientConstellation;
     அட்டவணை_சாபி: string;
     குழு_அடையாளம்: string;
     வார்ப்புரு: bds.schémaSpécificationBd;

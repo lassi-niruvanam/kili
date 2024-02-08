@@ -1,12 +1,12 @@
 import { isBrowser, isElectronRenderer } from "wherearewe";
 import {
   ClientConstellation,
-  générerClient,
+  créerConstellation,
   bds,
   types,
   type tableaux,
 } from "@constl/ipa";
-import { client as utilsTestsClient, attente } from "@constl/utils-tests";
+import { constellation, attente } from "@constl/utils-tests";
 import { isValidAddress } from "@orbitdb/core";
 import {
   கிளி,
@@ -85,10 +85,9 @@ describe("கிளி", () => {
 
     before("தயாரிப்பு", async () => {
       ({ clients: வாடிகையாளர்கள் as unknown, fOublier: மறந்துவிடு } =
-        await utilsTestsClient.générerClients({
+        await constellation.créerConstellationsTest({
           n: 1,
-          type: "proc",
-          générerClient,
+          créerConstellation,
         }));
       விண்மீன் = வாடிகையாளர்கள்[0];
 
@@ -183,10 +182,9 @@ describe("கிளி", () => {
     let மறந்துவிடு: types.schémaFonctionOublier[] = [];
 
     before("தயாரிப்பு", async () => {
-      const { clients, fOublier } = await utilsTestsClient.générerClients({
+      const { clients, fOublier } = await constellation.créerConstellationsTest({
         n: 1,
-        type: "proc",
-        générerClient,
+        créerConstellation,
       });
       வாடிகையாளர்கள் = clients as ClientConstellation[];
       விண்மீனை_மறந்துவிடு = fOublier;
@@ -466,10 +464,9 @@ describe("கிளி", () => {
     let மறந்துவிடு: types.schémaFonctionOublier[] = [];
 
     before("தயாரிப்பு", async () => {
-      const { clients, fOublier } = await utilsTestsClient.générerClients({
+      const { clients, fOublier } = await constellation.créerConstellationsTest({
         n: 1,
-        type: "proc",
-        générerClient,
+        créerConstellation,
       });
       வாடிகையாளர்கள் = clients as ClientConstellation[];
       விண்மீனை_மறந்துவிடு = fOublier;
@@ -615,10 +612,9 @@ describe("கிளி", () => {
     let மறந்துவிடு: types.schémaFonctionOublier[] = [];
 
     before("தயாரிப்பு", async () => {
-      const { clients, fOublier } = await utilsTestsClient.générerClients({
+      const { clients, fOublier } = await constellation.créerConstellationsTest({
         n: 1,
-        type: "proc",
-        générerClient,
+        créerConstellation,
       });
       வாடிகையாளர்கள் = clients as ClientConstellation[];
       விண்மீனை_மறந்துவிடு = fOublier;
@@ -795,10 +791,9 @@ describe("கிளி", () => {
     let மறந்துவிடு: types.schémaFonctionOublier[] = [];
 
     before("தயாரிப்பு", async () => {
-      const { clients, fOublier } = await utilsTestsClient.générerClients({
+      const { clients, fOublier } = await constellation.créerConstellationsTest({
         n: isBrowser || isElectronRenderer ? 1 : 2, // உலாவியில் இரண்டு விண்மீன்களை ஒரே நேரத்தில் உருவாக்க முடியாது,
-        type: "proc",
-        générerClient,
+        créerConstellation,
       });
       வாடிகையாளர்கள் = clients as ClientConstellation[];
       விண்மீனை_மறந்துவிடு = fOublier;
@@ -1092,10 +1087,9 @@ describe("கிளி", () => {
       async () => பரிந்துரைகள்.toutAnnuler(),
     ];
     before("தயாரிப்பு", async () => {
-      const { clients, fOublier } = await utilsTestsClient.générerClients({
+      const { clients, fOublier } = await constellation.créerConstellationsTest({
         n: isBrowser || isElectronRenderer ? 1 : 2, // உலாவியில் இரண்டு விண்மீன்களை ஒரே நேரத்தில் உருவாக்க முடியாது
-        type: "proc",
-        générerClient,
+        créerConstellation,
       });
       வாடிகையாளர்கள் = clients as ClientConstellation[];
       மறந்துவிடு.push(fOublier);
@@ -1188,10 +1182,9 @@ describe("கிளி", () => {
       async () => பரிந்துரைகள்.toutAnnuler(),
     ];
     before("தயாரிப்பு", async () => {
-      const { clients, fOublier } = await utilsTestsClient.générerClients({
+      const { clients, fOublier } = await constellation.créerConstellationsTest({
         n: isBrowser || isElectronRenderer ? 1 : 2, // உலாவியில் இரண்டு விண்மீன்களை ஒரே நேரத்தில் உருவாக்க முடியாது
-        type: "proc",
-        générerClient,
+        créerConstellation,
       });
       வாடிகையாளர்கள் = clients as ClientConstellation[];
       மறந்துவிடு.push(fOublier);
@@ -1297,10 +1290,9 @@ describe("கிளி", () => {
     ];
 
     before("தயாரிப்பு", async () => {
-      const { clients, fOublier } = await utilsTestsClient.générerClients({
+      const { clients, fOublier } = await constellation.créerConstellationsTest({
         n: isBrowser || isElectronRenderer ? 1 : 2, // உலாவியில் இரண்டு விண்மீன்களை ஒரே நேரத்தில் உருவாக்க முடியாது
-        type: "proc",
-        générerClient,
+        créerConstellation,
       });
       வாடிகையாளர்கள் = clients as ClientConstellation[];
       மறந்துவிடு.push(fOublier);
