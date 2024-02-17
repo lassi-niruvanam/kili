@@ -1,6 +1,6 @@
 {
   "name": "@lassi-js/kili",
-  "version": "0.3.8",
+  "version": "0.3.9",
   "description": "",
   "main": "விநியோகம்/மூலம்/குறியீட்டு.js",
   "type": "module",
@@ -54,10 +54,9 @@
     "wherearewe": "^2.0.1"
   },
   "peerDependencies": {
-    "@constl/ipa": "1.0.1-76af3ada9.0"
+    "@constl/ipa": "1.0.0"
   },
   "dependencies": {
-    "@achingbrain/nat-port-mapper": "1.0.13",
     "@constl/utils-ipa": "^1.0.0",
     "@orbitdb/core": "^2.0.1",
     "deepcopy": "^2.1.0"
