@@ -23,7 +23,8 @@ const esbuild = {
     "rimraf",
     "electron",
     "env-paths",
-    "@libp2p/tcp"
+    "@libp2p/tcp",
+    "@libp2p/mdns",
   ],
   plugins: [
     {
