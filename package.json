@@ -1,6 +1,6 @@
 {
   "name": "@lassi-js/kili",
-  "version": "0.3.9",
+  "version": "0.3.10",
   "description": "",
   "main": "விநியோகம்/மூலம்/குறியீட்டு.js",
   "type": "module",
@@ -28,7 +28,7 @@
   },
   "homepage": "https://github.com/julienmalard/nuchabal#readme",
   "devDependencies": {
-    "@constl/ipa": "1.0.5",
+    "@constl/ipa": "^1.0.5",
     "@constl/orbit-db-types": "^2.0.0",
     "@constl/utils-tests": "1.2.3",
     "@types/mocha": "^10.0.6",
@@ -54,7 +54,7 @@
     "wherearewe": "^2.0.1"
   },
   "peerDependencies": {
-    "@constl/ipa": "^1.0.0"
+    "@constl/ipa": "^1.0.5"
   },
   "dependencies": {
     "@constl/utils-ipa": "^1.0.0",
