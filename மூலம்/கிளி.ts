@@ -351,7 +351,7 @@ export class கிளி<
     >({
       idNuée: this.குழு_அடையாளம்,
       clefTableau: this.அட்டவணை_சாபி,
-      héritage: சந்ததி ? ["ascendance", "descendance"] : ["ascendance"],
+      // héritage: சந்ததி ? ["ascendance", "descendance"] : ["ascendance"],
       f: async (த) => {
         await செ(
           த.map((இ) => {
