@@ -341,10 +341,10 @@ export class கிளி<
 
   async பரிந்துரைகளை_கேள்ளு({
     செ,
-    சந்ததி = true,
+    // சந்ததி = true,
   }: {
     செ: types.schémaFonctionSuivi<பிணையம்_பரிந்துரை<வ, தேதி_நெடுவரிசை_வ>[]>;
-    சந்ததி?: boolean;
+    // சந்ததி?: boolean;
   }): Promise<types.schémaRetourFonctionRechercheParProfondeur> {
     return await this.விண்மீன்.nuées.suivreDonnéesTableauNuée<
       தேதியுடன்_பரிந்துரை_வகை<வ, தேதி_நெடுவரிசை_வ>
