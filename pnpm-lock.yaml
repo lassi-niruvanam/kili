@@ -38,7 +38,7 @@ importers:
         version: 7.7.0(eslint@9.1.1)(typescript@5.4.5)
       aegir:
         specifier: ^42.2.4
-        version: 42.2.8(@babel/core@7.24.4)(@typescript-eslint/parser@7.7.0(eslint@9.1.1)(typescript@5.4.5))(eslint-plugin-n@16.6.2(eslint@9.1.1))
+        version: 42.2.9(@babel/core@7.24.4)(@typescript-eslint/parser@7.7.0(eslint@9.1.1)(typescript@5.4.5))(eslint-plugin-n@16.6.2(eslint@9.1.1))
       browserify-fs:
         specifier: ^1.0.0
         version: 1.0.0
@@ -2366,8 +2366,8 @@ packages:
     engines: {node: '>=0.4.0'}
     hasBin: true
 
-  aegir@42.2.8:
-    resolution: {integrity: sha512-3WQaxohtRrVaRxApZ8rcIrEe6tmyhpsMRhl/kFbwidw1fNqZM43PxRpzGrNVlmwLuSQstYwdShH23pAgJUFA1w==}
+  aegir@42.2.9:
+    resolution: {integrity: sha512-vxPIcl+4RsNLw6kNjGS4ItWXLMKkHtqnROzszkTAxUyZ2yZz2OBOsk1/JpzFhp557EX920HNdTKDveZNVP08nA==}
     hasBin: true
 
   agent-base@7.1.1:
@@ -3492,8 +3492,8 @@ packages:
     engines: {node: '>= 7.0.0'}
     hasBin: true
 
-  electron-to-chromium@1.4.748:
-    resolution: {integrity: sha512-VWqjOlPZn70UZ8FTKUOkUvBLeTQ0xpty66qV0yJcAGY2/CthI4xyW9aEozRVtuwv3Kpf5xTesmJUcPwuJmgP4A==}
+  electron-to-chromium@1.4.749:
+    resolution: {integrity: sha512-LRMMrM9ITOvue0PoBrvNIraVmuDbJV5QC9ierz/z5VilMdPOVMjOtpICNld3PuXuTZ3CHH/UPxX9gHhAPwi+0Q==}
 
   electron-window@0.8.1:
     resolution: {integrity: sha512-W1i9LfnZJozk3MXE8VgsL2E5wOUHSgyCvcg1H2vQQjj+gqhO9lVudgY3z3SF7LJAmi+0vy3CJkbMqsynWB49EA==}
@@ -11778,7 +11778,7 @@ snapshots:
 
   acorn@8.11.3: {}
 
-  aegir@42.2.8(@babel/core@7.24.4)(@typescript-eslint/parser@7.7.0(eslint@9.1.1)(typescript@5.4.5))(eslint-plugin-n@16.6.2(eslint@9.1.1)):
+  aegir@42.2.9(@babel/core@7.24.4)(@typescript-eslint/parser@7.7.0(eslint@9.1.1)(typescript@5.4.5))(eslint-plugin-n@16.6.2(eslint@9.1.1)):
     dependencies:
       '@anolilab/multi-semantic-release': 1.0.3(semantic-release@23.0.8(typescript@5.4.5))(typescript@5.4.5)
       '@electron/get': 3.0.0
@@ -12307,7 +12307,7 @@ snapshots:
   browserslist@4.23.0:
     dependencies:
       caniuse-lite: 1.0.30001612
-      electron-to-chromium: 1.4.748
+      electron-to-chromium: 1.4.749
       node-releases: 2.0.14
       update-browserslist-db: 1.0.13(browserslist@4.23.0)
 
@@ -13169,7 +13169,7 @@ snapshots:
       which: 2.0.2
       yargs: 16.2.0
 
-  electron-to-chromium@1.4.748: {}
+  electron-to-chromium@1.4.749: {}
 
   electron-window@0.8.1:
     dependencies:
