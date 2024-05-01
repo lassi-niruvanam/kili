@@ -341,17 +341,17 @@ export class கிளி<
 
   async பரிந்துரைகளை_கேள்ளு({
     செ,
-    // சந்ததி = true,
+    சந்ததி = true,
   }: {
     செ: types.schémaFonctionSuivi<பிணையம்_பரிந்துரை<வ, தேதி_நெடுவரிசை_வ>[]>;
-    // சந்ததி?: boolean;
+    சந்ததி?: boolean;
   }): Promise<types.schémaRetourFonctionRechercheParProfondeur> {
     return await this.விண்மீன்.nuées.suivreDonnéesTableauNuée<
       தேதியுடன்_பரிந்துரை_வகை<வ, தேதி_நெடுவரிசை_வ>
     >({
       idNuée: this.குழு_அடையாளம்,
       clefTableau: this.அட்டவணை_சாபி,
-      // héritage: சந்ததி ? ["ascendance", "descendance"] : ["ascendance"],
+      héritage: சந்ததி ? ["descendance"] : [],
       f: async (த) => {
         await செ(
           த.map((இ) => {
