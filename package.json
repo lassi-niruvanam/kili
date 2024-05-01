@@ -28,20 +28,20 @@
   },
   "homepage": "https://github.com/julienmalard/nuchabal#readme",
   "devDependencies": {
-    "@constl/ipa": "^1.0.5",
+    "@constl/ipa": "^1.0.11",
     "@constl/orbit-db-types": "^2.0.0",
     "@constl/utils-tests": "1.2.5",
     "@types/mocha": "^10.0.6",
-    "@typescript-eslint/eslint-plugin": "^7.0.2",
-    "@typescript-eslint/parser": "^7.0.2",
-    "aegir": "^42.2.4",
+    "@typescript-eslint/eslint-plugin": "^7.8.0",
+    "@typescript-eslint/parser": "^7.8.0",
+    "aegir": "^42.2.11",
     "browserify-fs": "^1.0.0",
     "buffer": "^6.0.3",
     "crypto-browserify": "^3.12.0",
     "eslint": "^9.0.0",
     "eslint-config-prettier": "^9.1.0",
     "genversion": "^3.2.0",
-    "mocha": "^10.3.0",
+    "mocha": "^10.4.0",
     "os-browserify": "^0.3.0",
     "prettier": "^3.2.5",
     "process": "^0.11.10",
@@ -49,7 +49,7 @@
     "stream-browserify": "^3.0.0",
     "ts-node": "^10.9.2",
     "ts-patch": "^3.1.2",
-    "typescript": "^5.3.3",
+    "typescript": "^5.4.5",
     "typescript-transform-paths": "^3.4.7",
     "wherearewe": "^2.0.1"
   },
@@ -58,7 +58,7 @@
   },
   "dependencies": {
     "@constl/utils-ipa": "^1.0.0",
-    "@orbitdb/core": "^2.1.0",
+    "@orbitdb/core": "^2.2.0",
     "deepcopy": "^2.1.0"
   }
 }
