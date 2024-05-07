@@ -19,8 +19,8 @@ importers:
         version: 2.1.0
     devDependencies:
       '@constl/ipa':
-        specifier: ^1.0.11
-        version: 1.0.11(react-native@0.73.6(@babel/core@7.24.5)(@babel/preset-env@7.24.4(@babel/core@7.24.5))(react@18.2.0))(wrtc@0.4.7)
+        specifier: ^1.0.12
+        version: 1.0.12(react-native@0.73.6(@babel/core@7.24.5)(@babel/preset-env@7.24.4(@babel/core@7.24.5))(react@18.2.0))
       '@constl/orbit-db-types':
         specifier: ^2.0.0
         version: 2.0.0(react-native@0.73.6(@babel/core@7.24.5)(@babel/preset-env@7.24.4(@babel/core@7.24.5))(react@18.2.0))
@@ -92,10 +92,6 @@ importers:
         version: 2.0.1
 
 packages:
-
-  '@achingbrain/ip-address@8.1.0':
-    resolution: {integrity: sha512-Zus4vMKVRDm+R1o0QJNhD0PD/8qRGO3Zx8YPsFG5lANt5utVtGg3iHVGBSAF80TfQmhi8rP+Kg/OigdxY0BXHw==}
-    engines: {node: '>= 12'}
 
   '@achingbrain/nat-port-mapper@1.0.13':
     resolution: {integrity: sha512-B5GL6ILDek72OjoEyFGEuuNYaEOYxO06Ulhcaf/5iQ4EO8uaZWS+OkolYST7L+ecJrkjfaSNmSAsWRRuh+1Z5A==}
@@ -886,11 +882,9 @@ packages:
   '@constl/bohr-db@1.1.0':
     resolution: {integrity: sha512-7XT+jASK69Y+41dYuDEjaatKfv6CSpthf+d7YT7gGcd6tyd6VNryb06pD9imTyARXFSieAeV72LpRYMnSzP1hg==}
 
-  '@constl/ipa@1.0.11':
-    resolution: {integrity: sha512-owTVkoVaagJ550N0UzX4A/86/K3l0NGKegZ+d00EjhyTe2++AEzg+OlMDj4vLVss207dq8fp6C/nsLDcu33Gpw==}
+  '@constl/ipa@1.0.12':
+    resolution: {integrity: sha512-9QFoCApeUvwZOga6Pg5tpqj8HS5QwG4PvZ4naxCezoWIK1QDB55zMuyjA3SNgCk2/RjyMDyegOtQwCA3kxo8OQ==}
     engines: {node: '>=20'}
-    peerDependencies:
-      wrtc: ^0.4.7
 
   '@constl/mandataire@1.0.1':
     resolution: {integrity: sha512-pXFP2ha5llHEgTF21cLjpoJrRKzBoqtTB/z55krTnxvexagHRHM810iSBv4DbfwJwRkRWhbeIbgoXaXCYrl/xg==}
@@ -1224,10 +1218,6 @@ packages:
     resolution: {integrity: sha512-5WoDz3Y19Bg2BnErkZTp0en+c/i9PvgFS7MBe1+m60HjFr0hrphlAGp4yzI7pxpt4xShln4ZyYp4neJm8hmOkQ==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
 
-  '@fastify/busboy@2.1.1':
-    resolution: {integrity: sha512-vBZP4NlzfOlerQTnba4aqZoMhE/a9HY7HRqoOPaETQcSQuWEIyZMHGfVu6w9wGtGK5fED5qRs2DteVCjOH60sA==}
-    engines: {node: '>=14'}
-
   '@hapi/hoek@9.3.0':
     resolution: {integrity: sha512-/c6rf4UJlmHlC9b5BaNvzAcFv7HZ2QHaV0D4/HNlBdvFnvQq8RI4kYdhyPCl7Xj+oWvTWQ8ujhqS53LIgAe6KQ==}
 
@@ -1399,10 +1389,6 @@ packages:
     resolution: {integrity: sha512-9pZp9zhTDoVwzRmp0Wtxw0Yfa//Yc0GqBCJi3EznBDE6HGIAVvppR91wSh2knt/0eYg0AQj7Y35VSesUTzMCUg==}
     engines: {node: '>=16.0.0', npm: '>=7.0.0'}
 
-  '@libp2p/interface-peer-store@2.0.4':
-    resolution: {integrity: sha512-jNvBK3O1JPJqSiDN2vkb+PV8bTPnYdP54nxsLtut1BWukNm610lwzwleV7CetFI4bJCn6g+BgBvvq8fdADy0tA==}
-    engines: {node: '>=16.0.0', npm: '>=7.0.0'}
-
   '@libp2p/interface-stream-muxer@4.1.2':
     resolution: {integrity: sha512-dQJcn67UaAa8YQFRJDhbo4uT453z/2lCzD/ZwTk1YOqJxATXbXgVcB8dXDQFEUiUX3ZjVQ1IBu+NlQd+IZ++zw==}
     engines: {node: '>=16.0.0', npm: '>=7.0.0'}
@@ -1482,20 +1468,8 @@ packages:
   '@libp2p/upnp-nat@1.0.20':
     resolution: {integrity: sha512-Mzcqsu0Ylg2nHk3aiRafFNE1U09vIBvzszD32+RavK18OdC8Heh7OweCtWQNUpyHehrHZAw7Rn3XT+f1aVVaFQ==}
 
-  '@libp2p/utils@3.0.13':
-    resolution: {integrity: sha512-SNwIcQq/FvLpqVsjHHzbxSq7VgbbUK9EB7/865Re4NoLfqgE/6oTUpyPEDlrcJb4aTPFWbVPQzE85cA3raHIIw==}
-    engines: {node: '>=16.0.0', npm: '>=7.0.0'}
-
   '@libp2p/utils@5.4.0':
     resolution: {integrity: sha512-tEBhg5g06vQbR+x51U2N5xAWFNrQpVIVnJZX8urrKcxTRQnJk57Uka2eTEtBj8AxgQ0DDC7a5r2km2X50ja/EA==}
-
-  '@libp2p/webrtc-direct@6.0.0':
-    resolution: {integrity: sha512-Sy22yRbEBlLwJOD7G0QILy8KyFz7YZZgmTRU/MmIFDx5yUSfUVCmCqDY7qTz2tX9Kyy3j1ooS1HqUEpO1XpNxw==}
-    engines: {node: '>=16.0.0', npm: '>=7.0.0'}
-
-  '@libp2p/webrtc-peer@2.0.2':
-    resolution: {integrity: sha512-FozliUqHO1CIzrL8hPc5uT+5AGUWf5Dw3HncL9tte/CoDNVpj6O59ITIRWefssp3oIGEAIjpcebNu1d+mYfVug==}
-    engines: {node: '>=16.0.0', npm: '>=7.0.0'}
 
   '@libp2p/webrtc@4.0.30':
     resolution: {integrity: sha512-4H9/+Kj/ZHTl1cPc77palXam0LiwdxPm8csya4UB4gBg+nlLG8upP+zMwkFVYWAC0PSr0sKcUqf5ysvx4npBqA==}
@@ -3374,10 +3348,6 @@ packages:
     resolution: {integrity: sha512-ua8BhapfP0JUJKC/zV9yHHDW/rDoDxP4Zhn3AkA6/xT6gY7jYXJiaeyBZznYVujhZZET+UgcbZiQ7sN3WqcImg==}
     engines: {node: '>=10'}
 
-  delay@5.0.0:
-    resolution: {integrity: sha512-ReEBKkIfe4ya47wlPYf/gu5ib6yUG0/Aez0JQZQz94kiWtRQvZIQbTiehsnwHvLSWJnQdhVeqYue7Id1dKr0qw==}
-    engines: {node: '>=10'}
-
   delay@6.0.0:
     resolution: {integrity: sha512-2NJozoOHQ4NuZuVIr5CWd0iiLVIRSDepakaovIN+9eIDHEhdCAEvSy2cuf1DCrPPQLvHmbqTHODlhHg8UCy4zw==}
     engines: {node: '>=16'}
@@ -3486,10 +3456,6 @@ packages:
   doctrine@3.0.0:
     resolution: {integrity: sha512-yS+Q5i3hBf7GBkd4KG8a7eBNNWNGLTaEwwYWUijIYM7zrlYDM0BFXHjjPWlWZ1Rg7UaddZeIDmi9jF3HmqiQ2w==}
     engines: {node: '>=6.0.0'}
-
-  domexception@1.0.1:
-    resolution: {integrity: sha512-raigMkn7CJNNo6Ihro1fzG7wr3fHuYVytzquZKX5n0yizGsTcYgzdIUwj1X9pK0VvjeihV+XiclP+DjwbsSKug==}
-    deprecated: Use your platform's native DOMException instead
 
   dot-prop@5.3.0:
     resolution: {integrity: sha512-QM8q3zDe58hqUqjraQOmzZ1LIH9SWQJTlEKCH4kJ2oQvLZk7RbQXvtDM2XEq3fwkV9CCvvH4LA0AV+ogFsBM2Q==}
@@ -4561,14 +4527,6 @@ packages:
   invariant@2.2.4:
     resolution: {integrity: sha512-phJfQVBuaJM5raOpJjSfkiD6BpbCE4Ns//LaXl6wGYtUBY83nWS6Rf9tXm2e8VaK60JEjYldbPif/A2B1C2gNA==}
 
-  ip-regex@5.0.0:
-    resolution: {integrity: sha512-fOCG6lhoKKakwv+C6KdsOnGvgXnmgfmp0myi3bcNwj3qfwPAxRKWEuFhvEFF7ceYIz6+1jRZ+yguLFAmUNPEfw==}
-    engines: {node: ^12.20.0 || ^14.13.1 || >=16.0.0}
-
-  ipaddr.js@2.2.0:
-    resolution: {integrity: sha512-Ag3wB2o37wslZS19hZqorUnrnzSkpOVy+IiiDEiTqNubEYpYuHWIf6K4psgN2ZWKExS4xhVCrRVfb/wfW8fWJA==}
-    engines: {node: '>= 10'}
-
   ipfs-bitswap@20.0.2:
     resolution: {integrity: sha512-B/pPf0Dvnp/TzZ/jk7IElxCH+MwxTCe8YvyQzsQ4i8RhUh0IwyyaHPy0LSVGuJpADNjaaZQffe6DSxwmRKF7uA==}
 
@@ -4860,10 +4818,6 @@ packages:
     version: 0.1.2
     engines: {node: '>=10'}
 
-  iso-random-stream@2.0.2:
-    resolution: {integrity: sha512-yJvs+Nnelic1L2vH2JzWvvPQFA4r7kSTnpST/+LkAQjSz0hos2oqLD+qIVi9Qk38Hoe7mNDt3j0S27R58MVjLQ==}
-    engines: {node: '>=10'}
-
   isobject@3.0.1:
     resolution: {integrity: sha512-WhB9zCku7EGTj/HQQRz5aUQEUeoQZH2bWcltRErOpymJ4boYE6wL9Tbr23krRPSZ+C5zqNSrSw+Cc7sZZ4b7vg==}
     engines: {node: '>=0.10.0'}
@@ -4983,10 +4937,6 @@ packages:
   it-sort@3.0.5:
     resolution: {integrity: sha512-vFo3wYR+aRDwklp8iH8LKeePmWqXGQrS8JqEdZmbJ58DIGj67n0RT/t5BR8iYps/C/v5IdWsbow1bOCEUfY+hA==}
 
-  it-stream-types@1.0.5:
-    resolution: {integrity: sha512-I88Ka1nHgfX62e5mi5LLL+oueqz7Ltg0bUdtsUKDe9SoUqbQPf2Mp5kxDTe9pNhHQGs4pvYPAINwuZ1HAt42TA==}
-    engines: {node: '>=16.0.0', npm: '>=7.0.0'}
-
   it-stream-types@2.0.1:
     resolution: {integrity: sha512-6DmOs5r7ERDbvS4q8yLKENcj6Yecr7QQTqWApbZdfAUTEC947d+PEha7PCqhm//9oxaLYL7TWRekwhoXl2s6fg==}
     engines: {node: '>=16.0.0', npm: '>=7.0.0'}
@@ -5055,9 +5005,6 @@ packages:
   js-yaml@4.1.0:
     resolution: {integrity: sha512-wpxZs9NoxZaJESJGIZTyDEaYpl0FKSA+FB9aJiyemKhMwkxQg63h4T1KJgUGHpTqPDNRcmmYLugrRjJlBtWvRA==}
     hasBin: true
-
-  jsbn@1.1.0:
-    resolution: {integrity: sha512-4bYVV3aAMtDTTu4+xsDYa6sy9GyJ69/amsu9sYF2zqjiEoZA5xJi3BrfX3uY+/IekIu7MwdObdbDWpoZdBv3/A==}
 
   jsc-android@250231.0.0:
     resolution: {integrity: sha512-rS46PvsjYmdmuz1OAWXY/1kCYG7pnf1TBqeTiOJr1iDz7s5DLxxC9n/ZMknLDxzYzNVfI7R95MH10emSSG1Wuw==}
@@ -5849,11 +5796,6 @@ packages:
   napi-macros@2.2.2:
     resolution: {integrity: sha512-hmEVtAGYzVQpCKdbQea4skABsdXW4RUh5t5mJ2zzqowJS2OyXZTU1KhDVFhx+NlWZ4ap9mqR9TcDO3LTTttd+g==}
 
-  native-fetch@4.0.2:
-    resolution: {integrity: sha512-4QcVlKFtv2EYVS5MBgsGX5+NWKtbDbIECdUXDBGDMAZXq3Jkv9zf+y8iS7Ub8fEdga3GpYeazp9gauNqXHJOCg==}
-    peerDependencies:
-      undici: '*'
-
   natural-compare-lite@1.4.0:
     resolution: {integrity: sha512-Tj+HTDSJJKaZnfiuw+iaF9skdPpTo2GtEly5JHnWV/hfv2Qj/9RKsGISQtLh2ox3l5EAGw487hnBee0sIJ6v2g==}
 
@@ -6209,10 +6151,6 @@ packages:
     resolution: {integrity: sha512-lastgtAdoH9YaLyDa5i5z64q+kzOcQHsQ5SsZJD3q0VEyI8mq872S3geuNbRUQLVAE9siMfgKrpj7MloKFHruw==}
     engines: {node: '>=12'}
 
-  p-event@5.0.1:
-    resolution: {integrity: sha512-dd589iCQ7m1L0bmC5NLlVYfy3TbBEsMUfWx9PyAgPeIcFZ/E2yaTZ4Rz4MiBmmJShviiftHVXOqfnfzJ6kyMrQ==}
-    engines: {node: ^12.20.0 || ^14.13.1 || >=16.0.0}
-
   p-event@6.0.1:
     resolution: {integrity: sha512-Q6Bekk5wpzW5qIyUP4gdMEujObYstZl6DMMOSenwBvV0BlE5LkDwkjs5yHbZmdCEq2o4RJx4tE1vwxFVf2FG1w==}
     engines: {node: '>=16.17'}
@@ -6547,10 +6485,6 @@ packages:
   pretty-format@29.7.0:
     resolution: {integrity: sha512-Pdlw/oPxN+aXdmM9R00JVC9WVFoCLTKJvDVLgmJ+qAffBMxsV85l/Lu7sNx4zSzPyoL2euImuEwHhOXdEgNFZQ==}
     engines: {node: ^14.15.0 || ^16.10.0 || >=18.0.0}
-
-  private-ip@3.0.2:
-    resolution: {integrity: sha512-2pkOVPGYD/4QyAg95c6E/4bLYXPthT5Xw4ocXYzIIsMBhskOMn6IwkWXmg6ZiA6K58+O6VD/n02r1hDhk7vDPw==}
-    engines: {node: '>=14.16'}
 
   process-nextick-args@2.0.1:
     resolution: {integrity: sha512-3ouUOpQhtgrbOa17J7+uxOTpITYWaGP7/AhoR3+A+/1e9skrzelGi/dXzEYyvbxubEF6Wn2ypscTKiKJFFn1ag==}
@@ -7165,9 +7099,6 @@ packages:
   sprintf-js@1.0.3:
     resolution: {integrity: sha512-D9cPgkvLlV3t3IzL0D0YLvGA9Ahk4PcvVwUbN0dSGr1aP0Nrt4AEnTUbuGvquEC0mA64Gqt1fzirlRs5ibXx8g==}
 
-  sprintf-js@1.1.2:
-    resolution: {integrity: sha512-VE0SOVEHCk7Qc8ulkWw3ntAzXuqf7S2lvwQaDLRnUeIEaKNQJzV6BwmLKhOqT61aGhfUMrXeaBk+oDGCzvhcug==}
-
   sprintf-js@1.1.3:
     resolution: {integrity: sha512-Oo+0REFV59/rz3gfJNKQiBlwfHaSESl1pcGyABQsnnIfWOFt6JNj5gCog2U6MLZ//IGYD+nA8nI+mTShREReaA==}
 
@@ -7684,10 +7615,6 @@ packages:
   undici-types@5.26.5:
     resolution: {integrity: sha512-JlCMO+ehdEIKqlFxk6IfVoAUVmgz7cU7zD/h9XZ0qzeosSHmUJVOzSQvvYSYWXkFXC+IfLKSIffhv0sVZup6pA==}
 
-  undici@5.28.4:
-    resolution: {integrity: sha512-72RFADWFqKmUb2hmmvNODKL3p9hcB6Gt2DOQMis1SEBaV6a4MH8soBvzg+95CYhCKPFedut2JY9bMfrDl9D23g==}
-    engines: {node: '>=14.0'}
-
   unicode-canonical-property-names-ecmascript@2.0.0:
     resolution: {integrity: sha512-yY5PpDlfVIU5+y/BSCxAJRBIS1Zc2dDG3Ujq+sR0U+JjUevW2JhocOF+soROYDSaAezOzOKuyyixhD6mBknSmQ==}
     engines: {node: '>=4'}
@@ -7836,9 +7763,6 @@ packages:
   webidl-conversions@3.0.1:
     resolution: {integrity: sha512-2JAn3z8AR6rjK8Sm8orRC0h/bcl/DqL7tRPdGZ4I1CjdF+EaMLmYxBHyXuKL849eucPFhvBoxMsflfOb8kxaeQ==}
 
-  webidl-conversions@4.0.2:
-    resolution: {integrity: sha512-YQ+BmxuTgd6UXZW3+ICGfyqRyHXVlD5GtQr5+qjiNW7bF0cqrzX500HVXPBOvgXb5YnzDd+h0zqyv61KUD7+Sg==}
-
   whatwg-fetch@3.6.20:
     resolution: {integrity: sha512-EqhiFU6daOA8kpjOWTL0olhVOF3i7OrFzSYiGsEMB8GcXS+RrzauAERX65xMeNWVqxA6HXH2m69Z9LaKKdisfg==}
 
@@ -7920,12 +7844,6 @@ packages:
 
   write-file-atomic@3.0.3:
     resolution: {integrity: sha512-AvHcyZ5JnSfq3ioSyjrBkH9yW4m7Ayk8/9My/DD9onKeu/94fwrMocemO2QAJFAlnnDN+ZDS+ZjAR5ua1/PV/Q==}
-
-  wrtc@0.4.7:
-    resolution: {integrity: sha512-P6Hn7VT4lfSH49HxLHcHhDq+aFf/jd9dPY7lDHeFhZ22N3858EKuwm2jmnlPzpsRGEPaoF6XwkcxY5SYnt4f/g==}
-    engines: {node: ^8.11.2 || >=10.0.0}
-    bundledDependencies:
-      - node-pre-gyp
 
   ws@6.2.2:
     resolution: {integrity: sha512-zmhltoSR8u1cnDsD43TX59mzoMZsLKqUweyYBAIvTngR3shc0W6aOZylZmq/7hqyVxPdi+5Ud2QInblgyE72fw==}
@@ -8076,11 +7994,6 @@ packages:
     resolution: {integrity: sha512-bXE4cR/kVZhKZX/RjPEflHaKVhUVl85noU3v6b8apfQEc1x4A+zBxjZ4lN8LqGd6WZ3dl98pY4o717VFmoPp+A==}
 
 snapshots:
-
-  '@achingbrain/ip-address@8.1.0':
-    dependencies:
-      jsbn: 1.1.0
-      sprintf-js: 1.1.2
 
   '@achingbrain/nat-port-mapper@1.0.13':
     dependencies:
@@ -9112,7 +9025,7 @@ snapshots:
       - supports-color
       - utf-8-validate
 
-  '@constl/ipa@1.0.11(react-native@0.73.6(@babel/core@7.24.5)(@babel/preset-env@7.24.4(@babel/core@7.24.5))(react@18.2.0))(wrtc@0.4.7)':
+  '@constl/ipa@1.0.12(react-native@0.73.6(@babel/core@7.24.5)(@babel/preset-env@7.24.4(@babel/core@7.24.5))(react@18.2.0))':
     dependencies:
       '@chainsafe/libp2p-gossipsub': 11.2.1
       '@chainsafe/libp2p-noise': 15.0.0
@@ -9124,7 +9037,7 @@ snapshots:
       '@helia/block-brokers': 2.1.2
       '@helia/unixfs': 3.0.6
       '@ipld/dag-cbor': 9.2.0
-      '@lassi-js/kili': 0.3.12(@constl/ipa@1.0.11(react-native@0.73.6(@babel/core@7.24.5)(@babel/preset-env@7.24.4(@babel/core@7.24.5))(react@18.2.0))(wrtc@0.4.7))
+      '@lassi-js/kili': 0.3.12(@constl/ipa@1.0.12(react-native@0.73.6(@babel/core@7.24.5)(@babel/preset-env@7.24.4(@babel/core@7.24.5))(react@18.2.0)))
       '@libp2p/autonat': 1.0.19
       '@libp2p/bootstrap': 10.0.22
       '@libp2p/circuit-relay-v2': 1.0.22
@@ -9136,7 +9049,6 @@ snapshots:
       '@libp2p/pubsub-peer-discovery': 10.0.2
       '@libp2p/tcp': 9.0.24
       '@libp2p/webrtc': 4.0.30(react-native@0.73.6(@babel/core@7.24.5)(@babel/preset-env@7.24.4(@babel/core@7.24.5))(react@18.2.0))
-      '@libp2p/webrtc-direct': 6.0.0
       '@libp2p/websockets': 8.0.22
       '@libp2p/webtransport': 4.0.29
       '@localfirst/auth': 5.6.0
@@ -9154,7 +9066,7 @@ snapshots:
       crypto-js: 4.2.0
       deep-equal: 2.2.3
       deepcopy: 2.1.0
-      ennikkai: 2.2.7(@constl/ipa@1.0.11(react-native@0.73.6(@babel/core@7.24.5)(@babel/preset-env@7.24.4(@babel/core@7.24.5))(react@18.2.0))(wrtc@0.4.7))
+      ennikkai: 2.2.7(@constl/ipa@1.0.12(react-native@0.73.6(@babel/core@7.24.5)(@babel/preset-env@7.24.4(@babel/core@7.24.5))(react@18.2.0)))
       env-paths: 3.0.0
       events: 3.3.0
       genversion: 3.2.0
@@ -9175,7 +9087,6 @@ snapshots:
       uint8arrays: 5.0.3
       uuid: 9.0.1
       wherearewe: 2.0.1
-      wrtc: 0.4.7
       xlsx: https://cdn.sheetjs.com/xlsx-0.19.1/xlsx-0.19.1.tgz
     transitivePeerDependencies:
       - bufferutil
@@ -9453,8 +9364,6 @@ snapshots:
   '@eslint/js@8.57.0': {}
 
   '@eslint/js@9.1.1': {}
-
-  '@fastify/busboy@2.1.1': {}
 
   '@hapi/hoek@9.3.0': {}
 
@@ -9749,9 +9658,9 @@ snapshots:
       '@jridgewell/resolve-uri': 3.1.2
       '@jridgewell/sourcemap-codec': 1.4.15
 
-  '@lassi-js/kili@0.3.12(@constl/ipa@1.0.11(react-native@0.73.6(@babel/core@7.24.5)(@babel/preset-env@7.24.4(@babel/core@7.24.5))(react@18.2.0))(wrtc@0.4.7))':
+  '@lassi-js/kili@0.3.12(@constl/ipa@1.0.12(react-native@0.73.6(@babel/core@7.24.5)(@babel/preset-env@7.24.4(@babel/core@7.24.5))(react@18.2.0)))':
     dependencies:
-      '@constl/ipa': 1.0.11(react-native@0.73.6(@babel/core@7.24.5)(@babel/preset-env@7.24.4(@babel/core@7.24.5))(react@18.2.0))(wrtc@0.4.7)
+      '@constl/ipa': 1.0.12(react-native@0.73.6(@babel/core@7.24.5)(@babel/preset-env@7.24.4(@babel/core@7.24.5))(react@18.2.0))
       '@constl/utils-ipa': 1.0.0
       '@orbitdb/core': 2.2.0
       deepcopy: 2.1.0
@@ -9890,11 +9799,6 @@ snapshots:
   '@libp2p/interface-peer-id@2.0.2':
     dependencies:
       multiformats: 11.0.2
-
-  '@libp2p/interface-peer-store@2.0.4':
-    dependencies:
-      '@libp2p/interface-peer-id': 2.0.2
-      '@multiformats/multiaddr': 12.2.1
 
   '@libp2p/interface-stream-muxer@4.1.2':
     dependencies:
@@ -10186,22 +10090,6 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@libp2p/utils@3.0.13':
-    dependencies:
-      '@achingbrain/ip-address': 8.1.0
-      '@libp2p/interface-connection': 5.1.1
-      '@libp2p/interface-peer-store': 2.0.4
-      '@libp2p/interfaces': 3.3.2
-      '@libp2p/logger': 2.1.1
-      '@multiformats/multiaddr': 12.2.1
-      abortable-iterator: 5.0.1
-      is-loopback-addr: 2.0.2
-      it-stream-types: 2.0.1
-      private-ip: 3.0.2
-      uint8arraylist: 2.4.8
-    transitivePeerDependencies:
-      - supports-color
-
   '@libp2p/utils@5.4.0':
     dependencies:
       '@chainsafe/is-ip': 2.0.2
@@ -10224,41 +10112,6 @@ snapshots:
       race-signal: 1.0.2
       uint8arraylist: 2.4.8
       uint8arrays: 5.0.3
-    transitivePeerDependencies:
-      - supports-color
-
-  '@libp2p/webrtc-direct@6.0.0':
-    dependencies:
-      '@libp2p/interface-connection': 5.1.1
-      '@libp2p/interface-transport': 4.0.3
-      '@libp2p/logger': 2.1.1
-      '@libp2p/utils': 3.0.13
-      '@libp2p/webrtc-peer': 2.0.2
-      '@multiformats/mafmt': 12.1.6
-      '@multiformats/multiaddr': 12.2.1
-      abortable-iterator: 5.0.1
-      err-code: 3.0.1
-      multiformats: 11.0.2
-      native-fetch: 4.0.2(undici@5.28.4)
-      p-event: 5.0.1
-      uint8arrays: 4.0.10
-      undici: 5.28.4
-      wherearewe: 2.0.1
-    transitivePeerDependencies:
-      - supports-color
-
-  '@libp2p/webrtc-peer@2.0.2':
-    dependencies:
-      '@libp2p/interfaces': 3.3.2
-      '@libp2p/logger': 2.1.1
-      delay: 5.0.0
-      err-code: 3.0.1
-      iso-random-stream: 2.0.2
-      it-pushable: 3.2.3
-      it-stream-types: 1.0.5
-      p-defer: 4.0.1
-      p-event: 5.0.1
-      uint8arrays: 4.0.10
     transitivePeerDependencies:
       - supports-color
 
@@ -12870,8 +12723,6 @@ snapshots:
       rimraf: 3.0.2
       slash: 3.0.0
 
-  delay@5.0.0: {}
-
   delay@6.0.0: {}
 
   delayed-stream@1.0.0: {}
@@ -12978,11 +12829,6 @@ snapshots:
     dependencies:
       esutils: 2.0.3
 
-  domexception@1.0.1:
-    dependencies:
-      webidl-conversions: 4.0.2
-    optional: true
-
   dot-prop@5.3.0:
     dependencies:
       is-obj: 2.0.0
@@ -13045,10 +12891,10 @@ snapshots:
     dependencies:
       once: 1.4.0
 
-  ennikkai@2.2.7(@constl/ipa@1.0.11(react-native@0.73.6(@babel/core@7.24.5)(@babel/preset-env@7.24.4(@babel/core@7.24.5))(react@18.2.0))(wrtc@0.4.7)):
+  ennikkai@2.2.7(@constl/ipa@1.0.12(react-native@0.73.6(@babel/core@7.24.5)(@babel/preset-env@7.24.4(@babel/core@7.24.5))(react@18.2.0))):
     dependencies:
-      '@constl/ipa': 1.0.11(react-native@0.73.6(@babel/core@7.24.5)(@babel/preset-env@7.24.4(@babel/core@7.24.5))(react@18.2.0))(wrtc@0.4.7)
-      '@lassi-js/kili': 0.3.12(@constl/ipa@1.0.11(react-native@0.73.6(@babel/core@7.24.5)(@babel/preset-env@7.24.4(@babel/core@7.24.5))(react@18.2.0))(wrtc@0.4.7))
+      '@constl/ipa': 1.0.12(react-native@0.73.6(@babel/core@7.24.5)(@babel/preset-env@7.24.4(@babel/core@7.24.5))(react@18.2.0))
+      '@lassi-js/kili': 0.3.12(@constl/ipa@1.0.12(react-native@0.73.6(@babel/core@7.24.5)(@babel/preset-env@7.24.4(@babel/core@7.24.5))(react@18.2.0)))
       deepmerge: 4.3.1
       events: 3.3.0
     transitivePeerDependencies:
@@ -14444,10 +14290,6 @@ snapshots:
     dependencies:
       loose-envify: 1.4.0
 
-  ip-regex@5.0.0: {}
-
-  ipaddr.js@2.2.0: {}
-
   ipfs-bitswap@20.0.2:
     dependencies:
       '@libp2p/interface': 1.3.1
@@ -14761,11 +14603,6 @@ snapshots:
 
   iso-constants@https://codeload.github.com/inverted-capital/iso-constants/tar.gz/2af6fdfb2cacaa03ebd58543703918783e62649f: {}
 
-  iso-random-stream@2.0.2:
-    dependencies:
-      events: 3.3.0
-      readable-stream: 3.6.2
-
   isobject@3.0.1: {}
 
   isstream@0.1.2: {}
@@ -14926,8 +14763,6 @@ snapshots:
     dependencies:
       it-all: 3.0.6
 
-  it-stream-types@1.0.5: {}
-
   it-stream-types@2.0.1: {}
 
   it-take@3.0.5: {}
@@ -15034,8 +14869,6 @@ snapshots:
   js-yaml@4.1.0:
     dependencies:
       argparse: 2.0.1
-
-  jsbn@1.1.0: {}
 
   jsc-android@250231.0.0: {}
 
@@ -16236,10 +16069,6 @@ snapshots:
 
   napi-macros@2.2.2: {}
 
-  native-fetch@4.0.2(undici@5.28.4):
-    dependencies:
-      undici: 5.28.4
-
   natural-compare-lite@1.4.0: {}
 
   natural-compare@1.4.0: {}
@@ -16580,10 +16409,6 @@ snapshots:
   p-defer@4.0.1: {}
 
   p-each-series@3.0.0: {}
-
-  p-event@5.0.1:
-    dependencies:
-      p-timeout: 5.1.0
 
   p-event@6.0.1:
     dependencies:
@@ -16936,13 +16761,6 @@ snapshots:
       '@jest/schemas': 29.6.3
       ansi-styles: 5.2.0
       react-is: 18.3.1
-
-  private-ip@3.0.2:
-    dependencies:
-      '@chainsafe/is-ip': 2.0.2
-      ip-regex: 5.0.0
-      ipaddr.js: 2.2.0
-      netmask: 2.0.2
 
   process-nextick-args@2.0.1: {}
 
@@ -17739,8 +17557,6 @@ snapshots:
 
   sprintf-js@1.0.3: {}
 
-  sprintf-js@1.1.2: {}
-
   sprintf-js@1.1.3:
     optional: true
 
@@ -18288,10 +18104,6 @@ snapshots:
 
   undici-types@5.26.5: {}
 
-  undici@5.28.4:
-    dependencies:
-      '@fastify/busboy': 2.1.1
-
   unicode-canonical-property-names-ecmascript@2.0.0: {}
 
   unicode-emoji-modifier-base@1.0.0: {}
@@ -18425,9 +18237,6 @@ snapshots:
 
   webidl-conversions@3.0.1: {}
 
-  webidl-conversions@4.0.2:
-    optional: true
-
   whatwg-fetch@3.6.20: {}
 
   whatwg-url@5.0.0:
@@ -18478,7 +18287,7 @@ snapshots:
 
   wide-align@1.1.5:
     dependencies:
-      string-width: 1.0.2
+      string-width: 4.2.3
 
   winston@2.4.7:
     dependencies:
@@ -18534,10 +18343,6 @@ snapshots:
       is-typedarray: 1.0.0
       signal-exit: 3.0.7
       typedarray-to-buffer: 3.1.5
-
-  wrtc@0.4.7:
-    optionalDependencies:
-      domexception: 1.0.1
 
   ws@6.2.2:
     dependencies:
