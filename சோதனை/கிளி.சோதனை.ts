@@ -182,10 +182,12 @@ describe("கிளி", () => {
     let மறந்துவிடு: types.schémaFonctionOublier[] = [];
 
     before("தயாரிப்பு", async () => {
-      const { clients, fOublier } = await constellation.créerConstellationsTest({
-        n: 1,
-        créerConstellation,
-      });
+      const { clients, fOublier } = await constellation.créerConstellationsTest(
+        {
+          n: 1,
+          créerConstellation,
+        },
+      );
       வாடிகையாளர்கள் = clients as ClientConstellation[];
       விண்மீனை_மறந்துவிடு = fOublier;
 
@@ -464,10 +466,12 @@ describe("கிளி", () => {
     let மறந்துவிடு: types.schémaFonctionOublier[] = [];
 
     before("தயாரிப்பு", async () => {
-      const { clients, fOublier } = await constellation.créerConstellationsTest({
-        n: 1,
-        créerConstellation,
-      });
+      const { clients, fOublier } = await constellation.créerConstellationsTest(
+        {
+          n: 1,
+          créerConstellation,
+        },
+      );
       வாடிகையாளர்கள் = clients as ClientConstellation[];
       விண்மீனை_மறந்துவிடு = fOublier;
 
@@ -613,10 +617,12 @@ describe("கிளி", () => {
     let மறந்துவிடு: types.schémaFonctionOublier[] = [];
 
     before("தயாரிப்பு", async () => {
-      const { clients, fOublier } = await constellation.créerConstellationsTest({
-        n: 1,
-        créerConstellation,
-      });
+      const { clients, fOublier } = await constellation.créerConstellationsTest(
+        {
+          n: 1,
+          créerConstellation,
+        },
+      );
       வாடிகையாளர்கள் = clients as ClientConstellation[];
       விண்மீனை_மறந்துவிடு = fOublier;
 
@@ -911,8 +917,8 @@ describe("கிளி", () => {
           },
         ],
       });
-    })
-    
+    });
+
     it("வேண்டாமென்றால் சந்ததியின் பரிந்துரைகள் கிடைக்காது", async () => {
       const பரிந்துரைகள் = new attente.AttendreRésultat<
         பிணையம்_பரிந்துரை<{ உரை: string; எண்: number }>[]
@@ -949,8 +955,7 @@ describe("கிளி", () => {
           },
         ],
       });
-    })
-
+    });
   });
 
   describe("இணையம்", function () {
@@ -968,10 +973,12 @@ describe("கிளி", () => {
     let மறந்துவிடு: types.schémaFonctionOublier[] = [];
 
     before("தயாரிப்பு", async () => {
-      const { clients, fOublier } = await constellation.créerConstellationsTest({
-        n: isBrowser || isElectronRenderer ? 1 : 2, // உலாவியில் இரண்டு விண்மீன்களை ஒரே நேரத்தில் உருவாக்க முடியாது,
-        créerConstellation,
-      });
+      const { clients, fOublier } = await constellation.créerConstellationsTest(
+        {
+          n: isBrowser || isElectronRenderer ? 1 : 2, // உலாவியில் இரண்டு விண்மீன்களை ஒரே நேரத்தில் உருவாக்க முடியாது,
+          créerConstellation,
+        },
+      );
       வாடிகையாளர்கள் = clients as ClientConstellation[];
       விண்மீனை_மறந்துவிடு = fOublier;
 
@@ -1264,10 +1271,12 @@ describe("கிளி", () => {
       async () => பரிந்துரைகள்.toutAnnuler(),
     ];
     before("தயாரிப்பு", async () => {
-      const { clients, fOublier } = await constellation.créerConstellationsTest({
-        n: isBrowser || isElectronRenderer ? 1 : 2, // உலாவியில் இரண்டு விண்மீன்களை ஒரே நேரத்தில் உருவாக்க முடியாது
-        créerConstellation,
-      });
+      const { clients, fOublier } = await constellation.créerConstellationsTest(
+        {
+          n: isBrowser || isElectronRenderer ? 1 : 2, // உலாவியில் இரண்டு விண்மீன்களை ஒரே நேரத்தில் உருவாக்க முடியாது
+          créerConstellation,
+        },
+      );
       வாடிகையாளர்கள் = clients as ClientConstellation[];
       மறந்துவிடு.push(fOublier);
 
@@ -1359,10 +1368,12 @@ describe("கிளி", () => {
       async () => பரிந்துரைகள்.toutAnnuler(),
     ];
     before("தயாரிப்பு", async () => {
-      const { clients, fOublier } = await constellation.créerConstellationsTest({
-        n: isBrowser || isElectronRenderer ? 1 : 2, // உலாவியில் இரண்டு விண்மீன்களை ஒரே நேரத்தில் உருவாக்க முடியாது
-        créerConstellation,
-      });
+      const { clients, fOublier } = await constellation.créerConstellationsTest(
+        {
+          n: isBrowser || isElectronRenderer ? 1 : 2, // உலாவியில் இரண்டு விண்மீன்களை ஒரே நேரத்தில் உருவாக்க முடியாது
+          créerConstellation,
+        },
+      );
       வாடிகையாளர்கள் = clients as ClientConstellation[];
       மறந்துவிடு.push(fOublier);
 
@@ -1467,10 +1478,12 @@ describe("கிளி", () => {
     ];
 
     before("தயாரிப்பு", async () => {
-      const { clients, fOublier } = await constellation.créerConstellationsTest({
-        n: isBrowser || isElectronRenderer ? 1 : 2, // உலாவியில் இரண்டு விண்மீன்களை ஒரே நேரத்தில் உருவாக்க முடியாது
-        créerConstellation,
-      });
+      const { clients, fOublier } = await constellation.créerConstellationsTest(
+        {
+          n: isBrowser || isElectronRenderer ? 1 : 2, // உலாவியில் இரண்டு விண்மீன்களை ஒரே நேரத்தில் உருவாக்க முடியாது
+          créerConstellation,
+        },
+      );
       வாடிகையாளர்கள் = clients as ClientConstellation[];
       மறந்துவிடு.push(fOublier);
 

@@ -1,4 +1,10 @@
-import type { ClientConstellation, bds, tableaux, types, créerConstellation } from "@constl/ipa";
+import type {
+  ClientConstellation,
+  bds,
+  tableaux,
+  types,
+  créerConstellation,
+} from "@constl/ipa";
 
 import deepcopy from "deepcopy";
 
