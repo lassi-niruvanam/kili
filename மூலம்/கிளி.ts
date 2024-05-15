@@ -13,6 +13,7 @@ import {
   suivreBdDeFonction,
   uneFois,
   suivreBdsDeFonctionListe,
+  attendreStabilité,
 } from "@constl/utils-ipa";
 
 import {
@@ -307,7 +308,7 @@ export class கிளி<
           }: {
             fSuivreRacine: (nouvelIdBdCible?: string) => Promise<void>;
           }) => {
-            return await this.அங்கீகார_தரவுத்தள்ளைப்_கேள்ளு({
+            return await this.அங்கீகார_தரவுத்தள்ளத்தைப்_கேள்ளு({
               செ: fSuivreRacine,
               அடையாளம்,
             });
@@ -357,7 +358,7 @@ export class கிளி<
     >({
       idNuée: this.குழு_அடையாளம்,
       clefTableau: this.அட்டவணை_சாபி,
-      héritage: சந்ததி ? ["descendance"] : [],
+      héritage: சந்ததி ? ["descendance", "ascendance"] : ["ascendance"],
       f: async (த) => {
         await செ(
           த.map((இ) => {
@@ -449,7 +450,7 @@ export class கிளி<
     });
   }
 
-  async அங்கீகார_தரவுத்தள்ளைப்_கேள்ளு({
+  async அங்கீகார_தரவுத்தள்ளத்தைப்_கேள்ளு({
     செ,
     அடையாளம்,
   }: {
@@ -467,14 +468,16 @@ export class கிளி<
     return await this.விண்மீன்.nuées.suivreMétadonnéesNuée({
       idNuée: அடையாளம் || this.குழு_அடையாளம்,
       f: இறுதியான_செயலி,
+      hériter: false,
     });
   }
 
-  async அங்கீகார_தரவுத்தத்தைப்_பெறு(): Promise<string> {
+  async அங்கீகார_தரவுத்தள்ளத்தைப்_பெறு(): Promise<string> {
+    
     const தரவுத்தள_அடையாளம் = await uneFois(
       async (செ: types.schémaFonctionSuivi<string>) => {
-        return await this.அங்கீகார_தரவுத்தள்ளைப்_கேள்ளு({ செ });
-      },
+        return await this.அங்கீகார_தரவுத்தள்ளத்தைப்_கேள்ளு({ செ });
+      }
     );
     return தரவுத்தள_அடையாளம்;
   }
@@ -484,7 +487,7 @@ export class கிளி<
   }: {
     பரிந்துரை: பிணையம்_பரிந்துரை<வ, தேதி_நெடுவரிசை_வ>;
   }): Promise<string> {
-    const தரவுத்தள_அடையாளம் = await this.அங்கீகார_தரவுத்தத்தைப்_பெறு();
+    const தரவுத்தள_அடையாளம் = await this.அங்கீகார_தரவுத்தள்ளத்தைப்_பெறு();
 
     const பரிந்துரை_உறுப்படி: அங்கீகரிக்கப்பட்ட_உறுப்படி_வகை<
       வ,
@@ -538,7 +541,7 @@ export class கிளி<
   }: {
     அடையாளம்: string;
   }) {
-    const தரவுத்தள_அடையாளம் = await this.அங்கீகார_தரவுத்தத்தைப்_பெறு();
+    const தரவுத்தள_அடையாளம் = await this.அங்கீகார_தரவுத்தள்ளத்தைப்_பெறு();
 
     await this.விண்மீன்.bds.effacerÉlémentDeTableauParClef({
       idBd: தரவுத்தள_அடையாளம்,
@@ -554,7 +557,7 @@ export class கிளி<
     பரிந்துரை: பிணையம்_பரிந்துரை<வ, தேதி_நெடுவரிசை_வ>;
     அடையாளம்: string;
   }) {
-    const தரவுத்தள_அடையாளம் = await this.அங்கீகார_தரவுத்தத்தைப்_பெறு();
+    const தரவுத்தள_அடையாளம் = await this.அங்கீகார_தரவுத்தள்ளத்தைப்_பெறு();
 
     await this.விண்மீன்.bds.modifierÉlémentDeTableauParClef({
       idBd: தரவுத்தள_அடையாளம்,
