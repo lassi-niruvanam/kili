@@ -1,6 +1,6 @@
 {
   "name": "@lassi-js/kili",
-  "version": "0.3.14",
+  "version": "0.3.15",
   "description": "",
   "main": "விநியோகம்/மூலம்/குறியீட்டு.js",
   "type": "module",
@@ -30,7 +30,7 @@
   "devDependencies": {
     "@constl/ipa": "^1.0.16",
     "@constl/orbit-db-types": "^2.0.0",
-    "@constl/utils-tests": "1.2.6",
+    "@constl/utils-tests": "^1.2.6",
     "@eslint/js": "^9.2.0",
     "@types/mocha": "^10.0.6",
     "aegir": "^43.0.0",
