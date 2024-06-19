@@ -20,7 +20,7 @@ importers:
     devDependencies:
       '@constl/ipa':
         specifier: ^1.0.16
-        version: 1.0.23(react-native@0.73.6(@babel/core@7.24.6)(@babel/preset-env@7.24.4(@babel/core@7.24.6))(react@18.2.0))
+        version: 1.0.24(react-native@0.73.6(@babel/core@7.24.6)(@babel/preset-env@7.24.4(@babel/core@7.24.6))(react@18.2.0))
       '@constl/orbit-db-types':
         specifier: ^2.0.0
         version: 2.0.0(react-native@0.73.6(@babel/core@7.24.6)(@babel/preset-env@7.24.4(@babel/core@7.24.6))(react@18.2.0))
@@ -1180,8 +1180,8 @@ packages:
   '@constl/bohr-db@1.1.0':
     resolution: {integrity: sha512-7XT+jASK69Y+41dYuDEjaatKfv6CSpthf+d7YT7gGcd6tyd6VNryb06pD9imTyARXFSieAeV72LpRYMnSzP1hg==}
 
-  '@constl/ipa@1.0.23':
-    resolution: {integrity: sha512-xctmGFtXstJdHPlaGfb7SBlvW8SZioGRmVkd7E/vTe0znDjh/3TwVRDDVw3hkHl2zihqcY7kqC7aKtRewfJtIA==}
+  '@constl/ipa@1.0.24':
+    resolution: {integrity: sha512-UTEXnj4Km3wI8cMiXw53lNplio4l8h0QBIuHM76wqT5GwVbiPO0p6GJUvxgCGUyUz3bMyarq9Qk0oyiBLUSDoA==}
     engines: {node: '>=20'}
 
   '@constl/mandataire@1.0.2':
@@ -3629,8 +3629,8 @@ packages:
   electron-to-chromium@1.4.786:
     resolution: {integrity: sha512-i/A2UB0sxYViMN0M2zIotQFRIOt1jLuVXudACHBDiJ5gGuAUzf/crZxwlBTdA0O52Hy4CNtTzS7AKRAacs/08Q==}
 
-  electron-to-chromium@1.4.805:
-    resolution: {integrity: sha512-8W4UJwX/w9T0QSzINJckTKG6CYpAUTqsaWcWIsdud3I1FYJcMgW9QqT1/4CBff/pP/TihWh13OmiyY8neto6vw==}
+  electron-to-chromium@1.4.806:
+    resolution: {integrity: sha512-nkoEX2QIB8kwCOtvtgwhXWy2IHVcOLQZu9Qo36uaGB835mdX/h8uLRlosL6QIhLVUnAiicXRW00PwaPZC74Nrg==}
 
   electron-window@0.8.1:
     resolution: {integrity: sha512-W1i9LfnZJozk3MXE8VgsL2E5wOUHSgyCvcg1H2vQQjj+gqhO9lVudgY3z3SF7LJAmi+0vy3CJkbMqsynWB49EA==}
@@ -5152,8 +5152,8 @@ packages:
     resolution: {integrity: sha512-eIz2msL/EzL9UFTFFx7jBTkeZfku0yUAyZZZmJ93H2TYEiroIx2PQjEXcwYtYl8zXCxb+PAmA2hLIt/6ZEkPHw==}
     engines: {node: ^14.15.0 || ^16.10.0 || >=18.0.0}
 
-  joi@17.13.1:
-    resolution: {integrity: sha512-vaBlIKCyo4FCUtCm7Eu4QZd/q02bWcxfUO6YSXAZOWF6gzcLBeba8kwotUdYJjDLW8Cz8RywsSOqiNJZW0mNvg==}
+  joi@17.13.2:
+    resolution: {integrity: sha512-QJQKY10YowIi6yUpDQG9YpeWLD+OHYlY/La8gk7VitrXfy34quHwCu4QKNlBV1rpgQj0YpnWWl4JM+3DU6GapQ==}
 
   js-tokens@4.0.0:
     resolution: {integrity: sha512-RdJUflcE3cUzKiMqQgsCu06FPu9UdIJO0beYbPhHN4k6apgJtifcoCtT9bcxOpYBtpD2kCM6Sbzg4CausW/PKQ==}
@@ -7022,8 +7022,8 @@ packages:
   sanitize-filename@1.6.3:
     resolution: {integrity: sha512-y/52Mcy7aw3gRm7IrcGDFx/bCk4AhRh2eI9luHOQM86nZsqwiRkkq2GekHXBBD+SmPidc8i2PqtYZl+pWJ8Oeg==}
 
-  sax@1.3.0:
-    resolution: {integrity: sha512-0s+oAmw9zLl1V1cS9BtZN7JAd0cW5e0QH4W3LWEK6a4LaLEA2OTpGYWDY+6XasBLtz6wkm3u1xRw95mRuJ59WA==}
+  sax@1.4.1:
+    resolution: {integrity: sha512-+aWOz7yVScEGoKNd4PA10LZ8sk0A/z5+nXQG5giUO5rprX9jgYsTdov9qCchZiPIZezbZH+jRut8nPodFAX4Jg==}
 
   scheduler@0.24.0-canary-efb381bbf-20230505:
     resolution: {integrity: sha512-ABvovCDe/k9IluqSh4/ISoq8tIJnW8euVAWYt5j/bg6dRnqwQwiGO1F/V4AyK96NGF/FB04FhOUDuWj8IKfABA==}
@@ -9546,7 +9546,7 @@ snapshots:
       - supports-color
       - utf-8-validate
 
-  '@constl/ipa@1.0.23(react-native@0.73.6(@babel/core@7.24.6)(@babel/preset-env@7.24.4(@babel/core@7.24.6))(react@18.2.0))':
+  '@constl/ipa@1.0.24(react-native@0.73.6(@babel/core@7.24.6)(@babel/preset-env@7.24.4(@babel/core@7.24.6))(react@18.2.0))':
     dependencies:
       '@chainsafe/libp2p-gossipsub': 11.2.1
       '@chainsafe/libp2p-noise': 15.0.0
@@ -9558,7 +9558,7 @@ snapshots:
       '@helia/block-brokers': 1.0.0
       '@helia/unixfs': 3.0.6
       '@ipld/dag-cbor': 9.2.0
-      '@lassi-js/kili': 0.3.14(@constl/ipa@1.0.23(react-native@0.73.6(@babel/core@7.24.6)(@babel/preset-env@7.24.4(@babel/core@7.24.6))(react@18.2.0)))
+      '@lassi-js/kili': 0.3.14(@constl/ipa@1.0.24(react-native@0.73.6(@babel/core@7.24.6)(@babel/preset-env@7.24.4(@babel/core@7.24.6))(react@18.2.0)))
       '@libp2p/autonat': 1.0.22
       '@libp2p/bootstrap': 10.0.25
       '@libp2p/circuit-relay-v2': 1.0.25
@@ -9587,7 +9587,7 @@ snapshots:
       crypto-js: 4.2.0
       deep-equal: 2.2.3
       deepcopy: 2.1.0
-      ennikkai: 2.3.2(@constl/ipa@1.0.23(react-native@0.73.6(@babel/core@7.24.6)(@babel/preset-env@7.24.4(@babel/core@7.24.6))(react@18.2.0)))
+      ennikkai: 2.3.2(@constl/ipa@1.0.24(react-native@0.73.6(@babel/core@7.24.6)(@babel/preset-env@7.24.4(@babel/core@7.24.6))(react@18.2.0)))
       env-paths: 3.0.0
       events: 3.3.0
       file-saver: 2.0.5
@@ -10104,9 +10104,9 @@ snapshots:
       '@jridgewell/resolve-uri': 3.1.2
       '@jridgewell/sourcemap-codec': 1.4.15
 
-  '@lassi-js/kili@0.3.14(@constl/ipa@1.0.23(react-native@0.73.6(@babel/core@7.24.6)(@babel/preset-env@7.24.4(@babel/core@7.24.6))(react@18.2.0)))':
+  '@lassi-js/kili@0.3.14(@constl/ipa@1.0.24(react-native@0.73.6(@babel/core@7.24.6)(@babel/preset-env@7.24.4(@babel/core@7.24.6))(react@18.2.0)))':
     dependencies:
-      '@constl/ipa': 1.0.23(react-native@0.73.6(@babel/core@7.24.6)(@babel/preset-env@7.24.4(@babel/core@7.24.6))(react@18.2.0))
+      '@constl/ipa': 1.0.24(react-native@0.73.6(@babel/core@7.24.6)(@babel/preset-env@7.24.4(@babel/core@7.24.6))(react@18.2.0))
       '@constl/utils-ipa': 1.0.1
       '@orbitdb/core': 2.2.0
       deepcopy: 2.1.0
@@ -10187,7 +10187,7 @@ snapshots:
       '@noble/curves': 1.4.0
       '@noble/hashes': 1.4.0
       asn1js: 3.0.5
-      multiformats: 13.1.1
+      multiformats: 13.1.0
       protons-runtime: 5.4.0
       uint8arraylist: 2.4.8
       uint8arrays: 5.1.0
@@ -10309,7 +10309,7 @@ snapshots:
       '@multiformats/multiaddr': 12.3.0
       it-pushable: 3.2.3
       it-stream-types: 2.0.1
-      multiformats: 13.1.1
+      multiformats: 13.1.0
       progress-events: 1.0.0
       uint8arraylist: 2.4.8
 
@@ -10387,7 +10387,7 @@ snapshots:
       '@multiformats/multiaddr': 12.3.0
       debug: 4.3.5
       interface-datastore: 8.2.11
-      multiformats: 13.1.1
+      multiformats: 13.1.0
     transitivePeerDependencies:
       - supports-color
 
@@ -10455,7 +10455,7 @@ snapshots:
   '@libp2p/peer-id@4.1.3':
     dependencies:
       '@libp2p/interface': 1.4.1
-      multiformats: 13.1.1
+      multiformats: 13.1.0
       uint8arrays: 5.1.0
 
   '@libp2p/peer-record@7.0.19':
@@ -10732,7 +10732,7 @@ snapshots:
     dependencies:
       '@chainsafe/is-ip': 2.0.2
       '@multiformats/multiaddr': 12.3.0
-      multiformats: 13.1.1
+      multiformats: 13.1.0
 
   '@multiformats/multiaddr-to-uri@10.1.0':
     dependencies:
@@ -10744,7 +10744,7 @@ snapshots:
       '@chainsafe/netmask': 2.0.0
       '@libp2p/interface': 1.4.1
       '@multiformats/dns': 1.0.6
-      multiformats: 13.1.1
+      multiformats: 13.1.0
       uint8-varint: 2.0.4
       uint8arrays: 5.1.0
 
@@ -10954,7 +10954,7 @@ snapshots:
       cosmiconfig: 5.2.1
       deepmerge: 4.3.1
       glob: 7.2.3
-      joi: 17.13.1
+      joi: 17.13.2
     transitivePeerDependencies:
       - encoding
 
@@ -11052,7 +11052,7 @@ snapshots:
 
   '@react-native-community/cli-types@12.3.6':
     dependencies:
-      joi: 17.13.1
+      joi: 17.13.2
 
   '@react-native-community/cli@12.3.6':
     dependencies:
@@ -12300,7 +12300,7 @@ snapshots:
   browserslist@4.23.1:
     dependencies:
       caniuse-lite: 1.0.30001636
-      electron-to-chromium: 1.4.805
+      electron-to-chromium: 1.4.806
       node-releases: 2.0.14
       update-browserslist-db: 1.0.16(browserslist@4.23.1)
 
@@ -13145,7 +13145,7 @@ snapshots:
 
   electron-to-chromium@1.4.786: {}
 
-  electron-to-chromium@1.4.805: {}
+  electron-to-chromium@1.4.806: {}
 
   electron-window@0.8.1:
     dependencies:
@@ -13179,10 +13179,10 @@ snapshots:
     dependencies:
       once: 1.4.0
 
-  ennikkai@2.3.2(@constl/ipa@1.0.23(react-native@0.73.6(@babel/core@7.24.6)(@babel/preset-env@7.24.4(@babel/core@7.24.6))(react@18.2.0))):
+  ennikkai@2.3.2(@constl/ipa@1.0.24(react-native@0.73.6(@babel/core@7.24.6)(@babel/preset-env@7.24.4(@babel/core@7.24.6))(react@18.2.0))):
     dependencies:
-      '@constl/ipa': 1.0.23(react-native@0.73.6(@babel/core@7.24.6)(@babel/preset-env@7.24.4(@babel/core@7.24.6))(react@18.2.0))
-      '@lassi-js/kili': 0.3.14(@constl/ipa@1.0.23(react-native@0.73.6(@babel/core@7.24.6)(@babel/preset-env@7.24.4(@babel/core@7.24.6))(react@18.2.0)))
+      '@constl/ipa': 1.0.24(react-native@0.73.6(@babel/core@7.24.6)(@babel/preset-env@7.24.4(@babel/core@7.24.6))(react@18.2.0))
+      '@lassi-js/kili': 0.3.14(@constl/ipa@1.0.24(react-native@0.73.6(@babel/core@7.24.6)(@babel/preset-env@7.24.4(@babel/core@7.24.6))(react@18.2.0)))
       deepmerge: 4.3.1
       events: 3.3.0
 
@@ -14552,7 +14552,7 @@ snapshots:
   interface-blockstore@5.2.10:
     dependencies:
       interface-store: 5.1.8
-      multiformats: 13.1.1
+      multiformats: 13.1.0
 
   interface-datastore@8.2.11:
     dependencies:
@@ -15135,7 +15135,7 @@ snapshots:
       merge-stream: 2.0.0
       supports-color: 8.1.1
 
-  joi@17.13.1:
+  joi@17.13.2:
     dependencies:
       '@hapi/hoek': 9.3.0
       '@hapi/topo': 5.1.0
@@ -17516,7 +17516,7 @@ snapshots:
     dependencies:
       truncate-utf8-bytes: 1.0.2
 
-  sax@1.3.0: {}
+  sax@1.4.1: {}
 
   scheduler@0.24.0-canary-efb381bbf-20230505:
     dependencies:
@@ -18590,7 +18590,7 @@ snapshots:
 
   xml2js@0.6.2:
     dependencies:
-      sax: 1.3.0
+      sax: 1.4.1
       xmlbuilder: 11.0.1
 
   xmlbuilder@11.0.1: {}
