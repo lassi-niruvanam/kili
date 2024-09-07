@@ -1,6 +1,6 @@
 import { isBrowser, isElectronRenderer } from "wherearewe";
 import {
-  ClientConstellation,
+  Constellation,
   créerConstellation,
   bds,
   types,
@@ -78,8 +78,8 @@ describe("கிளி", () => {
   });
 
   describe("உருவாக்கு", function () {
-    let விண்மீன்: ClientConstellation;
-    let வாடிகையாளர்கள்: ClientConstellation[];
+    let விண்மீன்: Constellation;
+    let வாடிகையாளர்கள்: Constellation[];
     let வார்ப்புரு: bds.schémaSpécificationBd;
     let மறந்துவிடு: types.schémaFonctionOublier;
 
@@ -161,8 +161,8 @@ describe("கிளி", () => {
   });
 
   describe("பரிந்துரைகளும் அங்கீகாரமும்", function () {
-    let விண்மீன்: ClientConstellation;
-    let வாடிகையாளர்கள்: ClientConstellation[];
+    let விண்மீன்: Constellation;
+    let வாடிகையாளர்கள்: Constellation[];
     let வார்ப்புரு: bds.schémaSpécificationBd;
     let குழு_அடையாளம்: string;
 
@@ -188,7 +188,7 @@ describe("கிளி", () => {
           créerConstellation,
         },
       );
-      வாடிகையாளர்கள் = clients as ClientConstellation[];
+      வாடிகையாளர்கள் = clients as Constellation[];
       விண்மீனை_மறந்துவிடு = fOublier;
 
       விண்மீன் = வாடிகையாளர்கள்[0];
@@ -456,8 +456,8 @@ describe("கிளி", () => {
   });
 
   describe("விருப்பங்கள்", function () {
-    let விண்மீன்: ClientConstellation;
-    let வாடிகையாளர்கள்: ClientConstellation[];
+    let விண்மீன்: Constellation;
+    let வாடிகையாளர்கள்: Constellation[];
     let வார்ப்புரு: bds.schémaSpécificationBd;
     let குழு_அடையாளம்: string;
 
@@ -472,7 +472,7 @@ describe("கிளி", () => {
           créerConstellation,
         },
       );
-      வாடிகையாளர்கள் = clients as ClientConstellation[];
+      வாடிகையாளர்கள் = clients as Constellation[];
       விண்மீனை_மறந்துவிடு = fOublier;
 
       விண்மீன் = வாடிகையாளர்கள்[0];
@@ -603,8 +603,8 @@ describe("கிளி", () => {
   });
 
   describe("பேற்றோர்கள்", function () {
-    let விண்மீன்: ClientConstellation;
-    let வாடிகையாளர்கள்: ClientConstellation[];
+    let விண்மீன்: Constellation;
+    let வாடிகையாளர்கள்: Constellation[];
     let என்_கிளி: கிளி<{ உரை: string; எண்: number }>;
     let கிளியின்_பேற்றோர்: கிளி<{ உரை: string; எண்: number }>;
     let கிளியின்_தம்பி: கிளி<{ உரை: string; எண்: number }>;
@@ -624,7 +624,7 @@ describe("கிளி", () => {
           créerConstellation,
         },
       );
-      வாடிகையாளர்கள் = clients as ClientConstellation[];
+      வாடிகையாளர்கள் = clients as Constellation[];
       விண்மீனை_மறந்துவிடு = fOublier;
 
       விண்மீன் = வாடிகையாளர்கள்[0];
@@ -976,9 +976,9 @@ describe("கிளி", () => {
   });
 
   describe("இணையம்", function () {
-    let விண்மீன்: ClientConstellation;
-    let வேறு_விண்மீன்: ClientConstellation;
-    let வாடிகையாளர்கள்: ClientConstellation[];
+    let விண்மீன்: Constellation;
+    let வேறு_விண்மீன்: Constellation;
+    let வாடிகையாளர்கள்: Constellation[];
     let வார்ப்புரு: bds.schémaSpécificationBd;
     let குழு_அடையாளம்: string;
 
@@ -996,7 +996,7 @@ describe("கிளி", () => {
           créerConstellation,
         },
       );
-      வாடிகையாளர்கள் = clients as ClientConstellation[];
+      வாடிகையாளர்கள் = clients as Constellation[];
       விண்மீனை_மறந்துவிடு = fOublier;
 
       விண்மீன் = வாடிகையாளர்கள்[0];
@@ -1272,9 +1272,9 @@ describe("கிளி", () => {
   });
 
   describe("இணைப்பு இல்லாத குழு", function () {
-    let விண்மீன்: ClientConstellation;
-    let வேறு_விண்மீன்: ClientConstellation;
-    let வாடிகையாளர்கள்: ClientConstellation[];
+    let விண்மீன்: Constellation;
+    let வேறு_விண்மீன்: Constellation;
+    let வாடிகையாளர்கள்: Constellation[];
     let வார்ப்புரு: bds.schémaSpécificationBd;
     let என்_கிளி: கிளி<{ உரை: string; எண்: number }>;
 
@@ -1294,7 +1294,7 @@ describe("கிளி", () => {
           créerConstellation,
         },
       );
-      வாடிகையாளர்கள் = clients as ClientConstellation[];
+      வாடிகையாளர்கள் = clients as Constellation[];
       மறந்துவிடு.push(fOublier);
 
       விண்மீன் = வாடிகையாளர்கள்[0];
@@ -1370,9 +1370,9 @@ describe("கிளி", () => {
   });
 
   describe("இணைப்பு இல்லாத அங்கீகார தரவுத்தளம்", function () {
-    let விண்மீன்: ClientConstellation;
-    let வேறு_விண்மீன்: ClientConstellation;
-    let வாடிகையாளர்கள்: ClientConstellation[];
+    let விண்மீன்: Constellation;
+    let வேறு_விண்மீன்: Constellation;
+    let வாடிகையாளர்கள்: Constellation[];
     let என்_கிளி: கிளி<{ உரை: string; எண்: number }>;
 
     const தரவுத்தளம் =
@@ -1391,7 +1391,7 @@ describe("கிளி", () => {
           créerConstellation,
         },
       );
-      வாடிகையாளர்கள் = clients as ClientConstellation[];
+      வாடிகையாளர்கள் = clients as Constellation[];
       மறந்துவிடு.push(fOublier);
 
       விண்மீன் = வாடிகையாளர்கள்[0];
@@ -1479,9 +1479,9 @@ describe("கிளி", () => {
   });
 
   describe("இணைப்பு இல்லாத மாறிகள்", function () {
-    let விண்மீன்: ClientConstellation;
-    let வேறு_விண்மீன்: ClientConstellation;
-    let வாடிகையாளர்கள்: ClientConstellation[];
+    let விண்மீன்: Constellation;
+    let வேறு_விண்மீன்: Constellation;
+    let வாடிகையாளர்கள்: Constellation[];
     let என்_கிளி: கிளி<{ உரை: string; எண்: number }>;
 
     const கிடைக்காத_மாறி =
@@ -1501,7 +1501,7 @@ describe("கிளி", () => {
           créerConstellation,
         },
       );
-      வாடிகையாளர்கள் = clients as ClientConstellation[];
+      வாடிகையாளர்கள் = clients as Constellation[];
       மறந்துவிடு.push(fOublier);
 
       விண்மீன் = வாடிகையாளர்கள்[0];

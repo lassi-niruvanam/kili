@@ -1,5 +1,5 @@
 import type {
-  ClientConstellation,
+  Constellation,
   bds,
   tableaux,
   types,
@@ -13,7 +13,6 @@ import {
   suivreBdDeFonction,
   uneFois,
   suivreBdsDeFonctionListe,
-  attendreStabilité,
 } from "@constl/utils-ipa";
 
 import {
@@ -92,7 +91,7 @@ export class கிளி<
     வார்ப்புரு,
     மாறிலிகள்,
   }: {
-    விண்மீன்: ClientConstellation;
+    விண்மீன்: Constellation;
     அட்டவணை_சாபி: string;
     குழு_அடையாளம்: string;
     வார்ப்புரு: bds.schémaSpécificationBd;
@@ -174,7 +173,7 @@ export class கிளி<
     பேற்றோர்,
     மாறிலிகள்,
   }: {
-    விண்மீன்: ClientConstellation;
+    விண்மீன்: Constellation;
     வார்ப்புரு: bds.schémaSpécificationBd;
     அட்டவணை_சாபி: string;
     பேற்றோர்?: string;
