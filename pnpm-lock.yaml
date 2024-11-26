@@ -22,8 +22,8 @@ importers:
         specifier: ^1.4.5
         version: 1.4.5(react-native@0.73.6(@babel/core@7.26.0)(@babel/preset-env@7.24.4(@babel/core@7.26.0))(react@18.2.0))
       '@constl/utils-tests':
-        specifier: ^1.6.4
-        version: 1.6.4(react-native@0.73.6(@babel/core@7.26.0)(@babel/preset-env@7.24.4(@babel/core@7.26.0))(react@18.2.0))
+        specifier: ^1.6.5
+        version: 1.6.5(react-native@0.73.6(@babel/core@7.26.0)(@babel/preset-env@7.24.4(@babel/core@7.26.0))(react@18.2.0))
       '@eslint/js':
         specifier: ^9.15.0
         version: 9.15.0
@@ -861,8 +861,8 @@ packages:
     resolution: {integrity: sha512-gWv7BhTXYactNBXPDlUol4EudIr1tsZC1/Gvqcp0Rb2SDqGLHiSURqyiXqj6xVtzPMlcyPHDkBmqsEf8cecWJg==}
     engines: {node: '>=20'}
 
-  '@constl/utils-tests@1.6.4':
-    resolution: {integrity: sha512-GWss8Ke/nBEVc7Udb2cFmCfGz1zi59nVBBvzt3kmCnrGTE6rieytbZggl5ilrFXYwqeMF9w1gKhbHcWgKvR5aQ==}
+  '@constl/utils-tests@1.6.5':
+    resolution: {integrity: sha512-yKr0N5gZkb23D1rVjXukFjyJ1SEC/V7Iy7siAXcMbiu4K1ZhGSJ7T9Y+wo9jyb6GWQAm898cTOvmuifFCa7+dQ==}
     engines: {node: '>=20'}
 
   '@cspotcode/source-map-support@0.8.1':
@@ -8961,7 +8961,7 @@ snapshots:
       uint8arrays: 5.1.0
       wherearewe: 2.0.1
 
-  '@constl/utils-tests@1.6.4(react-native@0.73.6(@babel/core@7.26.0)(@babel/preset-env@7.24.4(@babel/core@7.26.0))(react@18.2.0))':
+  '@constl/utils-tests@1.6.5(react-native@0.73.6(@babel/core@7.26.0)(@babel/preset-env@7.24.4(@babel/core@7.26.0))(react@18.2.0))':
     dependencies:
       '@helia/block-brokers': 4.0.2
       '@libp2p/peer-id': 5.0.8
