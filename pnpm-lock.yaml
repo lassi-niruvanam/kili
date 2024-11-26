@@ -21,15 +21,15 @@ importers:
       '@constl/ipa':
         specifier: ^1.4.4
         version: 1.4.4(react-native@0.73.6(@babel/core@7.25.2)(@babel/preset-env@7.24.4(@babel/core@7.25.2))(react@18.2.0))
-      '@constl/orbit-db-types':
-        specifier: ^2.0.1
-        version: 2.0.1
       '@constl/utils-tests':
         specifier: ^1.6.3
         version: 1.6.3(react-native@0.73.6(@babel/core@7.25.2)(@babel/preset-env@7.24.4(@babel/core@7.25.2))(react@18.2.0))
       '@eslint/js':
         specifier: ^9.2.0
         version: 9.4.0
+      '@orbitdb/core-types':
+        specifier: ^1.0.2
+        version: 1.0.2
       '@types/mocha':
         specifier: ^10.0.6
         version: 10.0.6
@@ -1158,9 +1158,6 @@ packages:
   '@constl/mandataire@3.0.3':
     resolution: {integrity: sha512-J7zWtq2EOA46EIzAGjiOP/FVYvQrjvxXT7aLyKEA6chm6i/3kJnmv5pgYSF0rofGgzIyRUwsTLuzSB23DoZNyg==}
 
-  '@constl/orbit-db-types@2.0.1':
-    resolution: {integrity: sha512-YMYe1UiQDnS00hUPGhdguM6PNN66enUMq7S7tQ9LoNzdDdibZ7NkMz9cRaATdxWndRe7HjEis6yOanKlmT6iFg==}
-
   '@constl/utils-ipa@1.0.3':
     resolution: {integrity: sha512-gWv7BhTXYactNBXPDlUol4EudIr1tsZC1/Gvqcp0Rb2SDqGLHiSURqyiXqj6xVtzPMlcyPHDkBmqsEf8cecWJg==}
     engines: {node: '>=20'}
@@ -1925,6 +1922,9 @@ packages:
   '@opentelemetry/api@1.9.0':
     resolution: {integrity: sha512-3giAOQvZiH5F9bMlMiv8+GSPMeqg0dbaeo58/0SlA9sxSqZhnUtxzX9/2FzyhS9sWQf5S0GJE0AKBrFqjpeYcg==}
     engines: {node: '>=8.0.0'}
+
+  '@orbitdb/core-types@1.0.2':
+    resolution: {integrity: sha512-J4DmFTTiDd08gkBdFk4rxiD1w4+p1j3YxfOptx6vajTE3CwZ3NKv2V+kpGKkU0ZHE0Dww1WCCdAGtuACwEqDAg==}
 
   '@orbitdb/core@2.2.0':
     resolution: {integrity: sha512-W1jScRjNVne7l0V9camdFQXrPPcWxSz7LwJzq6SryMe+xfVArrV4ADiElk7+dpQa6zwOOQpSUUfX2o46kY5dTw==}
@@ -9826,8 +9826,6 @@ snapshots:
       events: 3.3.0
       uuid: 11.0.3
 
-  '@constl/orbit-db-types@2.0.1': {}
-
   '@constl/utils-ipa@1.0.3':
     dependencies:
       '@chriscdn/promise-semaphore': 2.0.9
@@ -11056,6 +11054,8 @@ snapshots:
       '@octokit/openapi-types': 22.2.0
 
   '@opentelemetry/api@1.9.0': {}
+
+  '@orbitdb/core-types@1.0.2': {}
 
   '@orbitdb/core@2.2.0':
     dependencies:
