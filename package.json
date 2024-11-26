@@ -29,9 +29,9 @@
   },
   "homepage": "https://github.com/julienmalard/nuchabal#readme",
   "devDependencies": {
-    "@constl/ipa": "^1.2.1",
+    "@constl/ipa": "^1.4.4",
     "@constl/orbit-db-types": "^2.0.1",
-    "@constl/utils-tests": "^1.4.2",
+    "@constl/utils-tests": "^1.6.3",
     "@eslint/js": "^9.2.0",
     "@types/mocha": "^10.0.6",
     "aegir": "^44.1.1",
