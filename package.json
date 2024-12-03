@@ -29,8 +29,8 @@
   },
   "homepage": "https://github.com/julienmalard/nuchabal#readme",
   "devDependencies": {
-    "@constl/ipa": "^1.4.5",
-    "@constl/utils-tests": "^1.6.5",
+    "@constl/ipa": "^1.5.0",
+    "@constl/utils-tests": "^1.6.7",
     "@eslint/js": "^9.15.0",
     "@orbitdb/core-types": "^1.0.11",
     "@types/mocha": "^10.0.10",
@@ -44,7 +44,7 @@
     "genversion": "^3.2.0",
     "mocha": "^10.8.2",
     "os-browserify": "^0.3.0",
-    "prettier": "^3.4.0",
+    "prettier": "^3.4.1",
     "process": "^0.11.10",
     "rimraf": "^6.0.1",
     "stream-browserify": "^3.0.0",
@@ -56,7 +56,7 @@
     "wherearewe": "^2.0.1"
   },
   "dependencies": {
-    "@constl/utils-ipa": "^1.0.3",
+    "@constl/utils-ipa": "^1.0.4",
     "@orbitdb/core": "^2.4.3",
     "deepcopy": "^2.1.0"
   }
