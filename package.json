@@ -59,5 +59,10 @@
     "@constl/utils-ipa": "^1.0.4",
     "@orbitdb/core": "^2.4.3",
     "deepcopy": "^2.1.0"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "@localfirst/crypto", "@localfirst/shared", "classic-level", "electron", "esbuild", "iso-constants", "msgpackr-extract", "node-datachannel"
+    ]
   }
 }
