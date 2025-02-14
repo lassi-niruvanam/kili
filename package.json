@@ -62,7 +62,7 @@
   },
   "pnpm": {
     "onlyBuiltDependencies": [
-      "@localfirst/crypto", "@localfirst/shared", "classic-level", "electron", "esbuild", "iso-constants", "msgpackr-extract", "node-datachannel"
+      "@localfirst/crypto", "@localfirst/shared", "classic-level", "electron", "esbuild", "iso-constants", "msgpackr-extract", "node-datachannel", "@ipshipyard/node-datachannel", "@localfirst/auth", "@localfirst/crdx"
     ]
   }
 }
