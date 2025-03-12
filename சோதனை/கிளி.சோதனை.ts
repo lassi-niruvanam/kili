@@ -84,11 +84,14 @@ describe("கிளி", () => {
     let மறந்துவிடு: types.schémaFonctionOublier;
 
     before("தயாரிப்பு", async () => {
-      ({ clients: வாடிகையாளர்கள் as unknown, fOublier: மறந்துவிடு } =
+      const { clients, fOublier } =
         await constellation.créerConstellationsTest({
           n: 1,
           créerConstellation,
-        }));
+        });
+      
+      வாடிகையாளர்கள் = clients;
+      மறந்துவிடு = fOublier;
       விண்மீன் = வாடிகையாளர்கள்[0];
 
       const உரை_மாறி = await விண்மீன்.variables.créerVariable({
@@ -188,7 +191,7 @@ describe("கிளி", () => {
           créerConstellation,
         },
       );
-      வாடிகையாளர்கள் = clients as Constellation[];
+      வாடிகையாளர்கள் = clients;
       விண்மீனை_மறந்துவிடு = fOublier;
 
       விண்மீன் = வாடிகையாளர்கள்[0];
@@ -472,7 +475,7 @@ describe("கிளி", () => {
           créerConstellation,
         },
       );
-      வாடிகையாளர்கள் = clients as Constellation[];
+      வாடிகையாளர்கள் = clients;
       விண்மீனை_மறந்துவிடு = fOublier;
 
       விண்மீன் = வாடிகையாளர்கள்[0];
@@ -624,7 +627,7 @@ describe("கிளி", () => {
           créerConstellation,
         },
       );
-      வாடிகையாளர்கள் = clients as Constellation[];
+      வாடிகையாளர்கள் = clients;
       விண்மீனை_மறந்துவிடு = fOublier;
 
       விண்மீன் = வாடிகையாளர்கள்[0];
@@ -996,7 +999,7 @@ describe("கிளி", () => {
           créerConstellation,
         },
       );
-      வாடிகையாளர்கள் = clients as Constellation[];
+      வாடிகையாளர்கள் = clients;
       விண்மீனை_மறந்துவிடு = fOublier;
 
       விண்மீன் = வாடிகையாளர்கள்[0];
@@ -1294,7 +1297,7 @@ describe("கிளி", () => {
           créerConstellation,
         },
       );
-      வாடிகையாளர்கள் = clients as Constellation[];
+      வாடிகையாளர்கள் = clients;
       மறந்துவிடு.push(fOublier);
 
       விண்மீன் = வாடிகையாளர்கள்[0];
@@ -1391,7 +1394,7 @@ describe("கிளி", () => {
           créerConstellation,
         },
       );
-      வாடிகையாளர்கள் = clients as Constellation[];
+      வாடிகையாளர்கள் = clients;
       மறந்துவிடு.push(fOublier);
 
       விண்மீன் = வாடிகையாளர்கள்[0];
@@ -1501,7 +1504,7 @@ describe("கிளி", () => {
           créerConstellation,
         },
       );
-      வாடிகையாளர்கள் = clients as Constellation[];
+      வாடிகையாளர்கள் = clients;
       மறந்துவிடு.push(fOublier);
 
       விண்மீன் = வாடிகையாளர்கள்[0];
