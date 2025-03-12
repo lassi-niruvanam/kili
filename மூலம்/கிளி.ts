@@ -250,7 +250,7 @@ export class கிளி<
     await விண்மீன்.nuées.sauvegarderMétadonnéeNuée({
       idNuée: குழு_அடையாளம்,
       clef: அங்கீகார_தத_மீதரவு_சாபி,
-      valeur: தரவுத்தளம்,
+      métadonnée: தரவுத்தளம்,
     });
     return குழு_அடையாளம்;
   }
