@@ -56,7 +56,7 @@
     "wherearewe": "^2.0.1"
   },
   "dependencies": {
-    "@constl/utils-ipa": "^1.0.5",
+    "@constl/utils-ipa": "^2.0.0",
     "@orbitdb/core": "^2.5.0",
     "deepcopy": "^2.1.0"
   },
