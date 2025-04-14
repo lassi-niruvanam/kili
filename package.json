@@ -1,6 +1,6 @@
 {
   "name": "@lassi-js/kili",
-  "version": "0.4.3",
+  "version": "0.4.4",
   "description": "",
   "main": "விநியோகம்/குறியீட்டு.js",
   "type": "module",
@@ -56,7 +56,7 @@
     "wherearewe": "^2.0.1"
   },
   "dependencies": {
-    "@constl/utils-ipa": "^2.0.1",
+    "@constl/utils-ipa": "^2.0.2",
     "@orbitdb/core": "^2.5.0",
     "deepcopy": "^2.1.0"
   },

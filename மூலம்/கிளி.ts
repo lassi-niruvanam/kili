@@ -10,9 +10,9 @@ import deepcopy from "deepcopy";
 
 import {
   ignorerNonDéfinis,
-  suivreBdDeFonction,
+  suivreFonctionImbriquée,
   uneFois,
-  suivreBdsDeFonctionListe,
+  suivreDeFonctionListe,
 } from "@constl/utils-ipa";
 
 import {
@@ -268,9 +268,9 @@ export class கிளி<
       >[]
     >;
   }): Promise<types.schémaFonctionOublier> {
-    return await suivreBdsDeFonctionListe({
+    return await suivreDeFonctionListe({
       fListe: async (
-        fSuivreRacine: (parents: string[]) => Promise<void>,
+        {fSuivreRacine}: {fSuivreRacine: (parents: string[]) => Promise<void>,}
       ): Promise<types.schémaFonctionOublier> => {
         return await this.விண்மீன்.nuées.suivreNuéesParents({
           idNuée: this.குழு_அடையாளம்,
@@ -289,8 +289,8 @@ export class கிளி<
       ) => {
         return await செ(உறுப்படிகள்);
       },
-      fBranche: async (
-        அடையாளம்: string,
+      fBranche: async ({id: அடையாளம், fSuivreBranche}: {
+        id: string,
         fSuivreBranche: types.schémaFonctionSuivi<
           tableaux.élémentDonnées<
             அங்கீகரிக்கப்பட்ட_உறுப்படி_வகை<
@@ -300,8 +300,8 @@ export class கிளி<
             >
           >[]
         >,
-      ): Promise<types.schémaFonctionOublier> => {
-        return await suivreBdDeFonction({
+      }): Promise<types.schémaFonctionOublier> => {
+        return await suivreFonctionImbriquée({
           fRacine: async ({
             fSuivreRacine,
           }: {
