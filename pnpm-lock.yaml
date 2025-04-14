@@ -10,7 +10,7 @@ importers:
     dependencies:
       '@constl/utils-ipa':
         specifier: ^2.0.1
-        version: 2.0.1
+        version: 2.0.2
       '@orbitdb/core':
         specifier: ^2.5.0
         version: 2.5.0
@@ -921,8 +921,8 @@ packages:
   '@constl/mandataire@3.0.3':
     resolution: {integrity: sha512-J7zWtq2EOA46EIzAGjiOP/FVYvQrjvxXT7aLyKEA6chm6i/3kJnmv5pgYSF0rofGgzIyRUwsTLuzSB23DoZNyg==}
 
-  '@constl/utils-ipa@2.0.1':
-    resolution: {integrity: sha512-KFIw7bZ8Bxs/vkmLa64u7MZIJFPVk1iNJ/WdwvbvvFrWcAggfuajeZrJrdVGmAPJipdbJ1CKl7AuKd3tXD1wsg==}
+  '@constl/utils-ipa@2.0.2':
+    resolution: {integrity: sha512-HQoja5GWUIrpXgUfHSTzu6lDNmYHd/rZvjpT05M0YBn/2Qe2n9+yUkgDmVbpi6zmZM/EQyvYYR3k1+scRYbewg==}
     engines: {node: '>=20'}
 
   '@constl/utils-tests@1.6.15':
@@ -1460,6 +1460,12 @@ packages:
 
   '@eslint-community/eslint-utils@4.5.1':
     resolution: {integrity: sha512-soEIOALTfTK6EjmKMMoLugwaP0rzkad90iIWd1hMO9ARkSAyjfMfkRRhLvD5qH7vvM0Cg72pieUfR6yh6XxC4w==}
+    engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
+    peerDependencies:
+      eslint: ^6.0.0 || ^7.0.0 || >=8.0.0
+
+  '@eslint-community/eslint-utils@4.6.0':
+    resolution: {integrity: sha512-WhCn7Z7TauhBtmzhvKpoQs0Wwb/kBcy4CwpuI0/eEIr2Lx2auxmulAzLr91wVZJaz47iUZdkXOK7WlAfxGKCnA==}
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
     peerDependencies:
       eslint: ^6.0.0 || ^7.0.0 || >=8.0.0
@@ -5758,8 +5764,8 @@ packages:
     engines: {node: '>= 12'}
     hasBin: true
 
-  marky@1.2.5:
-    resolution: {integrity: sha512-q9JtQJKjpsVxCRVgQ+WapguSbKC3SQ5HEzFGPAJMStgh3QjCawp00UKv3MTTAArTmGmmPUvllHZoNbZ3gs0I+Q==}
+  marky@1.3.0:
+    resolution: {integrity: sha512-ocnPZQLNpvbedwTy9kNrQEsknEfgvcLMvOtz3sFeWApDq1MXH1TqkCIx58xlpESsfwQOnuBO9beyQuNGzVvuhQ==}
 
   matcher@3.0.0:
     resolution: {integrity: sha512-OkeDaAZ/bQCxeFAozM55PKcKU0yJMPGifLwV4Qgjitu+5MoAfSQN4lsLJeXZ1b8w0x+/Emda6MZgXS1jvsapng==}
@@ -9560,7 +9566,7 @@ snapshots:
       '@chriscdn/promise-semaphore': 2.0.10
       '@constl/bohr-db': 1.2.3(react-native@0.73.6(@babel/core@7.26.10)(@babel/preset-env@7.24.4(@babel/core@7.26.10))(react@18.2.0))
       '@constl/mandataire': 3.0.3
-      '@constl/utils-ipa': 2.0.1
+      '@constl/utils-ipa': 2.0.2
       '@helia/block-brokers': 4.1.0
       '@helia/unixfs': 4.0.3
       '@ipld/dag-cbor': 9.2.2
@@ -9646,9 +9652,8 @@ snapshots:
       events: 3.3.0
       uuid: 11.1.0
 
-  '@constl/utils-ipa@2.0.1':
+  '@constl/utils-ipa@2.0.2':
     dependencies:
-      '@chriscdn/promise-semaphore': 2.0.10
       browser-fs-access: 0.35.0
       deep-equal: 2.2.3
       events: 3.3.0
@@ -9656,7 +9661,9 @@ snapshots:
       geojson-validation: 1.0.2
       jszip: 3.10.1
       multiformats: 13.3.2
+      p-queue: 8.1.0
       rimraf: 6.0.1
+      tiny-typed-emitter: 2.1.0
       uint8arrays: 5.1.0
       wherearewe: 2.0.1
 
@@ -10093,6 +10100,11 @@ snapshots:
       eslint-visitor-keys: 3.4.3
 
   '@eslint-community/eslint-utils@4.5.1(eslint@9.24.0)':
+    dependencies:
+      eslint: 9.24.0
+      eslint-visitor-keys: 3.4.3
+
+  '@eslint-community/eslint-utils@4.6.0(eslint@9.24.0)':
     dependencies:
       eslint: 9.24.0
       eslint-visitor-keys: 3.4.3
@@ -10539,7 +10551,7 @@ snapshots:
 
   '@lassi-js/kili@0.4.3':
     dependencies:
-      '@constl/utils-ipa': 2.0.1
+      '@constl/utils-ipa': 2.0.2
       '@orbitdb/core': 2.5.0
       deepcopy: 2.1.0
 
@@ -14446,7 +14458,7 @@ snapshots:
 
   eslint-plugin-es-x@7.8.0(eslint@9.24.0):
     dependencies:
-      '@eslint-community/eslint-utils': 4.5.1(eslint@9.24.0)
+      '@eslint-community/eslint-utils': 4.6.0(eslint@9.24.0)
       '@eslint-community/regexpp': 4.12.1
       eslint: 9.24.0
       eslint-compat-utils: 0.5.1(eslint@9.24.0)
@@ -14547,7 +14559,7 @@ snapshots:
 
   eslint-plugin-n@16.6.2(eslint@9.24.0):
     dependencies:
-      '@eslint-community/eslint-utils': 4.5.1(eslint@9.24.0)
+      '@eslint-community/eslint-utils': 4.6.0(eslint@9.24.0)
       builtins: 5.1.0
       eslint: 9.24.0
       eslint-plugin-es-x: 7.8.0(eslint@9.24.0)
@@ -16467,7 +16479,7 @@ snapshots:
   lighthouse-logger@1.4.2:
     dependencies:
       debug: 2.6.9
-      marky: 1.2.5
+      marky: 1.3.0
     transitivePeerDependencies:
       - supports-color
 
@@ -16662,7 +16674,7 @@ snapshots:
 
   marked@4.3.0: {}
 
-  marky@1.2.5: {}
+  marky@1.3.0: {}
 
   matcher@3.0.0:
     dependencies:
