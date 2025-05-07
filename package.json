@@ -34,7 +34,7 @@
     "@eslint/js": "^9.22.0",
     "@orbitdb/core-types": "^1.0.14",
     "@types/mocha": "^10.0.10",
-    "aegir": "^45.0.0",
+    "aegir": "^46.0.0",
     "browserify-fs": "^1.0.0",
     "buffer": "^6.0.3",
     "crypto-browserify": "^3.12.1",
