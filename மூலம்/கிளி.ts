@@ -179,8 +179,6 @@ export class கிளி<
     பேற்றோர்?: string;
     மாறிலிகள்?: Partial<typeof முன்னிருப்பாக_மாறிலிகள்>;
   }): Promise<string> {
-    if (!விண்மீன்.nuées || !விண்மீன்.bds)
-      throw new Error("விண்மீன் தயராரானதில்லை");
 
     const குழு_அடையாளம் = await விண்மீன்.nuées.créerNuée({
       nuéeParent: பேற்றோர்,
@@ -191,33 +189,6 @@ export class கிளி<
       குழு_அடையாளம்,
       மாறிலிகள்,
     });
-
-    for (const அட்டவணை of வார்ப்புரு.tableaux) {
-      const அட்டவணை_அடையாளம் = await விண்மீன்.nuées.ajouterTableauNuée({
-        idNuée: குழு_அடையாளம்,
-        clefTableau: அட்டவணை.clef,
-      });
-      for (const நெடுவரிசை of அட்டவணை.cols) {
-        await விண்மீன்.nuées.ajouterColonneTableauNuée({
-          idTableau: அட்டவணை_அடையாளம்,
-          idVariable: நெடுவரிசை.idVariable,
-          idColonne: நெடுவரிசை.idColonne,
-        });
-        if (நெடுவரிசை.index) {
-          /*await விண்மீன்.nuées.changerColIndexTableauNuée({
-            idTableau: அட்டவணை_அடையாளம்,
-            idColonne: நெடுவரிசை.idColonne,
-            val: true,
-          });*/
-        }
-      }
-      if (வார்ப்புரு.motsClefs) {
-        await விண்மீன்.nuées.ajouterMotsClefsNuée({
-          idNuée: குழு_அடையாளம்,
-          idsMotsClefs: வார்ப்புரு.motsClefs,
-        });
-      }
-    }
 
     const அங்கீகரிக்கப்பட்ட_தரவுத்தளம்_வார்ப்புரு: bds.schémaSpécificationBd = {
       licence: வார்ப்புரு.licence,
