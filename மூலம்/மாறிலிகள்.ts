@@ -4,7 +4,7 @@ export const பங்கேற்பாளர்_நெடுவரிசை_�
 export const பங்கேற்பாளர்_மாறி_அடையாளம் =
   "/orbitdb/zdpuAxqdx9cSPjsE7GpPFUfcvS6qZMEy6PddzzD6wwwW7kaPn";
 
-export const தேதி_நெடுவரிசை_அடையாளம் = "bcb944c0-3625-4bdc-b84c-a062c948e29e";
+export const தேதி_நெடுவரிசை_அடையாளம் = "தேதி";
 export const தேதி_மாறி_அடையாளம் =
   "/orbitdb/zdpuAs73fYSmX7Z1ARkTMZqF3NLNRqsfjQZoU52PsWrCM9Ys6";
 
