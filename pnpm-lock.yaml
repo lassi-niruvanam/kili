@@ -47,7 +47,7 @@ importers:
         version: 3.12.1
       electron:
         specifier: ^36.0.0
-        version: 36.2.1
+        version: 36.3.1
       eslint:
         specifier: ^9.22.0
         version: 9.27.0
@@ -2351,9 +2351,6 @@ packages:
   '@types/multicast-dns@7.2.4':
     resolution: {integrity: sha512-ib5K4cIDR4Ro5SR3Sx/LROkMDa0BHz0OPaCBL/OSPDsAXEGZ3/KQeS6poBKYVN7BfjXDL9lWNwzyHVgt/wkyCw==}
 
-  '@types/node@22.15.15':
-    resolution: {integrity: sha512-R5muMcZob3/Jjchn5LcO8jdKwSCbzqmPB6ruBxMcf9kbxtniZHP327s6C37iOfuw8mbKK3cAQa7sEl7afLrQ8A==}
-
   '@types/node@22.15.21':
     resolution: {integrity: sha512-EV/37Td6c+MgKAbkcLG6vqZ2zEYHD7bvSrzqqs2RIhbA6w3x+Dqz8MZM3sP6kGTeLrdoOgKZe+Xja7tUB2DNkQ==}
 
@@ -3765,8 +3762,8 @@ packages:
   electron-window@0.8.1:
     resolution: {integrity: sha512-W1i9LfnZJozk3MXE8VgsL2E5wOUHSgyCvcg1H2vQQjj+gqhO9lVudgY3z3SF7LJAmi+0vy3CJkbMqsynWB49EA==}
 
-  electron@36.2.1:
-    resolution: {integrity: sha512-mm1Y+Ms46xcOTA69h8hpqfX392HfV4lga9aEkYkd/Syx1JBStvcACOIouCgGrnZpxNZPVS1jM8NTcMkNjuK6BQ==}
+  electron@36.3.1:
+    resolution: {integrity: sha512-LeOZ+tVahmctHaAssLCGRRUa2SAO09GXua3pKdG+WzkbSDMh+3iOPONNVPTqGp8HlWnzGj4r6mhsIbM2RgH+eQ==}
     engines: {node: '>= 12.20.55'}
     hasBin: true
 
@@ -12261,7 +12258,7 @@ snapshots:
     dependencies:
       '@types/http-cache-semantics': 4.0.4
       '@types/keyv': 3.1.4
-      '@types/node': 22.15.15
+      '@types/node': 22.15.21
       '@types/responselike': 1.0.3
 
   '@types/chai-as-promised@7.1.8':
@@ -12310,7 +12307,7 @@ snapshots:
 
   '@types/keyv@3.1.4':
     dependencies:
-      '@types/node': 22.15.15
+      '@types/node': 22.15.21
 
   '@types/mdast@4.0.4':
     dependencies:
@@ -12329,10 +12326,6 @@ snapshots:
       '@types/dns-packet': 5.6.5
       '@types/node': 22.15.21
 
-  '@types/node@22.15.15':
-    dependencies:
-      undici-types: 6.21.0
-
   '@types/node@22.15.21':
     dependencies:
       undici-types: 6.21.0
@@ -12343,7 +12336,7 @@ snapshots:
 
   '@types/responselike@1.0.3':
     dependencies:
-      '@types/node': 22.15.15
+      '@types/node': 22.15.21
 
   '@types/retry@0.12.0': {}
 
@@ -14100,10 +14093,10 @@ snapshots:
     dependencies:
       is-electron-renderer: 2.0.1
 
-  electron@36.2.1:
+  electron@36.3.1:
     dependencies:
       '@electron/get': 2.0.3
-      '@types/node': 22.15.15
+      '@types/node': 22.15.21
       extract-zip: 2.0.1
     transitivePeerDependencies:
       - supports-color
