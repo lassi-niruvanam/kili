@@ -29,7 +29,7 @@ importers:
         version: 9.29.0
       '@orbitdb/core-types':
         specifier: ^1.0.14
-        version: 1.0.15
+        version: 1.1.0
       '@types/mocha':
         specifier: ^10.0.10
         version: 10.0.10
@@ -2053,8 +2053,8 @@ packages:
     resolution: {integrity: sha512-3giAOQvZiH5F9bMlMiv8+GSPMeqg0dbaeo58/0SlA9sxSqZhnUtxzX9/2FzyhS9sWQf5S0GJE0AKBrFqjpeYcg==}
     engines: {node: '>=8.0.0'}
 
-  '@orbitdb/core-types@1.0.15':
-    resolution: {integrity: sha512-rf1ZJTYsPw/x+lu/hNtwFIU4Dyo1S+UI9X8BqwDhPCw+D+HTb3gM0eut+XRDLUuzfeBwIIWaHJbPkWJ8Zk22yQ==}
+  '@orbitdb/core-types@1.1.0':
+    resolution: {integrity: sha512-0PxcAw3IDluumCCnIe22qSxPac+QnOxPLVfQ6nm4iHLsZix5QaVDdKg6aF0bJhTjAqfKxMuISpZ1Qg1C05ezjA==}
 
   '@orbitdb/core@2.5.0':
     resolution: {integrity: sha512-RE+te/z8MCLhkawby2j9J0T0hH8Mi9BgTUATWd99ih/cyU9OTbbXVuY64A64bdAQ4EZkfJ+OjO9vAMhJHwgnew==}
@@ -8022,8 +8022,8 @@ packages:
     resolution: {integrity: sha512-7jDLIdD2Zp0bDe5r3D2qtkd1QOCacylBuL7oa4udvN6v2pqr4+LcCr67C8DR1zkpaZ8XosF5m1yQSabKAW6f2g==}
     engines: {node: '>=14.16'}
 
-  terser@5.43.0:
-    resolution: {integrity: sha512-CqNNxKSGKSZCunSvwKLTs8u8sGGlp27sxNZ4quGh0QeNuyHM0JSEM/clM9Mf4zUp6J+tO2gUXhgXT2YMMkwfKQ==}
+  terser@5.43.1:
+    resolution: {integrity: sha512-+6erLbBm0+LROX2sPXlUYx/ux5PyE9K/a92Wrt6oA+WDAoFTdpHE5tCYCI5PNzq2y8df4rA+QgHLJuR4jNymsg==}
     engines: {node: '>=10'}
     hasBin: true
 
@@ -9933,7 +9933,7 @@ snapshots:
   '@constl/bohr-db@1.2.3(react-native@0.73.6(@babel/core@7.27.4)(@babel/preset-env@7.24.4(@babel/core@7.27.4))(react@18.2.0))':
     dependencies:
       '@orbitdb/core': 2.5.0
-      '@orbitdb/core-types': 1.0.15
+      '@orbitdb/core-types': 1.1.0
       '@orbitdb/feed-db': 1.1.2(react-native@0.73.6(@babel/core@7.27.4)(@babel/preset-env@7.24.4(@babel/core@7.27.4))(react@18.2.0))
       '@orbitdb/ordered-keyvalue-db': 1.1.2(react-native@0.73.6(@babel/core@7.27.4)(@babel/preset-env@7.24.4(@babel/core@7.27.4))(react@18.2.0))
       '@orbitdb/set-db': 1.1.2(react-native@0.73.6(@babel/core@7.27.4)(@babel/preset-env@7.24.4(@babel/core@7.27.4))(react@18.2.0))
@@ -11952,7 +11952,7 @@ snapshots:
 
   '@opentelemetry/api@1.9.0': {}
 
-  '@orbitdb/core-types@1.0.15': {}
+  '@orbitdb/core-types@1.1.0': {}
 
   '@orbitdb/core@2.5.0':
     dependencies:
@@ -17350,7 +17350,7 @@ snapshots:
   metro-minify-terser@0.80.12:
     dependencies:
       flow-enums-runtime: 0.0.6
-      terser: 5.43.0
+      terser: 5.43.1
 
   metro-react-native-babel-preset@0.64.0(@babel/core@7.27.4):
     dependencies:
@@ -19683,7 +19683,7 @@ snapshots:
       type-fest: 2.19.0
       unique-string: 3.0.0
 
-  terser@5.43.0:
+  terser@5.43.1:
     dependencies:
       '@jridgewell/source-map': 0.3.6
       acorn: 8.15.0
