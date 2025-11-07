@@ -47,7 +47,7 @@ importers:
         version: 3.12.1
       electron:
         specifier: ^39.0.0
-        version: 39.1.0
+        version: 39.1.1
       eslint:
         specifier: ^9.22.0
         version: 9.39.1
@@ -4049,8 +4049,8 @@ packages:
   electron-window@0.8.1:
     resolution: {integrity: sha512-W1i9LfnZJozk3MXE8VgsL2E5wOUHSgyCvcg1H2vQQjj+gqhO9lVudgY3z3SF7LJAmi+0vy3CJkbMqsynWB49EA==}
 
-  electron@39.1.0:
-    resolution: {integrity: sha512-vPRbKKQUzKWZZX68fuYdz4iS/eavGcQkHOGK4ylv0YJLbBRxxUlflPRdqRGflFjwid+sja7gbNul2lArevYwrw==}
+  electron@39.1.1:
+    resolution: {integrity: sha512-VuFEI1yQ7BH3RYI5VZtwFlzGp4rpPRd5oEc26ZQIItVLcLTbXt4/O7o4hs+1fyg9Q3NvGAifgX5Vp5EBOIFpAg==}
     engines: {node: '>= 12.20.55'}
     hasBin: true
 
@@ -8145,8 +8145,8 @@ packages:
     resolution: {integrity: sha512-7jDLIdD2Zp0bDe5r3D2qtkd1QOCacylBuL7oa4udvN6v2pqr4+LcCr67C8DR1zkpaZ8XosF5m1yQSabKAW6f2g==}
     engines: {node: '>=14.16'}
 
-  terser@5.44.0:
-    resolution: {integrity: sha512-nIVck8DK+GM/0Frwd+nIhZ84pR/BX7rmXMfYwyg+Sri5oGVE99/E3KvXqpC2xHFxyqXyGHTKBSioxxplrO4I4w==}
+  terser@5.44.1:
+    resolution: {integrity: sha512-t/R3R/n0MSwnnazuPpPNVO60LX0SKL45pyl9YlvxIdkH0Of7D5qM2EVe+yASRIlY5pZ73nclYJfNANGWPwFDZw==}
     engines: {node: '>=10'}
     hasBin: true
 
@@ -12684,7 +12684,7 @@ snapshots:
 
   '@sec-ant/readable-stream@0.4.1': {}
 
-  '@semantic-release/changelog@6.0.3(semantic-release@24.2.9(typescript@5.9.3))':
+  '@semantic-release/changelog@6.0.3(semantic-release@24.2.9(typescript@5.8.3))':
     dependencies:
       '@semantic-release/error': 3.0.0
       aggregate-error: 3.1.0
@@ -12710,7 +12710,7 @@ snapshots:
 
   '@semantic-release/error@4.0.0': {}
 
-  '@semantic-release/git@10.0.1(semantic-release@24.2.9(typescript@5.9.3))':
+  '@semantic-release/git@10.0.1(semantic-release@24.2.9(typescript@5.8.3))':
     dependencies:
       '@semantic-release/error': 3.0.0
       aggregate-error: 3.1.0
@@ -13393,9 +13393,9 @@ snapshots:
     dependencies:
       '@electron/get': 4.0.2
       '@polka/send-type': 0.5.2
-      '@semantic-release/changelog': 6.0.3(semantic-release@24.2.9(typescript@5.9.3))
+      '@semantic-release/changelog': 6.0.3(semantic-release@24.2.9(typescript@5.8.3))
       '@semantic-release/commit-analyzer': 13.0.1(semantic-release@24.2.9(typescript@5.9.3))
-      '@semantic-release/git': 10.0.1(semantic-release@24.2.9(typescript@5.9.3))
+      '@semantic-release/git': 10.0.1(semantic-release@24.2.9(typescript@5.8.3))
       '@semantic-release/github': 11.0.6(semantic-release@24.2.9(typescript@5.9.3))
       '@semantic-release/npm': 12.0.2(semantic-release@24.2.9(typescript@5.9.3))
       '@semantic-release/release-notes-generator': 14.1.0(semantic-release@24.2.9(typescript@5.9.3))
@@ -13468,7 +13468,7 @@ snapshots:
       read-pkg-up: 11.0.0
       rimraf: 6.1.0
       semantic-release: 24.2.9(typescript@5.8.3)
-      semantic-release-monorepo: 8.0.2(semantic-release@24.2.9(typescript@5.9.3))
+      semantic-release-monorepo: 8.0.2(semantic-release@24.2.9(typescript@5.8.3))
       semver: 7.7.3
       source-map-support: 0.5.21
       strip-bom: 5.0.0
@@ -13476,9 +13476,9 @@ snapshots:
       strong-log-transformer: 2.1.0
       tempy: 3.1.0
       typedoc: 0.28.14(typescript@5.8.3)
-      typedoc-plugin-mdn-links: 5.0.10(typedoc@0.28.14(typescript@5.9.3))
-      typedoc-plugin-mermaid: 1.12.0(typedoc@0.28.14(typescript@5.9.3))
-      typedoc-plugin-missing-exports: 4.1.2(typedoc@0.28.14(typescript@5.9.3))
+      typedoc-plugin-mdn-links: 5.0.10(typedoc@0.28.14(typescript@5.8.3))
+      typedoc-plugin-mermaid: 1.12.0(typedoc@0.28.14(typescript@5.8.3))
+      typedoc-plugin-missing-exports: 4.1.2(typedoc@0.28.14(typescript@5.8.3))
       typescript: 5.8.3
       typescript-docs-verifier: 3.0.1(typescript@5.8.3)
       wherearewe: 2.0.1
@@ -14921,7 +14921,7 @@ snapshots:
     dependencies:
       is-electron-renderer: 2.0.1
 
-  electron@39.1.0:
+  electron@39.1.1:
     dependencies:
       '@electron/get': 2.0.3
       '@types/node': 22.19.0
@@ -17695,7 +17695,7 @@ snapshots:
   metro-minify-terser@0.80.12:
     dependencies:
       flow-enums-runtime: 0.0.6
-      terser: 5.44.0
+      terser: 5.44.1
 
   metro-react-native-babel-preset@0.64.0(@babel/core@7.28.4):
     dependencies:
@@ -19479,7 +19479,7 @@ snapshots:
     dependencies:
       loose-envify: 1.4.0
 
-  semantic-release-monorepo@8.0.2(semantic-release@24.2.9(typescript@5.9.3)):
+  semantic-release-monorepo@8.0.2(semantic-release@24.2.9(typescript@5.8.3)):
     dependencies:
       debug: 4.4.3(supports-color@8.1.1)
       execa: 5.1.1
@@ -19493,12 +19493,12 @@ snapshots:
       ramda: 0.27.2
       read-pkg: 5.2.0
       semantic-release: 24.2.9(typescript@5.8.3)
-      semantic-release-plugin-decorators: 4.0.0(semantic-release@24.2.9(typescript@5.9.3))
+      semantic-release-plugin-decorators: 4.0.0(semantic-release@24.2.9(typescript@5.8.3))
       tempy: 1.0.1
     transitivePeerDependencies:
       - supports-color
 
-  semantic-release-plugin-decorators@4.0.0(semantic-release@24.2.9(typescript@5.9.3)):
+  semantic-release-plugin-decorators@4.0.0(semantic-release@24.2.9(typescript@5.8.3)):
     dependencies:
       semantic-release: 24.2.9(typescript@5.8.3)
 
@@ -20050,7 +20050,7 @@ snapshots:
       type-fest: 2.19.0
       unique-string: 3.0.0
 
-  terser@5.44.0:
+  terser@5.44.1:
     dependencies:
       '@jridgewell/source-map': 0.3.11
       acorn: 8.15.0
@@ -20280,16 +20280,16 @@ snapshots:
 
   typedarray@0.0.6: {}
 
-  typedoc-plugin-mdn-links@5.0.10(typedoc@0.28.14(typescript@5.9.3)):
+  typedoc-plugin-mdn-links@5.0.10(typedoc@0.28.14(typescript@5.8.3)):
     dependencies:
       typedoc: 0.28.14(typescript@5.8.3)
 
-  typedoc-plugin-mermaid@1.12.0(typedoc@0.28.14(typescript@5.9.3)):
+  typedoc-plugin-mermaid@1.12.0(typedoc@0.28.14(typescript@5.8.3)):
     dependencies:
       html-escaper: 3.0.3
       typedoc: 0.28.14(typescript@5.8.3)
 
-  typedoc-plugin-missing-exports@4.1.2(typedoc@0.28.14(typescript@5.9.3)):
+  typedoc-plugin-missing-exports@4.1.2(typedoc@0.28.14(typescript@5.8.3)):
     dependencies:
       typedoc: 0.28.14(typescript@5.8.3)
 
