@@ -57,7 +57,7 @@
   },
   "dependencies": {
     "@constl/utils-ipa": "^2.0.2",
-    "@orbitdb/core": "^2.5.0",
+    "@orbitdb/core": "^3.0.0",
     "deepcopy": "^2.1.0"
   },
   "pnpm": {
