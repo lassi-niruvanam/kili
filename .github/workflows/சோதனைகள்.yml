@@ -37,7 +37,7 @@ jobs:
         run: pnpm சோதனை:கணு
 
       - name: Envoyer couverture à Codecov
-        uses: codecov/codecov-action@v5
+        uses: codecov/codecov-action@v6
   
   test-ipa-navig:
     name: உலாவியில் சோதனைகள்
@@ -68,7 +68,7 @@ jobs:
         run: pnpm சோதனை:உலாவி
 
       - name: Envoyer couverure à Codecov
-        uses: codecov/codecov-action@v5
+        uses: codecov/codecov-action@v6
 
   test-ipa-electron-principal:
     name: எதிர்மின்னி-முதன்மையானது
@@ -108,6 +108,6 @@ jobs:
         if: matrix.os != 'ubuntu-latest'
 
       - name: Envoyer couverture à Codecov
-        uses: codecov/codecov-action@v5
+        uses: codecov/codecov-action@v6
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
